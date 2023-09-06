@@ -28,29 +28,25 @@ public class SwitchGravity : MonoBehaviour
             {
                 Physics2D.gravity = new Vector2(0f, 10f);
                 rb.constraints = RigidbodyConstraints2D.FreezeRotation | RigidbodyConstraints2D.FreezePositionX;
-                Rotation();
-                Flip();
+                transform.eulerAngles = new Vector3(0, 0, 180f);
             }
             else if (Input.GetKeyDown(KeyCode.A))
             {
                 Physics2D.gravity = new Vector2(-10f, 0f);
                 rb.constraints = RigidbodyConstraints2D.FreezeRotation | RigidbodyConstraints2D.FreezePositionY;
-                Rotation();
-                Flip();
+                transform.eulerAngles = new Vector3(0, 0, 270f);
             }
             else if (Input.GetKeyDown(KeyCode.S))
             {
                 Physics2D.gravity = new Vector2(0f, -10f);
                 rb.constraints = RigidbodyConstraints2D.FreezeRotation | RigidbodyConstraints2D.FreezePositionX;
-                Rotation();
-                Flip();
+                transform.eulerAngles = Vector3.zero;
             }
             else if (Input.GetKeyDown(KeyCode.D))
             {
                 Physics2D.gravity = new Vector2(10f, 0f);
                 rb.constraints = RigidbodyConstraints2D.FreezeRotation | RigidbodyConstraints2D.FreezePositionY;
-                Rotation();
-                Flip();
+                transform.eulerAngles = new Vector3(0, 0, 90f);
             }
         }
     }
