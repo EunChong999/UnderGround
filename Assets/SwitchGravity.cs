@@ -5,9 +5,6 @@ using UnityEngine;
 public class SwitchGravity : MonoBehaviour
 {
     private Rigidbody2D rb;
-
-    private bool top;
-    private bool facingRight = true;
     private bool isChangingGravity = false;
 
     void Start()
@@ -40,7 +37,7 @@ public class SwitchGravity : MonoBehaviour
             {
                 Physics2D.gravity = new Vector2(0f, -10f);
                 rb.constraints = RigidbodyConstraints2D.FreezeRotation | RigidbodyConstraints2D.FreezePositionX;
-                transform.eulerAngles = Vector3.zero;
+                transform.eulerAngles = new Vector3(0, 0, 0f);
             }
             else if (Input.GetKeyDown(KeyCode.D))
             {
@@ -49,28 +46,6 @@ public class SwitchGravity : MonoBehaviour
                 transform.eulerAngles = new Vector3(0, 0, 90f);
             }
         }
-    }
-
-    void Rotation()
-    {
-        if (top == false) 
-        {
-            transform.eulerAngles = new Vector3(0, 0, 180f);
-        }
-        else
-        {
-            transform.eulerAngles = Vector3.zero;
-        }
-
-        top = !top;
-    }
-
-    void Flip()
-    {
-        facingRight = !facingRight;
-        Vector3 Scaler = transform.localScale;
-        Scaler.x *= -1;
-        transform.localScale = Scaler;
     }
 
     private void OnCollisionStay2D(Collision2D collision)
