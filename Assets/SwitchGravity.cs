@@ -6,10 +6,12 @@ public class SwitchGravity : MonoBehaviour
 {
     private Rigidbody2D rb;
     private bool isChangingGravity = false;
+    private RotateCamera rotationCamera;
 
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
+        rotationCamera = GameObject.Find("Virtual Camera").GetComponent<RotateCamera>();
     }
 
     void Update()
@@ -30,33 +32,80 @@ public class SwitchGravity : MonoBehaviour
     {
         if (!isChangingGravity)
         {
-            if (Input.GetKeyDown(KeyCode.W))
+            if (Input.GetKeyDown(KeyCode.W)) // Complete
             {
-                Physics2D.gravity = new Vector2(0f, 10f);
-                rb.constraints = RigidbodyConstraints2D.FreezeRotation | RigidbodyConstraints2D.FreezePositionX;
-                transform.eulerAngles = new Vector3(0, 0, 180f);
-                // RotateCameraMethod
+                if (transform.eulerAngles.z == 0)
+                {
+                    Physics2D.gravity = new Vector2(0, 10);
+                    transform.eulerAngles = new Vector3(0, 0, 180);
+                }
+                else if (transform.eulerAngles.z == 90)
+                {
+                    Physics2D.gravity = new Vector2(-10, 0);
+                    transform.eulerAngles = new Vector3(0, 0, 270);
+                }
+                else if (transform.eulerAngles.z == 180)
+                {
+                    Physics2D.gravity = new Vector2(0, -10);
+                    transform.eulerAngles = new Vector3(0, 0, 0);
+                }
+                else if (transform.eulerAngles.z == 270)
+                {
+                    Physics2D.gravity = new Vector2(10, 0);
+                    transform.eulerAngles = new Vector3(0, 0, 90);
+                }
+
+                rotationCamera.ChangeRotate(transform.eulerAngles.z);
             }
             else if (Input.GetKeyDown(KeyCode.A))
             {
-                Physics2D.gravity = new Vector2(-10f, 0f);
-                rb.constraints = RigidbodyConstraints2D.FreezeRotation | RigidbodyConstraints2D.FreezePositionY;
-                transform.eulerAngles = new Vector3(0, 0, 270f);
-                // RotateCameraMethod
-            }
-            else if (Input.GetKeyDown(KeyCode.S))
-            {
-                Physics2D.gravity = new Vector2(0f, -10f);
-                rb.constraints = RigidbodyConstraints2D.FreezeRotation | RigidbodyConstraints2D.FreezePositionX;
-                transform.eulerAngles = new Vector3(0, 0, 0f);
-                // RotateCameraMethod
+                if (transform.eulerAngles.z == 0)
+                {
+                    Physics2D.gravity = new Vector2(-10, 0);
+                    transform.eulerAngles = new Vector3(0, 0, 270);
+                }
+                else if (transform.eulerAngles.z == 90)
+                {
+                    Physics2D.gravity = new Vector2(0, -10);
+                    transform.eulerAngles = new Vector3(0, 0, 0);
+                }
+                else if (transform.eulerAngles.z == 180)
+                {
+                    Physics2D.gravity = new Vector2(10, 0);
+                    transform.eulerAngles = new Vector3(0, 0, 90);
+                }
+                else if (transform.eulerAngles.z == 270)
+                {
+                    Physics2D.gravity = new Vector2(0, 10);
+                    transform.eulerAngles = new Vector3(0, 0, 180);
+                }
+
+                rotationCamera.ChangeRotate(transform.eulerAngles.z);
             }
             else if (Input.GetKeyDown(KeyCode.D))
             {
-                Physics2D.gravity = new Vector2(10f, 0f);
-                rb.constraints = RigidbodyConstraints2D.FreezeRotation | RigidbodyConstraints2D.FreezePositionY;
-                transform.eulerAngles = new Vector3(0, 0, 90f);
-                // RotateCameraMethod
+                if (transform.eulerAngles.z == 0)
+                {
+                    Physics2D.gravity = new Vector2(10, 0);
+                    transform.eulerAngles = new Vector3(0, 0, 90);
+                }
+                else if (transform.eulerAngles.z == 90)
+                {
+                    Physics2D.gravity = new Vector2(0, 10);
+                    transform.eulerAngles = new Vector3(0, 0, 180);
+                }
+                else if (transform.eulerAngles.z == 180)
+                {
+                    Physics2D.gravity = new Vector2(-10, 0);
+                    transform.eulerAngles = new Vector3(0, 0, 270);
+                }
+                else if (transform.eulerAngles.z == 270)
+                {
+                    Physics2D.gravity = new Vector2(0, -10);
+                    transform.eulerAngles = new Vector3(0, 0, 0);
+                }
+
+                rotationCamera.ChangeRotate(transform.eulerAngles.z);
             }
         }
     }
