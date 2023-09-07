@@ -7,6 +7,8 @@ public class SwitchGravity : MonoBehaviour
     private Rigidbody2D rb;
     private bool isChangingGravity = false;
     private RotateCamera rotationCamera;
+    [SerializeField] private Transform groundCheck;
+    [SerializeField] private LayerMask groundLayer;
 
     void Start()
     {
@@ -14,11 +16,25 @@ public class SwitchGravity : MonoBehaviour
         rotationCamera = GameObject.Find("Virtual Camera").GetComponent<RotateCamera>();
     }
 
+    public bool IsGrounded()
+    {
+        return Physics2D.OverlapCircle(groundCheck.position, 0.25f, groundLayer);
+    }
+
+    private void OnDrawGizmos()
+    {
+        Gizmos.DrawSphere(groundCheck.position, 0.25f);
+    }
+
     void Update()
     {
+        GroundCheck();
         ChangeGravity();
+    }
 
-        if (rb.velocity.x == 0 && rb.velocity.y == 0)
+    void GroundCheck()
+    {
+        if (IsGrounded()) 
         {
             isChangingGravity = false;
         }
