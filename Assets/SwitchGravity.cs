@@ -10,19 +10,13 @@ public class SwitchGravity : MonoBehaviour
     [SerializeField] private float speed;
     [SerializeField] private Transform groundCheck;
     [SerializeField] private LayerMask groundLayer;
-
-    [SerializeField] private List <GameObject> rayObj;
-
-    [SerializeField] float distance;
-    RaycastHit2D raycastHit1;
-    RaycastHit2D raycastHit2;
-    RaycastHit2D raycastHit3;
-    RaycastHit2D raycastHit4;
+    GridMovement gridMovement;
 
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
         rotationCamera = GameObject.Find("Virtual Camera").GetComponent<RotateCamera>();
+        gridMovement = GetComponent<GridMovement>();
     }
 
     public bool IsGrounded()
@@ -37,47 +31,6 @@ public class SwitchGravity : MonoBehaviour
 
     void Update()
     {
-        raycastHit1 = Physics2D.Raycast(rayObj[0].transform.position, Vector2.left, distance);
-        raycastHit2 = Physics2D.Raycast(rayObj[1].transform.position, Vector2.right, distance);
-        raycastHit3 = Physics2D.Raycast(rayObj[2].transform.position, Vector2.up, distance);
-        raycastHit4 = Physics2D.Raycast(rayObj[3].transform.position, Vector2.down, distance);
-
-        if (raycastHit1.collider != null) 
-        {
-            Debug.DrawRay(rayObj[0].transform.position, Vector2.left * raycastHit1.distance, Color.red);
-        }
-        else
-        {
-            Debug.DrawRay(rayObj[0].transform.position, Vector2.left * distance, Color.green);
-        }
-
-        if (raycastHit2.collider != null)
-        {
-            Debug.DrawRay(rayObj[1].transform.position, Vector2.right * raycastHit2.distance, Color.red);
-        }
-        else
-        {
-            Debug.DrawRay(rayObj[1].transform.position, Vector2.right * distance, Color.green);
-        }
-
-        if (raycastHit3.collider != null)
-        {
-            Debug.DrawRay(rayObj[2].transform.position, Vector2.up * raycastHit3.distance, Color.red);
-        }
-        else
-        {
-            Debug.DrawRay(rayObj[2].transform.position, Vector2.up * distance, Color.green);
-        }
-
-        if (raycastHit4.collider != null)
-        {
-            Debug.DrawRay(rayObj[3].transform.position, Vector2.down * raycastHit4.distance, Color.red);
-        }
-        else
-        {
-            Debug.DrawRay(rayObj[3].transform.position, Vector2.down * distance, Color.green);
-        }
-
         GroundCheck();
         ChangeGravity();
     }
