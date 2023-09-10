@@ -7,34 +7,26 @@ public class GridMovement : MonoBehaviour
     public float moveSpeed = 5;
     public Transform movePoint;
     public LayerMask whatStopMovement;
+    public float x;
+    public float y;
 
-    // Start is called before the first frame update
     void Start()
     {
         movePoint.parent = null;
     }
 
-    // Update is called once per frame
     void Update()
     {
         transform.position = Vector3.MoveTowards(transform.position, movePoint.position, moveSpeed * Time.deltaTime);
 
-        if (Vector3.Distance(transform.position, movePoint.position) <= .05f)
+        if (!Physics2D.OverlapCircle(movePoint.position + new Vector3(x, 0, 0), .2f, whatStopMovement))
         {
-            if (Mathf.Abs(Input.GetAxisRaw("Horizontal")) == 1)
-            {
-                if (!Physics2D.OverlapCircle(movePoint.position + new Vector3(Input.GetAxisRaw("Horizontal"), 0, 0), .2f, whatStopMovement))
-                {
-                    movePoint.position += new Vector3(Input.GetAxisRaw("Horizontal"), 0, 0);
-                }
-            }
-            else if (Mathf.Abs(Input.GetAxisRaw("Vertical")) == 1)
-            {
-                if (!Physics2D.OverlapCircle(movePoint.position + new Vector3(0, Input.GetAxisRaw("Vertical"), 0), .2f, whatStopMovement))
-                {
-                    movePoint.position += new Vector3(0, Input.GetAxisRaw("Vertical"), 0);
-                }
-            }
+            movePoint.position += new Vector3(x, 0, 0);
+        }
+
+        if (!Physics2D.OverlapCircle(movePoint.position + new Vector3(0, y, 0), .2f, whatStopMovement))
+        {
+            movePoint.position += new Vector3(0, y, 0);
         }
     }
 
