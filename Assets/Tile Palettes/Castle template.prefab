@@ -42,7 +42,7 @@ Tilemap:
   m_GameObject: {fileID: 3237591882809177666}
   m_Enabled: 1
   m_Tiles:
-  - first: {x: -4, y: 1, z: 0}
+  - first: {x: -1, y: 0, z: 0}
     second:
       serializedVersion: 2
       m_TileIndex: 0
@@ -55,7 +55,7 @@ Tilemap:
   m_AnimatedTiles: {}
   m_TileAssetArray:
   - m_RefCount: 1
-    m_Data: {fileID: 11400000, guid: df5cce4e7aaf9da4a8b3695bf49059b4, type: 2}
+    m_Data: {fileID: 11400000, guid: 58c3da0f41aa75b4db6e404ea2ba8b00, type: 2}
   m_TileSpriteArray:
   - m_RefCount: 1
     m_Data: {fileID: 1661851437, guid: 94735d43cb849274e85b6f3a0dc91ca5, type: 3}
@@ -84,8 +84,8 @@ Tilemap:
   m_TileObjectToInstantiateArray: []
   m_AnimationFrameRate: 1
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_Origin: {x: -4, y: 0, z: 0}
-  m_Size: {x: 4, y: 2, z: 1}
+  m_Origin: {x: -1, y: 0, z: 0}
+  m_Size: {x: 1, y: 1, z: 1}
   m_TileAnchor: {x: 0.5, y: 0.5, z: 0}
   m_TileOrientation: 0
   m_TileOrientationMatrix:
@@ -185,7 +185,7 @@ Transform:
   m_Children:
   - {fileID: 5102925100093330728}
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!156049354 &5937401546625985576
 Grid:
@@ -199,7 +199,7 @@ Grid:
   m_CellGap: {x: 0, y: 0, z: 0}
   m_CellLayout: 0
   m_CellSwizzle: 0
---- !u!114 &4689446957012185608
+--- !u!114 &1742181972382491747
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
