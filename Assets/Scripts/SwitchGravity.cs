@@ -4,12 +4,14 @@ using UnityEngine;
 
 public class SwitchGravity : MonoBehaviour
 {
-    private Rigidbody2D rb;
-    private bool isChangingGravity = false;
-    private RotateCamera rotationCamera;
     [SerializeField] private Transform groundCheck;
     [SerializeField] private LayerMask groundLayer;
-    GridMovement gridMovement;
+
+    private bool isChangingGravity = false;
+    private Rigidbody2D rb;
+    private RotateCamera rotationCamera;
+    private GridMovement gridMovement;
+
 
     void Start()
     {
