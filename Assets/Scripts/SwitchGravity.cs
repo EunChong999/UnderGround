@@ -7,7 +7,7 @@ public class SwitchGravity : MonoBehaviour
     [SerializeField] private Transform groundCheck;
     [SerializeField] private LayerMask groundLayer;
 
-    private bool isChangingGravity = false;
+    [HideInInspector] public bool isChangingGravity;
     private Rigidbody2D rb;
     private RotateCamera rotationCamera;
     private GridMovement gridMovement;
@@ -15,6 +15,7 @@ public class SwitchGravity : MonoBehaviour
 
     void Start()
     {
+        isChangingGravity = false;
         rb = GetComponent<Rigidbody2D>();
         rotationCamera = GameObject.Find("Virtual Camera").GetComponent<RotateCamera>();
         gridMovement = GetComponent<GridMovement>();
