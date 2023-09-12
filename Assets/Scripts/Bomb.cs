@@ -6,17 +6,13 @@ public class Bomb : MonoBehaviour
 {
     [SerializeField] float countdown;
 
-    void Start()
-    {
-        
-    }
-
     void Update()
     {
         countdown -= Time.deltaTime;
 
         if (countdown <= 0)
         {
+            FindObjectOfType<MapDestroyer>().Explode(transform.position);
             Destroy(gameObject);
         }
     }
