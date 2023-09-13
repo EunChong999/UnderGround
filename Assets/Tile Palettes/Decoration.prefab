@@ -1733,7 +1733,7 @@ GameObject:
   - component: {fileID: 4951289397597542825}
   - component: {fileID: 2326931247103236597}
   m_Layer: 0
-  m_Name: Castle
+  m_Name: Decoration
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1767,7 +1767,7 @@ Grid:
   m_CellGap: {x: 0, y: 0, z: 0}
   m_CellLayout: 0
   m_CellSwizzle: 0
---- !u!114 &7349782180013288236
+--- !u!114 &3693842182640880569
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}

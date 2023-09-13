@@ -12,10 +12,6 @@ public class Bomb : MonoBehaviour
 
         if (countdown <= 0)
         {
-            //for (int i = 0; i < 4; i++) 
-            //{
-
-            //}
             FindObjectOfType<MapDestroyer>().Explode(transform.position);
             Destroy(gameObject);
         }
