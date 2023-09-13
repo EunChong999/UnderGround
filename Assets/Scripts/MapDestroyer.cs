@@ -5,29 +5,36 @@ using UnityEngine.Tilemaps;
 
 public class MapDestroyer : MonoBehaviour
 {
-    [SerializeField] private Tilemap tilemap;
+    [SerializeField] private List<Tilemap> tilemap;
     [SerializeField] private RuleTile wallTile;
-    [SerializeField] private Tile destructibleTile;
+    [SerializeField] private RuleTile destructibleTile;
 
     public void Explode(Vector2 worldPos)
     {
-        Vector3Int originCell = tilemap.WorldToCell(worldPos);
+        List<Vector3Int> originCell = null;
 
-        ExplodeCell(originCell);
+        for (int i = 0; i < tilemap.Count; i++) 
+        {
+            originCell.Add(tilemap[i].WorldToCell(worldPos));
+            ExplodeCell(originCell[i]);
+        }
     }
 
     void ExplodeCell(Vector3Int cell)
     {
-        Tile tile = tilemap.GetTile<Tile>(cell);
-
-        if (tile == wallTile)
+        for (int t = 0; t < tilemap.Count; t++) 
         {
-            return;
-        }
+            Tile tile = tilemap[t].GetTile<Tile>(cell);
 
-        if (tile == destructibleTile)
-        {
-            tilemap.SetTile(cell, null);
+            if (tile == wallTile)
+            {
+                return;
+            }
+
+            if (tile == destructibleTile)
+            {
+                tilemap[t].SetTile(cell, null);
+            }
         }
     }
 }
