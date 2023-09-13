@@ -7,7 +7,7 @@ public class MapDestroyer : MonoBehaviour
 {
     [SerializeField] private List<Tilemap> tilemap;
     [SerializeField] private RuleTile wallTile;
-    [SerializeField] private RuleTile destructibleTile;
+    [SerializeField] private List<Tile> destructibleTile;
 
     public void Explode(Vector2 worldPos)
     {
@@ -31,9 +31,12 @@ public class MapDestroyer : MonoBehaviour
                 return;
             }
 
-            if (tile == destructibleTile)
+            for (int j = 0; j < destructibleTile.Count; j++)
             {
-                tilemap[t].SetTile(cell, null);
+                if (tile == destructibleTile[j])
+                {
+                    tilemap[t].SetTile(cell, null);
+                }
             }
         }
     }
