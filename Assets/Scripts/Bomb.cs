@@ -12,7 +12,7 @@ public class Bomb : MonoBehaviour
 
         if (countdown <= 0)
         {
-            FindObjectOfType<MapDestroyer>().Explode(transform.position);
+            FindObjectOfType<MapDestroyer>().Explode(transform);
             Destroy(gameObject);
         }
     }

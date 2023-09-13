@@ -121,7 +121,91 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
-    sprites: []
+    sprites:
+    - serializedVersion: 2
+      name: Bomb On (52x56)_0
+      rect:
+        serializedVersion: 2
+        x: 20
+        y: 17
+        width: 16
+        height: 19
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e4b5a136046bb0d4e812984821686249
+      internalID: -1443186462
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bomb On (52x56)_1
+      rect:
+        serializedVersion: 2
+        x: 72
+        y: 17
+        width: 17
+        height: 21
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 54dbb910edaba1641893df92abe945d6
+      internalID: -294939760
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bomb On (52x56)_2
+      rect:
+        serializedVersion: 2
+        x: 123
+        y: 17
+        width: 15
+        height: 21
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 53b9552aa5bdd354b95d27b645b352d0
+      internalID: 1137206960
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bomb On (52x56)_3
+      rect:
+        serializedVersion: 2
+        x: 176
+        y: 17
+        width: 14
+        height: 21
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2ac103ff57bddd147826e526bca8ba4c
+      internalID: 39162111
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
@@ -132,7 +216,11 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Bomb On (52x56)_0: -1443186462
+      Bomb On (52x56)_1: -294939760
+      Bomb On (52x56)_2: 1137206960
+      Bomb On (52x56)_3: 39162111
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
