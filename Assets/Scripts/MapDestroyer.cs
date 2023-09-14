@@ -40,22 +40,21 @@ public class MapDestroyer : MonoBehaviour
     bool ExplodeCell(Transform worldPos, Vector3Int cell)
     {
         Tile tile = tilemap.GetTile<Tile>(cell);
-        Vector3 pos = tilemap.GetCellCenterWorld(cell);
+        RuleTile ruleTile = tilemap.GetTile<RuleTile>(cell);
 
-        if (tile == wallTile)
+        if (tile == wallTile || ruleTile == wallTile)
         {
             return false;
         }
 
-        if (tile == destructibleTile)
+        if (tile == destructibleTile || ruleTile == destructibleTile)
         {
             tilemap.SetTile(cell, null);
-            Instantiate(explosionPrefeb, pos, worldPos.rotation);
-            return true;
         }
 
+        Vector3 pos = tilemap.GetCellCenterWorld(cell);
         Instantiate(explosionPrefeb, pos, worldPos.rotation);
 
-        return false;
+        return true;
     }
 }
