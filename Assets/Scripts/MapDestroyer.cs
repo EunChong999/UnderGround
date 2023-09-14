@@ -9,6 +9,7 @@ public class MapDestroyer : MonoBehaviour
     [SerializeField] private RuleTile wallTile;
     [SerializeField] private Tile destructibleTile;
     [SerializeField] private GameObject explosionPrefeb;
+    [SerializeField] private int explosionRange;
 
     public void Explode(Transform worldPos)
     {
@@ -16,24 +17,52 @@ public class MapDestroyer : MonoBehaviour
 
         ExplodeCell(worldPos, originCell);
 
-        if (ExplodeCell(worldPos, originCell + new Vector3Int(1, 0, 0)))
+        for (int i = 0; i < explosionRange; i++)
         {
-            ExplodeCell(worldPos, originCell + new Vector3Int(2, 0, 0));
+            if (ExplodeCell(worldPos, originCell + new Vector3Int(i + 1, 0, 0)))
+            {
+                ExplodeCell(worldPos, originCell + new Vector3Int(i + 2, 0, 0));
+            }
+            else
+            {
+                break;
+            }
         }
 
-        if (ExplodeCell(worldPos, originCell + new Vector3Int(0, 1, 0)))
+        for (int i = 0; i < explosionRange; i++)
         {
-            ExplodeCell(worldPos, originCell + new Vector3Int(0, 2, 0));
+            if (ExplodeCell(worldPos, originCell + new Vector3Int(0, i + 1, 0)))
+            {
+                ExplodeCell(worldPos, originCell + new Vector3Int(0, i + 2, 0));
+            }
+            else
+            {
+                break;
+            }
         }
 
-        if (ExplodeCell(worldPos, originCell + new Vector3Int(-1, 0, 0)))
+        for (int i = 0; i < explosionRange; i--)
         {
-            ExplodeCell(worldPos, originCell + new Vector3Int(-2, 0, 0));
+            if (ExplodeCell(worldPos, originCell + new Vector3Int(i - 1, 0, 0)))
+            {
+                ExplodeCell(worldPos, originCell + new Vector3Int(i - 2, 0, 0));
+            }
+            else
+            {
+                break;
+            }
         }
 
-        if (ExplodeCell(worldPos, originCell + new Vector3Int(0, -1, 0)))
+        for (int i = 0; i < explosionRange; i--)
         {
-            ExplodeCell(worldPos, originCell + new Vector3Int(0, -2, 0));
+            if (ExplodeCell(worldPos, originCell + new Vector3Int(0, i - 1, 0)))
+            {
+                ExplodeCell(worldPos, originCell + new Vector3Int(0, i - 2, 0));
+            }
+            else
+            {
+                break;
+            }
         }
     }
 
