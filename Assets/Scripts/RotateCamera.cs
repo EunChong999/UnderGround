@@ -11,6 +11,12 @@ public class RotateCamera : MonoBehaviour
 
     private void Start()
     {
+#if !UNITY_EDITOR
+    lerpTime = 1;
+#else
+    lerpTime = 10;
+#endif
+
         currentTime = 0;
     }
 
