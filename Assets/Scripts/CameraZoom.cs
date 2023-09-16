@@ -6,13 +6,11 @@ using UnityEngine.Experimental.Rendering.Universal;
 
 public class CameraZoom : MonoBehaviour
 {
-    private CinemachineVirtualCamera camera;
+    private new CinemachineVirtualCamera camera;
 
     private float zoom;
     [SerializeField] private float minZoom;
     [SerializeField] private float maxZoom;
-    private float velocity = 0f;
-    private float smoothTime = 0.25f;
 
     private SwitchGravity switchGravity;
     private CinemachinePixelPerfect pixelPerfect;

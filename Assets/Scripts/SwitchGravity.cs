@@ -5,13 +5,13 @@ using UnityEngine;
 public class SwitchGravity : MonoBehaviour
 {
     [SerializeField] private Transform groundCheck;
+    public Transform[] spaceCheck;  
     [SerializeField] private LayerMask groundLayer;
 
     [HideInInspector] public bool isChangingGravity;
     private Rigidbody2D rb;
     private RotateCamera rotationCamera;
     private GridMovement gridMovement;
-
 
     void Start()
     {
@@ -21,14 +21,17 @@ public class SwitchGravity : MonoBehaviour
         gridMovement = GetComponent<GridMovement>();
     }
 
-    public bool IsGrounded()
+    public bool IsGrounded(Transform transform)
     {
-        return Physics2D.OverlapCircle(groundCheck.position, 0.25f, groundLayer);
+        return Physics2D.OverlapCircle(transform.position, 0.25f, groundLayer);
     }
 
     private void OnDrawGizmos()
     {
         Gizmos.DrawSphere(groundCheck.position, 0.25f);
+        Gizmos.DrawSphere(spaceCheck[0].position, 0.25f);
+        Gizmos.DrawSphere(spaceCheck[1].position, 0.25f);
+        Gizmos.DrawSphere(spaceCheck[2].position, 0.25f);
     }
 
     void Update()
@@ -39,7 +42,7 @@ public class SwitchGravity : MonoBehaviour
 
     void GroundCheck()
     {
-        if (IsGrounded())  
+        if (IsGrounded(groundCheck))  
         {
             isChangingGravity = false;
         }
