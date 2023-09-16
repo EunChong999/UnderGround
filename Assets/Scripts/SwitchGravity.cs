@@ -12,6 +12,7 @@ public class SwitchGravity : MonoBehaviour
     private Rigidbody2D rb;
     private RotateCamera rotationCamera;
     private GridMovement gridMovement;
+    private Animator animator;
 
     void Start()
     {
@@ -19,6 +20,7 @@ public class SwitchGravity : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         rotationCamera = GameObject.Find("Virtual Camera").GetComponent<RotateCamera>();
         gridMovement = GetComponent<GridMovement>();
+        animator = transform.GetChild(0).GetComponent<Animator>();
     }
 
     public bool IsGrounded(Transform transform)
@@ -58,6 +60,8 @@ public class SwitchGravity : MonoBehaviour
         {
             if (Input.GetKeyDown(KeyCode.W)) // Complete
             {
+                animator.SetBool("IsVertical", true);
+
                 if (transform.eulerAngles.z == 0)
                 {
                     gridMovement.x = 0;
@@ -87,6 +91,8 @@ public class SwitchGravity : MonoBehaviour
             }
             else if (Input.GetKeyDown(KeyCode.A))
             {
+                animator.SetBool("IsHorizontal", true);
+
                 if (transform.eulerAngles.z == 0)
                 {
                     gridMovement.x = -1;
@@ -116,6 +122,8 @@ public class SwitchGravity : MonoBehaviour
             }
             else if (Input.GetKeyDown(KeyCode.D))
             {
+                animator.SetBool("IsHorizontal", true);
+
                 if (transform.eulerAngles.z == 0)
                 {
                     gridMovement.x = 1;
@@ -142,6 +150,11 @@ public class SwitchGravity : MonoBehaviour
                 }
 
                 rotationCamera.ChangeRotate(transform.eulerAngles.z);
+            }
+            else
+            {
+                animator.SetBool("IsHorizontal", false);
+                animator.SetBool("IsVertical", false);
             }
         }
     }
