@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System;
 using UnityEngine;
 
 public class SwitchGravity : MonoBehaviour
@@ -44,7 +45,7 @@ public class SwitchGravity : MonoBehaviour
 
     void GroundCheck()
     {
-        if (IsGrounded(groundCheck))  
+        if (IsGrounded(groundCheck) && transform.position.x % 1 == 0 && transform.position.y % 1 == 0)  
         {
             isChangingGravity = false;
         }
