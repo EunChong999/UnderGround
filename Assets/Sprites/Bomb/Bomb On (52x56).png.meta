@@ -126,10 +126,10 @@ TextureImporter:
       name: Bomb On (52x56)_0
       rect:
         serializedVersion: 2
-        x: 20
-        y: 17
-        width: 16
-        height: 19
+        x: 0
+        y: 0
+        width: 32
+        height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -147,10 +147,10 @@ TextureImporter:
       name: Bomb On (52x56)_1
       rect:
         serializedVersion: 2
-        x: 72
-        y: 17
-        width: 17
-        height: 21
+        x: 32
+        y: 0
+        width: 32
+        height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -168,10 +168,10 @@ TextureImporter:
       name: Bomb On (52x56)_2
       rect:
         serializedVersion: 2
-        x: 123
-        y: 17
-        width: 15
-        height: 21
+        x: 64
+        y: 0
+        width: 32
+        height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -189,10 +189,10 @@ TextureImporter:
       name: Bomb On (52x56)_3
       rect:
         serializedVersion: 2
-        x: 176
-        y: 17
-        width: 14
-        height: 21
+        x: 96
+        y: 0
+        width: 32
+        height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -202,6 +202,111 @@ TextureImporter:
       bones: []
       spriteID: 2ac103ff57bddd147826e526bca8ba4c
       internalID: 39162111
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bomb On (52x56)_4
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 0
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2b6ff06dfd1a136479ff3c3e549a561a
+      internalID: 1656262731
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bomb On (52x56)_5
+      rect:
+        serializedVersion: 2
+        x: 160
+        y: 0
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8cf423f0be7faf940b5da8a80eb7640d
+      internalID: 1182036363
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bomb On (52x56)_6
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 0
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8f27c55eb9eb35648ad4b80ce2d8e694
+      internalID: -1137707667
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bomb On (52x56)_7
+      rect:
+        serializedVersion: 2
+        x: 224
+        y: 0
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a89c11675f452b84eba36e9f442f15e5
+      internalID: -867986699
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bomb On (52x56)_8
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 0
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 17ea6395b51369a4a92cd2d475ccf19c
+      internalID: 195746675
       vertices: []
       indices: 
       edges: []
@@ -221,6 +326,11 @@ TextureImporter:
       Bomb On (52x56)_1: -294939760
       Bomb On (52x56)_2: 1137206960
       Bomb On (52x56)_3: 39162111
+      Bomb On (52x56)_4: 1656262731
+      Bomb On (52x56)_5: 1182036363
+      Bomb On (52x56)_6: -1137707667
+      Bomb On (52x56)_7: -867986699
+      Bomb On (52x56)_8: 195746675
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

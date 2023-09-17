@@ -34,8 +34,10 @@ public class RotateCamera : MonoBehaviour
         {
             currentTime = lerpTime;
         }
-
-        transform.rotation = Quaternion.Lerp(transform.rotation, currentAngle, currentTime / lerpTime);
+        else
+        {
+            transform.rotation = Quaternion.Lerp(transform.rotation, currentAngle, currentTime / lerpTime);
+        }
     }
 }
 

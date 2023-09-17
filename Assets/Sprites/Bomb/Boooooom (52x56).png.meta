@@ -123,127 +123,148 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: 3
+      name: Boooooom (52x56)_0
       rect:
         serializedVersion: 2
-        x: 156
+        x: 0
         y: 0
-        width: 52
-        height: 52
+        width: 32
+        height: 32
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 6f19b7b90a51aa44f895d6c7b096e013
-      internalID: 185317566
+      spriteID: 7e87f2108f2d6294da40e61aaaaaaa57
+      internalID: -1875778072
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: 2
+      name: Boooooom (52x56)_1
       rect:
         serializedVersion: 2
-        x: 106
-        y: 2
-        width: 48
-        height: 47
+        x: 32
+        y: 0
+        width: 32
+        height: 32
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a042c7e47fe51ff48a92a9a6dc75f98e
-      internalID: -1438131128
+      spriteID: 829b05d3d220d0246a436ae03e760989
+      internalID: -362858120
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: 1
+      name: Boooooom (52x56)_2
       rect:
         serializedVersion: 2
-        x: 58
-        y: 6
-        width: 40
-        height: 40
+        x: 64
+        y: 0
+        width: 32
+        height: 32
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 196172f8a4dafcc41b64aeb7ba4bde7f
-      internalID: -1730568839
+      spriteID: 633906b0cbf40e840b528986da776ec9
+      internalID: 346194703
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: 0
+      name: Boooooom (52x56)_3
       rect:
         serializedVersion: 2
-        x: 15
-        y: 15
-        width: 22
-        height: 22
+        x: 96
+        y: 0
+        width: 32
+        height: 32
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 3a1c89e7207d1e04587088448bce5f48
-      internalID: 453548684
+      spriteID: bf2b54be6f68f0e4a929f25b73455204
+      internalID: 1614854868
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: 4
+      name: Boooooom (52x56)_4
       rect:
         serializedVersion: 2
-        x: 213
-        y: 19
-        width: 45
-        height: 35
+        x: 128
+        y: 0
+        width: 32
+        height: 32
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 3c1ff468f9a99844a8dc13585d2381ba
-      internalID: 55769407
+      spriteID: 29413339230cb8147944ea7755e51112
+      internalID: 772907766
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: 5
+      name: Boooooom (52x56)_5
       rect:
         serializedVersion: 2
-        x: 264
-        y: 22
-        width: 45
-        height: 33
+        x: 160
+        y: 0
+        width: 32
+        height: 32
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 3e9dc430ed51fd34b8e17cc05009ca39
-      internalID: 1201769395
+      spriteID: c06bb61ca8e942947874cbbef079af83
+      internalID: -1618716854
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Boooooom (52x56)_6
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 0
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0fcdbc793dc06e342be65187683003cf
+      internalID: -1578114761
       vertices: []
       indices: 
       edges: []
@@ -259,12 +280,13 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      0: 453548684
-      1: -1730568839
-      2: -1438131128
-      3: 185317566
-      4: 55769407
-      5: 1201769395
+      Boooooom (52x56)_0: -1875778072
+      Boooooom (52x56)_1: -362858120
+      Boooooom (52x56)_2: 346194703
+      Boooooom (52x56)_3: 1614854868
+      Boooooom (52x56)_4: 772907766
+      Boooooom (52x56)_5: -1618716854
+      Boooooom (52x56)_6: -1578114761
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
