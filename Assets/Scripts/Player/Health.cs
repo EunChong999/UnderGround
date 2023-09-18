@@ -78,7 +78,7 @@ public class Health : MonoBehaviour
         Color spriteColor = transform.GetChild(0).GetComponent<SpriteRenderer>().color;
 
         // 새로운 알파 값 설정 
-        float newAlpha = 0.75f;
+        float newAlpha = 0.5f;
         spriteColor.a = newAlpha;
 
         // 변경된 색상 적용
