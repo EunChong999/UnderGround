@@ -413,7 +413,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 3.75
+  orthographic size: 7.5
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -870,7 +870,7 @@ MonoBehaviour:
   emptyHeart: {fileID: 2123880857, guid: c1f18bcf24dac0549be19d83919a418c, type: 3}
   isOnDamaged: 0
   isDead: 0
-  coolTime: 2
+  coolTime: 1
 --- !u!1 &1176214181
 GameObject:
   m_ObjectHideFlags: 0
@@ -957,7 +957,7 @@ MonoBehaviour:
   m_Follow: {fileID: 1124584956}
   m_Lens:
     FieldOfView: 60
-    OrthographicSize: 3.75
+    OrthographicSize: 8.5
     NearClipPlane: 0.3
     FarClipPlane: 1000
     Dutch: 0
