@@ -11,7 +11,8 @@ public class Collision : MonoBehaviour
     {
         for (int i = 0; i < obstacles.Length; i++)
         {
-            if (collision.name.Contains(obstacles[i].name) && !transform.parent.GetComponent<Health>().isOnDamaged)
+            if (collision.name.Contains(obstacles[i].name) && 
+                !transform.parent.GetComponent<Health>().isOnDamaged)
             {
                 StartCoroutine(transform.parent.GetComponent<Health>().OnDamaged());
             }
