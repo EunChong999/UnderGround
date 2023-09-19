@@ -15,16 +15,9 @@ public class SwitchGravity : MonoBehaviour
     private GridMovement gridMovement;
     private Animator animator;
     Health health;
-    [SerializeField] private bool isStopOnW;
-    [SerializeField] private bool isStopOnA;
-    [SerializeField] private bool isStopOnD;
 
     void Start()
     {
-        isStopOnW = false;
-        isStopOnA = false;
-        isStopOnD = false;
-
         isChangingGravity = false;
         rb = GetComponent<Rigidbody2D>();
         rotationCamera = GameObject.Find("Virtual Camera").GetComponent<RotateCamera>();
@@ -72,10 +65,6 @@ public class SwitchGravity : MonoBehaviour
             {
                 if (Input.GetKeyDown(KeyCode.W)) // Complete
                 {
-                    isStopOnW = true;
-                    isStopOnA = false;
-                    isStopOnD = false;
-
                     animator.SetBool("IsVertical", true);
 
                     if (transform.eulerAngles.z == 0)
@@ -107,10 +96,6 @@ public class SwitchGravity : MonoBehaviour
                 }
                 else if (Input.GetKeyDown(KeyCode.A))
                 {
-                    isStopOnW = false;
-                    isStopOnA = true;
-                    isStopOnD = false;
-
                     animator.SetBool("IsHorizontal", true);
 
                     if (transform.eulerAngles.z == 0)
@@ -142,10 +127,6 @@ public class SwitchGravity : MonoBehaviour
                 }
                 else if (Input.GetKeyDown(KeyCode.D))
                 {
-                    isStopOnW = false;
-                    isStopOnA = false;
-                    isStopOnD = true;
-
                     animator.SetBool("IsHorizontal", true);
 
                     if (transform.eulerAngles.z == 0)
