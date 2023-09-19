@@ -73,8 +73,6 @@ public class Health : MonoBehaviour
         // 변경된 색상 적용
         transform.GetChild(0).GetComponent<SpriteRenderer>().color = spriteColor;
 
-        Debug.Log("스프라이트의 새로운 알파 값: " + transform.GetChild(0).GetComponent<SpriteRenderer>().color.a);
-
         animator.SetTrigger("IsDamage");
 
         yield return new WaitForSeconds(coolTime);
