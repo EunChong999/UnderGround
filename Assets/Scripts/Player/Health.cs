@@ -17,21 +17,10 @@ public class Health : MonoBehaviour
     public float coolTime;
 
     Animator animator;
-    MonoBehaviour[] monoBehaviours;
 
     private void Start()
     {
         animator = transform.GetChild(0).GetComponent<Animator>();
-
-        monoBehaviours = GetComponents<MonoBehaviour>();
-
-        foreach (MonoBehaviour monoBehaviour in monoBehaviours)
-        {
-            if (monoBehaviour != null && !monoBehaviour.GetType().Name.Contains("Health"))
-            {
-                Debug.Log("스크립트 이름 : " + monoBehaviour.GetType().Name);
-            }
-        }
     }
 
     void Update()
@@ -113,14 +102,6 @@ public class Health : MonoBehaviour
 
         // 변경된 색상 적용
         transform.GetChild(0).GetComponent<SpriteRenderer>().color = spriteColor;
-
-        foreach (MonoBehaviour monoBehaviour in monoBehaviours)
-        {
-            if (monoBehaviour != null && !monoBehaviour.GetType().Name.Contains("Health")) 
-            {
-                monoBehaviour.enabled = false;
-            }
-        }
 
         animator.SetTrigger("IsDead");
     }

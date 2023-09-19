@@ -18,6 +18,11 @@ public class GridMovement : MonoBehaviour
 
     void Update()
     {
+        MoveGrid();
+    }
+
+    void MoveGrid()
+    {
         transform.position = Vector3.MoveTowards(transform.position, movePoint.position, moveSpeed * Time.deltaTime);
 
         if (!Physics2D.OverlapCircle(movePoint.position + new Vector3(x, 0, 0), .2f, whatStopMovement))
