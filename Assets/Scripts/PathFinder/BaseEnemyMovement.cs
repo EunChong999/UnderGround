@@ -20,7 +20,10 @@ public class Node
 public class BaseEnemyMovement : MonoBehaviour
 {
     public GameObject prefeb;
-    public List<GameObject> transforms;
+    private Stack<Transform> points;
+    public float moveSpeed = 5f; // 이동 속도
+    private int currentIndex = 0; // 현재 이동 중인 위치의 인덱스
+
     public Vector2Int bottomLeft, topRight, startPos, targetPos;
     public List<Node> FinalNodeList;
     public bool allowDiagonal, dontCrossCorner;
@@ -33,20 +36,37 @@ public class BaseEnemyMovement : MonoBehaviour
     private void Start()
     {
         PathFinding();
-    }
+        points = new Stack<Transform>();
 
-    private void Update()
-    {
         if (FinalNodeList.Count != 0)
         {
             for (int i = 0; i < FinalNodeList.Count; i++)
             {
-                if (transforms.Count >= FinalNodeList.Count) 
-                {
-                    break;
-                }
+                points.Push(Instantiate(prefeb, new Vector2(FinalNodeList[i].x, FinalNodeList[i].y), Quaternion.identity).transform);
+            }
+        }
+    }
 
-                transforms.Add(Instantiate(prefeb, new Vector2(FinalNodeList[i].x, FinalNodeList[i].y), Quaternion.identity));
+    private void Update()
+    {
+        if (points.Count < 0) 
+        {
+            // 이동할 위치가 없으면 아무것도 하지 않음
+            return;
+        }
+        else
+        {
+            // 현재 위치에서 목표 위치로 이동
+            transform.position = Vector2.Lerp(transform.position, points.Pop().position, moveSpeed);
+
+            // 목표 위치에 도달했을 때 다음 위치로 이동
+            if (Vector2.Distance(transform.position, points.Pop().position) < 0.01f)
+            {
+                currentIndex++; // 다음 위치로 인덱스 증가
+                if (currentIndex >= points.Count)
+                {
+                    currentIndex = 0; // 루프되도록 인덱스 초기화
+                }
             }
         }
     }
