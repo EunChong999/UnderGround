@@ -1,6 +1,8 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using static Unity.VisualScripting.Member;
 
 
 [System.Serializable]
@@ -16,13 +18,14 @@ public class Node
     public int F { get { return G + H; } }
 }
 
-
 public class BaseEnemyMovement : MonoBehaviour
 {
     public GameObject prefeb;
-    private Stack<Transform> points;
+    public Vector3[] waypoints; // 이동할 위치를 저장하는 배열
     public float moveSpeed = 5f; // 이동 속도
     private int currentIndex = 0; // 현재 이동 중인 위치의 인덱스
+    private bool isReached;
+    public GameObject target;
 
     public Vector2Int bottomLeft, topRight, startPos, targetPos;
     public List<Node> FinalNodeList;
@@ -35,37 +38,56 @@ public class BaseEnemyMovement : MonoBehaviour
 
     private void Start()
     {
+        startPos.x = (int)transform.position.x;
+        startPos.y = (int)transform.position.y;
+
+        targetPos.x = (int)target.transform.position.x;
+        targetPos.y = (int)target.transform.position.y;
+
         PathFinding();
-        points = new Stack<Transform>();
+
+        waypoints = new Vector3[FinalNodeList.Count];
 
         if (FinalNodeList.Count != 0)
         {
             for (int i = 0; i < FinalNodeList.Count; i++)
             {
-                points.Push(Instantiate(prefeb, new Vector2(FinalNodeList[i].x, FinalNodeList[i].y), Quaternion.identity).transform);
+                waypoints[i] = Instantiate(prefeb, new Vector2(FinalNodeList[i].x, FinalNodeList[i].y), Quaternion.identity).transform.position;
             }
+        }
+
+        if (waypoints.Length == 0)
+        {
+            // 이동할 위치가 없으면 아무것도 하지 않음
+            return;
         }
     }
 
     private void Update()
     {
-        if (points.Count < 0) 
+        if(!isReached)
         {
-            // 이동할 위치가 없으면 아무것도 하지 않음
-            return;
-        }
-        else
-        {
-            // 현재 위치에서 목표 위치로 이동
-            transform.position = Vector2.Lerp(transform.position, points.Pop().position, moveSpeed);
-
-            // 목표 위치에 도달했을 때 다음 위치로 이동
-            if (Vector2.Distance(transform.position, points.Pop().position) < 0.01f)
+            if (currentIndex > waypoints.Length - 1)
             {
-                currentIndex++; // 다음 위치로 인덱스 증가
-                if (currentIndex >= points.Count)
+                Array.Resize(ref waypoints, 0);
+                isReached = true;
+            }
+            else
+            {
+                if (waypoints.Length == 0)
                 {
-                    currentIndex = 0; // 루프되도록 인덱스 초기화
+                    // 이동할 위치가 없으면 아무것도 하지 않음
+                    return;
+                }
+
+                // 현재 위치에서 목표 위치로 이동
+                Vector3 targetPosition = waypoints[currentIndex];
+                transform.position = Vector3.MoveTowards(transform.position, targetPosition, moveSpeed * Time.deltaTime);
+
+                // 목표 위치에 도달했을 때 다음 위치로 이동
+                if (Vector3.Distance(transform.position, targetPosition) < 0.01f)
+                {
+                    currentIndex++; // 다음 위치로 인덱스 증가
                 }
             }
         }
