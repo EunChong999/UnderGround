@@ -53,7 +53,7 @@ public class RectGrid_Viz : MonoBehaviour
         mIndices[i, j] = new Vector2Int(i, j);
         mRectGridCellGameObjects[i, j] = Instantiate(
           RectGridCell_Prefab,
-          new Vector3(i, j, 0.0f),
+          new Vector3(i, j, 0.0f) + new Vector3(transform.position.x, transform.position.y),
           Quaternion.identity);
 
         // Set the parent for the grid cell to this transform.
@@ -86,6 +86,13 @@ public class RectGrid_Viz : MonoBehaviour
   {
     // Constryct the grid and the cell game objects.
     Construct(mX, mY);
+
+    Vector3 temp = transform.position;
+
+    temp.x -= mX / 2;
+    temp.y -= mY / 2; 
+
+    transform.position = temp;
 
     // Reset the camera to a proper size and position.
     ResetCamera();
