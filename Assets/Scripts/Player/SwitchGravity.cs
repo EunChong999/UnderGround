@@ -6,7 +6,7 @@ using static UnityEngine.Rendering.DebugUI.Table;
 
 public class SwitchGravity : MonoBehaviour
 {
-    Quaternion currentAngle;
+    Vector3 currentAngle;
     [SerializeField] private float lerpTime;
     [SerializeField] private float currentTime;
 
@@ -52,10 +52,8 @@ public class SwitchGravity : MonoBehaviour
         {
             currentTime = lerpTime;
         }
-        else
-        {
-            transform.rotation = Quaternion.Lerp(transform.rotation, currentAngle, currentTime / lerpTime);
-        }
+
+        transform.eulerAngles = Vector3.Lerp(transform.eulerAngles, currentAngle, currentTime / lerpTime);
 
         GroundCheck();
         ChangeGravity();
@@ -76,7 +74,7 @@ public class SwitchGravity : MonoBehaviour
     public void ChangeRotate(float rot)
     {
         currentTime = 0;
-        currentAngle = Quaternion.Euler(0, 0, rot);
+        currentAngle = new Vector3(0, 0, rot);
     }
 
     void ChangeGravity()
