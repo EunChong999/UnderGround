@@ -93,6 +93,22 @@ public class BaseEnemyMovement : MonoBehaviour
         }
     }
 
+    // 플레이어의 신호를 받아 타겟을 변경하고 경로를 다시 계산하는 함수
+    public void OnPlayerSignal(Vector3 newTargetPosition)
+    {
+        // 새로운 타겟 위치를 설정
+        target.transform.position = newTargetPosition;
+        targetPos.x = (int)target.transform.position.x;
+        targetPos.y = (int)target.transform.position.y;
+
+        // 경로를 다시 계산
+        PathFinding();
+
+        // 이동 상태 초기화
+        isReached = false;
+        currentIndex = 0;
+    }
+
     public void PathFinding()
     {
         // NodeArray의 크기 정해주고, isWall, x, y 대입
