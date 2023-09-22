@@ -16,5 +16,6 @@ public class GravitationalReaction : MonoBehaviour
     void Update()
     {
         transform.rotation = player.transform.rotation;
+
     }
 }

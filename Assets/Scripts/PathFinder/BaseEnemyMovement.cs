@@ -23,8 +23,8 @@ public class BaseEnemyMovement : MonoBehaviour
     public GameObject prefeb;
     public Vector3[] waypoints; // 이동할 위치를 저장하는 배열
     public float moveSpeed = 5f; // 이동 속도
-    private int currentIndex = 0; // 현재 이동 중인 위치의 인덱스
-    private bool isReached;
+    public int currentIndex = 0; // 현재 이동 중인 위치의 인덱스
+    public bool isReached;
     public GameObject target;
 
     public Vector2Int bottomLeft, topRight, startPos, targetPos;
@@ -38,6 +38,9 @@ public class BaseEnemyMovement : MonoBehaviour
 
     private void Start()
     {
+        currentIndex = 0;
+        isReached = false;
+
         startPos.x = (int)transform.position.x;
         startPos.y = (int)transform.position.y;
 
@@ -69,7 +72,6 @@ public class BaseEnemyMovement : MonoBehaviour
         {
             if (currentIndex > waypoints.Length - 1)
             {
-                Array.Resize(ref waypoints, 0);
                 isReached = true;
             }
             else
@@ -94,19 +96,34 @@ public class BaseEnemyMovement : MonoBehaviour
     }
 
     // 플레이어의 신호를 받아 타겟을 변경하고 경로를 다시 계산하는 함수
-    public void OnPlayerSignal(Vector3 newTargetPosition)
+    public void OnPlayerSignal()
     {
-        // 새로운 타겟 위치를 설정
-        target.transform.position = newTargetPosition;
+        currentIndex = 0;
+        isReached = false;
+
+        startPos.x = (int)transform.position.x;
+        startPos.y = (int)transform.position.y;
+
         targetPos.x = (int)target.transform.position.x;
         targetPos.y = (int)target.transform.position.y;
 
-        // 경로를 다시 계산
         PathFinding();
 
-        // 이동 상태 초기화
-        isReached = false;
-        currentIndex = 0;
+        waypoints = new Vector3[FinalNodeList.Count];
+
+        if (FinalNodeList.Count != 0)
+        {
+            for (int i = 0; i < FinalNodeList.Count; i++)
+            {
+                waypoints[i] = Instantiate(prefeb, new Vector2(FinalNodeList[i].x, FinalNodeList[i].y), Quaternion.identity).transform.position;
+            }
+        }
+
+        if (waypoints.Length == 0)
+        {
+            // 이동할 위치가 없으면 아무것도 하지 않음
+            return;
+        }
     }
 
     public void PathFinding()
