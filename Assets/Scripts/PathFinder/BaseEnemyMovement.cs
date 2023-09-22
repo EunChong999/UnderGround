@@ -24,7 +24,6 @@ public class BaseEnemyMovement : MonoBehaviour
     public Vector3[] waypoints; // 이동할 위치를 저장하는 배열
     public float moveSpeed = 5f; // 이동 속도
     public int currentIndex = 0; // 현재 이동 중인 위치의 인덱스
-    public bool isReached;
     public GameObject target;
 
     public Vector2Int bottomLeft, topRight, startPos, targetPos;
@@ -36,61 +35,33 @@ public class BaseEnemyMovement : MonoBehaviour
     Node StartNode, TargetNode, CurNode;
     List<Node> OpenList, ClosedList;
 
-    private void Start()
-    {
-        currentIndex = 0;
-        isReached = false;
-
-        startPos.x = (int)transform.position.x;
-        startPos.y = (int)transform.position.y;
-
-        targetPos.x = (int)target.transform.position.x;
-        targetPos.y = (int)target.transform.position.y;
-
-        PathFinding();
-
-        waypoints = new Vector3[FinalNodeList.Count];
-
-        if (FinalNodeList.Count != 0)
-        {
-            for (int i = 0; i < FinalNodeList.Count; i++)
-            {
-                waypoints[i] = Instantiate(prefeb, new Vector2(FinalNodeList[i].x, FinalNodeList[i].y), Quaternion.identity).transform.position;
-            }
-        }
-
-        if (waypoints.Length == 0)
-        {
-            // 이동할 위치가 없으면 아무것도 하지 않음
-            return;
-        }
-    }
-
     private void Update()
     {
-        if(!isReached)
+        Move();
+    }
+
+    private void Move()
+    {
+        if (currentIndex > waypoints.Length - 1)
         {
-            if (currentIndex > waypoints.Length - 1)
+            return;
+        }
+        else
+        {
+            if (waypoints.Length == 0)
             {
-                isReached = true;
+                // 이동할 위치가 없으면 아무것도 하지 않음
+                return;
             }
-            else
+
+            // 현재 위치에서 목표 위치로 이동
+            Vector3 targetPosition = waypoints[currentIndex];
+            transform.position = Vector3.MoveTowards(transform.position, targetPosition, moveSpeed * Time.deltaTime);
+
+            // 목표 위치에 도달했을 때 다음 위치로 이동
+            if (Vector3.Distance(transform.position, targetPosition) < 0.01f)
             {
-                if (waypoints.Length == 0)
-                {
-                    // 이동할 위치가 없으면 아무것도 하지 않음
-                    return;
-                }
-
-                // 현재 위치에서 목표 위치로 이동
-                Vector3 targetPosition = waypoints[currentIndex];
-                transform.position = Vector3.MoveTowards(transform.position, targetPosition, moveSpeed * Time.deltaTime);
-
-                // 목표 위치에 도달했을 때 다음 위치로 이동
-                if (Vector3.Distance(transform.position, targetPosition) < 0.01f)
-                {
-                    currentIndex++; // 다음 위치로 인덱스 증가
-                }
+                currentIndex++; // 다음 위치로 인덱스 증가
             }
         }
     }
@@ -98,8 +69,8 @@ public class BaseEnemyMovement : MonoBehaviour
     // 플레이어의 신호를 받아 타겟을 변경하고 경로를 다시 계산하는 함수
     public void OnPlayerSignal()
     {
+        // 무브 포인트가 충돌했을때만
         currentIndex = 0;
-        isReached = false;
 
         startPos.x = (int)transform.position.x;
         startPos.y = (int)transform.position.y;
@@ -177,7 +148,7 @@ public class BaseEnemyMovement : MonoBehaviour
                 FinalNodeList.Add(StartNode);
                 FinalNodeList.Reverse();
 
-                for (int i = 0; i < FinalNodeList.Count; i++) print(i + "번째는 " + FinalNodeList[i].x + ", " + FinalNodeList[i].y);
+                //for (int i = 0; i < FinalNodeList.Count; i++) print(i + "번째는 " + FinalNodeList[i].x + ", " + FinalNodeList[i].y);
                 return;
             }
 
