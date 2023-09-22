@@ -702,9 +702,9 @@ CircleCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: -0.5}
+  m_Offset: {x: 0, y: -0.25}
   serializedVersion: 2
-  m_Radius: 0.01
+  m_Radius: 0.26
 --- !u!1 &713919577
 GameObject:
   m_ObjectHideFlags: 0
@@ -3660,7 +3660,7 @@ CompositeCollider2D:
       - {x: 3.0000293, y: -9}
   m_VertexDistance: 0.0005
   m_OffsetDistance: 0.00005
-  m_UseDelaunayMesh: 0
+  m_UseDelaunayMesh: 1
   m_CompositeGameObject: {fileID: 1649912467}
 --- !u!50 &1649912470
 Rigidbody2D:
