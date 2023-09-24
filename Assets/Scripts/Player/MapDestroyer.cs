@@ -5,7 +5,8 @@ using UnityEngine.Tilemaps;
 
 public class MapDestroyer : MonoBehaviour
 {
-    [SerializeField] private Tilemap tilemap;
+    [SerializeField] private Tilemap gamePlayTilemap;
+    [SerializeField] private Tilemap objectTilemap;
     [SerializeField] private RuleTile wallTile;
     [SerializeField] private Tile destructibleTile;
     [SerializeField] private GameObject explosionPrefeb;
@@ -13,7 +14,7 @@ public class MapDestroyer : MonoBehaviour
 
     public void Explode(Transform worldPos)
     {
-        Vector3Int originCell = tilemap.WorldToCell(worldPos.position);
+        Vector3Int originCell = gamePlayTilemap.WorldToCell(worldPos.position);
 
         ExplodeCell(worldPos, originCell);
 
@@ -68,20 +69,22 @@ public class MapDestroyer : MonoBehaviour
 
     bool ExplodeCell(Transform worldPos, Vector3Int cell)
     {
-        Tile tile = tilemap.GetTile<Tile>(cell);
-        RuleTile ruleTile = tilemap.GetTile<RuleTile>(cell);
+        Tile gamePlayTile = gamePlayTilemap.GetTile<Tile>(cell);
+        RuleTile gamePlayRuleTile = gamePlayTilemap.GetTile<RuleTile>(cell);
+        Tile objectTile = objectTilemap.GetTile<Tile>(cell);
+        RuleTile objectRuleTile = objectTilemap.GetTile<RuleTile>(cell);
 
-        if (tile == wallTile || ruleTile == wallTile)
+        if (gamePlayTile == wallTile || gamePlayRuleTile == wallTile)
         {
             return false;
         }
 
-        if (tile == destructibleTile || ruleTile == destructibleTile)
+        if (objectTile == destructibleTile || objectRuleTile == destructibleTile) 
         {
-            tilemap.SetTile(cell, null);
+            objectTilemap.SetTile(cell, null);
         }
 
-        Vector3 pos = tilemap.GetCellCenterWorld(cell);
+        Vector3 pos = gamePlayTilemap.GetCellCenterWorld(cell);
         Instantiate(explosionPrefeb, pos, worldPos.rotation);
 
         return true;

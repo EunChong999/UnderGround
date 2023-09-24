@@ -1,3 +1,4 @@
+using Pathfinding;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -16,5 +17,50 @@ public class GravitationalReaction : MonoBehaviour
     void Update()
     {
         transform.rotation = player.transform.rotation;
+
+        if (player.transform.eulerAngles.z == 0)
+        {
+            if (player.transform.position.x < transform.position.x)
+            {
+                transform.localScale = new Vector3(1, 1, 1);
+            }
+            else
+            {
+                transform.localScale = new Vector3(-1, 1, 1);
+            }
+        }
+        else if (player.transform.eulerAngles.z == 90)
+        {
+            if (player.transform.position.y < transform.position.y)
+            {
+                transform.localScale = new Vector3(1, 1, 1);
+            }
+            else
+            {
+                transform.localScale = new Vector3(-1, 1, 1);
+            }
+        }
+        else if (player.transform.eulerAngles.z == 180)
+        {
+            if (player.transform.position.x < transform.position.x)
+            {
+                transform.localScale = new Vector3(-1, 1, 1);
+            }
+            else
+            {
+                transform.localScale = new Vector3(1, 1, 1);
+            }
+        }
+        else if (player.transform.eulerAngles.z == 270)
+        {
+            if (player.transform.position.y < transform.position.y)
+            {
+                transform.localScale = new Vector3(-1, 1, 1);
+            }
+            else
+            {
+                transform.localScale = new Vector3(1, 1, 1);
+            }
+        }
     }
 }

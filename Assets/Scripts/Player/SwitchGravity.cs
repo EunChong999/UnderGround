@@ -6,10 +6,6 @@ using static UnityEngine.Rendering.DebugUI.Table;
 
 public class SwitchGravity : MonoBehaviour
 {
-    Vector3 currentAngle;
-    [SerializeField] private float lerpTime;
-    [SerializeField] private float currentTime;
-
     [SerializeField] private Transform groundCheck;
     public Transform[] spaceCheck;
     [SerializeField] private LayerMask groundLayer;
@@ -46,15 +42,6 @@ public class SwitchGravity : MonoBehaviour
 
     void Update()
     {
-        currentTime += Time.deltaTime;
-
-        if (currentTime >= lerpTime)
-        {
-            currentTime = lerpTime;
-        }
-
-        transform.eulerAngles = Vector3.Lerp(transform.eulerAngles, currentAngle, currentTime / lerpTime);
-
         GroundCheck();
         ChangeGravity();
     }
@@ -71,10 +58,16 @@ public class SwitchGravity : MonoBehaviour
         }
     }
 
-    public void ChangeRotate(float rot)
+    void Flip(string str)
     {
-        currentTime = 0;
-        currentAngle = new Vector3(0, 0, rot);
+        if (str == "L")
+        {
+            transform.localScale = new Vector3(-1, 1, 1);
+        }
+        else if (str == "R")
+        {
+            transform.localScale = new Vector3(1, 1, 1);
+        }
     }
 
     void ChangeGravity()
@@ -91,34 +84,28 @@ public class SwitchGravity : MonoBehaviour
                     {
                         gridMovement.x = 0;
                         gridMovement.y = 1;
-                        //transform.eulerAngles = new Vector3(0, 0, 180);
-                        ChangeRotate(180);
-                        rotationCamera.ChangeRotate(180);
+                        transform.eulerAngles = new Vector3(0, 0, 180);
                     }
                     else if (transform.eulerAngles.z == 90)
                     {
                         gridMovement.x = -1;
                         gridMovement.y = 0;
-                        //transform.eulerAngles = new Vector3(0, 0, 270);
-                        ChangeRotate(270);
-                        rotationCamera.ChangeRotate(270);
+                        transform.eulerAngles = new Vector3(0, 0, 270);
                     }
                     else if (transform.eulerAngles.z == 180)
                     {
                         gridMovement.x = 0;
                         gridMovement.y = -1;
-                        //transform.eulerAngles = new Vector3(0, 0, 0);
-                        ChangeRotate(0);
-                        rotationCamera.ChangeRotate(0);
+                        transform.eulerAngles = new Vector3(0, 0, 0);
                     }
                     else if (transform.eulerAngles.z == 270)
                     {
                         gridMovement.x = 1;
                         gridMovement.y = 0;
-                        //transform.eulerAngles = new Vector3(0, 0, 90);
-                        ChangeRotate(90);
-                        rotationCamera.ChangeRotate(90);
+                        transform.eulerAngles = new Vector3(0, 0, 90);
                     }
+
+                    rotationCamera.ChangeRotate(transform.eulerAngles.z);
                 }
                 else if (Input.GetKeyDown(KeyCode.A))
                 {
@@ -128,34 +115,34 @@ public class SwitchGravity : MonoBehaviour
                     {
                         gridMovement.x = -1;
                         gridMovement.y = 0;
-                        //transform.eulerAngles = new Vector3(0, 0, 270);
-                        ChangeRotate(270);
+                        transform.eulerAngles = new Vector3(0, 0, 270);
                         rotationCamera.ChangeRotate(270);
                     }
                     else if (transform.eulerAngles.z == 90)
                     {
                         gridMovement.x = 0;
                         gridMovement.y = -1;
-                        //transform.eulerAngles = new Vector3(0, 0, 0);
-                        ChangeRotate(0);
+                        transform.eulerAngles = new Vector3(0, 0, 0);
                         rotationCamera.ChangeRotate(0);
                     }
                     else if (transform.eulerAngles.z == 180)
                     {
                         gridMovement.x = 1;
                         gridMovement.y = 0;
-                        //transform.eulerAngles = new Vector3(0, 0, 90);
-                        ChangeRotate(90);
+                        transform.eulerAngles = new Vector3(0, 0, 90);
                         rotationCamera.ChangeRotate(90);
                     }
                     else if (transform.eulerAngles.z == 270)
                     {
                         gridMovement.x = 0;
                         gridMovement.y = 1;
-                        //transform.eulerAngles = new Vector3(0, 0, 180);
-                        ChangeRotate(180);
+                        transform.eulerAngles = new Vector3(0, 0, 180);
                         rotationCamera.ChangeRotate(180);
                     }
+
+                    Flip("L");
+
+                    rotationCamera.ChangeRotate(transform.eulerAngles.z);
                 }
                 else if (Input.GetKeyDown(KeyCode.D))
                 {
@@ -165,34 +152,30 @@ public class SwitchGravity : MonoBehaviour
                     {
                         gridMovement.x = 1;
                         gridMovement.y = 0;
-                        //transform.eulerAngles = new Vector3(0, 0, 90);
-                        ChangeRotate(90);
-                        rotationCamera.ChangeRotate(90);
+                        transform.eulerAngles = new Vector3(0, 0, 90);
                     }
                     else if (transform.eulerAngles.z == 90)
                     {
                         gridMovement.x = 0;
                         gridMovement.y = 1;
-                        //transform.eulerAngles = new Vector3(0, 0, 180);
-                        ChangeRotate(180);
-                        rotationCamera.ChangeRotate(180);
+                        transform.eulerAngles = new Vector3(0, 0, 180);
                     }
                     else if (transform.eulerAngles.z == 180)
                     {
                         gridMovement.x = -1;
                         gridMovement.y = 0;
-                        //transform.eulerAngles = new Vector3(0, 0, 270);
-                        ChangeRotate(270);
-                        rotationCamera.ChangeRotate(270);
+                        transform.eulerAngles = new Vector3(0, 0, 270);
                     }
                     else if (transform.eulerAngles.z == 270)
                     {
                         gridMovement.x = 0;
                         gridMovement.y = -1;
-                        //transform.eulerAngles = new Vector3(0, 0, 0);
-                        ChangeRotate(0);
-                        rotationCamera.ChangeRotate(0);
+                        transform.eulerAngles = new Vector3(0, 0, 0);
                     }
+
+                    Flip("R");
+
+                    rotationCamera.ChangeRotate(transform.eulerAngles.z);
                 }
                 else
                 {
