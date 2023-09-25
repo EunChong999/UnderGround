@@ -29,7 +29,7 @@ public class CameraZoom : MonoBehaviour
 
         if (switchGravity.isChangingGravity) 
         {
-            if (zoom < maxZoom - 0.001f) 
+            if (zoom < maxZoom) 
             {
                 zoom = Mathf.Lerp(zoom, maxZoom, 0.05f);
                 pixelPerfect.enabled = false;
@@ -42,7 +42,7 @@ public class CameraZoom : MonoBehaviour
         }
         else
         {
-            if (zoom > minZoom + 0.001f)
+            if (zoom > minZoom)
             {
                 zoom = Mathf.Lerp(zoom, minZoom, 0.05f);
                 pixelPerfect.enabled = false;

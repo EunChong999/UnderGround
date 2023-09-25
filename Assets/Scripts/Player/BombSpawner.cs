@@ -26,6 +26,8 @@ public class BombSpawner : MonoBehaviour
             {
                 if (Input.GetKeyDown(KeyCode.UpArrow)) // Complete
                 {
+                    switchGravity.direction = switchGravity.spaceCheck[0];
+
                     animator.SetFloat("horizontal", 0);
                     animator.SetFloat("vertical", 1);
 
@@ -36,6 +38,8 @@ public class BombSpawner : MonoBehaviour
                 }
                 else if (Input.GetKeyDown(KeyCode.LeftArrow))
                 {
+                    switchGravity.direction = switchGravity.spaceCheck[1];
+
                     animator.SetFloat("horizontal", -1);
                     animator.SetFloat("vertical", 0);
 
@@ -46,6 +50,8 @@ public class BombSpawner : MonoBehaviour
                 }
                 else if (Input.GetKeyDown(KeyCode.DownArrow))
                 {
+                    switchGravity.direction = switchGravity.spaceCheck[2];
+
                     animator.SetFloat("horizontal", 0);
                     animator.SetFloat("vertical", -1);
 
@@ -56,6 +62,8 @@ public class BombSpawner : MonoBehaviour
                 }
                 else if (Input.GetKeyDown(KeyCode.RightArrow))
                 {
+                    switchGravity.direction = switchGravity.spaceCheck[3];
+
                     animator.SetFloat("horizontal", 1);
                     animator.SetFloat("vertical", 0);
 
