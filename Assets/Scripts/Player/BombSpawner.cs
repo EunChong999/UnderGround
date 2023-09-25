@@ -7,13 +7,15 @@ public class BombSpawner : MonoBehaviour
 {
     [SerializeField] private GameObject bombPrefeb;
 
-    private SwitchGravity switchGravity;
     Health health;
+    private SwitchGravity switchGravity;
+    Animator animator;
 
     void Start()
     {
         health = GetComponent<Health>();
         switchGravity = GetComponent<SwitchGravity>();
+        animator = transform.GetChild(0).GetComponent<Animator>();
     }
 
     void Update()
@@ -22,98 +24,45 @@ public class BombSpawner : MonoBehaviour
         {
             if (!switchGravity.isChangingGravity)
             {
-                if (Input.GetKeyDown(KeyCode.UpArrow) && !switchGravity.IsGrounded(switchGravity.spaceCheck[0])) // Complete
+                if (Input.GetKeyDown(KeyCode.UpArrow)) // Complete
                 {
-                    if (transform.eulerAngles.z == 0)
-                    {
-                        GameObject bomb = Instantiate(bombPrefeb, new Vector2(transform.position.x, transform.position.y + 1), transform.rotation);
-                        bomb.GetComponent<GridMovement>().x = 0;
-                        bomb.GetComponent<GridMovement>().y = 1;
-                        bomb.transform.eulerAngles = new Vector3(0, 0, 180);
-                    }
-                    else if (transform.eulerAngles.z == 90)
-                    {
-                        GameObject bomb = Instantiate(bombPrefeb, new Vector2(transform.position.x - 1, transform.position.y), transform.rotation);
-                        bomb.GetComponent<GridMovement>().x = -1;
-                        bomb.GetComponent<GridMovement>().y = 0;
-                        bomb.transform.eulerAngles = new Vector3(0, 0, 270);
-                    }
-                    else if (transform.eulerAngles.z == 180)
-                    {
-                        GameObject bomb = Instantiate(bombPrefeb, new Vector2(transform.position.x, transform.position.y - 1), transform.rotation);
-                        bomb.GetComponent<GridMovement>().x = 0;
-                        bomb.GetComponent<GridMovement>().y = -1;
-                        bomb.transform.eulerAngles = new Vector3(0, 0, 0);
-                    }
-                    else if (transform.eulerAngles.z == 270)
-                    {
-                        GameObject bomb = Instantiate(bombPrefeb, new Vector2(transform.position.x + 1, transform.position.y), transform.rotation);
-                        bomb.GetComponent<GridMovement>().x = 1;
-                        bomb.GetComponent<GridMovement>().y = 0;
-                        bomb.transform.eulerAngles = new Vector3(0, 0, 90);
-                    }
+                    animator.SetFloat("horizontal", 0);
+                    animator.SetFloat("vertical", 1);
+
+                    GameObject bomb = Instantiate(bombPrefeb, new Vector2(transform.position.x, transform.position.y + 1), transform.rotation);
+                    bomb.GetComponent<GridMovement>().x = 0;
+                    bomb.GetComponent<GridMovement>().y = 1;
+                    bomb.transform.eulerAngles = new Vector3(0, 0, 180);
                 }
-                else if (Input.GetKeyDown(KeyCode.LeftArrow) && !switchGravity.IsGrounded(switchGravity.spaceCheck[1]))
+                else if (Input.GetKeyDown(KeyCode.LeftArrow))
                 {
-                    if (transform.eulerAngles.z == 0)
-                    {
-                        GameObject bomb = Instantiate(bombPrefeb, new Vector2(transform.position.x - 1, transform.position.y), transform.rotation);
-                        bomb.GetComponent<GridMovement>().x = -1;
-                        bomb.GetComponent<GridMovement>().y = 0;
-                        bomb.transform.eulerAngles = new Vector3(0, 0, 270);
-                    }
-                    else if (transform.eulerAngles.z == 90)
-                    {
-                        GameObject bomb = Instantiate(bombPrefeb, new Vector2(transform.position.x, transform.position.y - 1), transform.rotation);
-                        bomb.GetComponent<GridMovement>().x = 0;
-                        bomb.GetComponent<GridMovement>().y = -1;
-                        bomb.transform.eulerAngles = new Vector3(0, 0, 0);
-                    }
-                    else if (transform.eulerAngles.z == 180)
-                    {
-                        GameObject bomb = Instantiate(bombPrefeb, new Vector2(transform.position.x + 1, transform.position.y), transform.rotation);
-                        bomb.GetComponent<GridMovement>().x = 1;
-                        bomb.GetComponent<GridMovement>().y = 0;
-                        bomb.transform.eulerAngles = new Vector3(0, 0, 90);
-                    }
-                    else if (transform.eulerAngles.z == 270)
-                    {
-                        GameObject bomb = Instantiate(bombPrefeb, new Vector2(transform.position.x, transform.position.y + 1), transform.rotation);
-                        bomb.GetComponent<GridMovement>().x = 0;
-                        bomb.GetComponent<GridMovement>().y = 1;
-                        bomb.transform.eulerAngles = new Vector3(0, 0, 180);
-                    }
+                    animator.SetFloat("horizontal", -1);
+                    animator.SetFloat("vertical", 0);
+
+                    GameObject bomb = Instantiate(bombPrefeb, new Vector2(transform.position.x - 1, transform.position.y), transform.rotation);
+                    bomb.GetComponent<GridMovement>().x = -1;
+                    bomb.GetComponent<GridMovement>().y = 0;
+                    bomb.transform.eulerAngles = new Vector3(0, 0, 270);
                 }
-                else if (Input.GetKeyDown(KeyCode.RightArrow) && !switchGravity.IsGrounded(switchGravity.spaceCheck[2]))
+                else if (Input.GetKeyDown(KeyCode.DownArrow))
                 {
-                    if (transform.eulerAngles.z == 0)
-                    {
-                        GameObject bomb = Instantiate(bombPrefeb, new Vector2(transform.position.x + 1, transform.position.y), transform.rotation);
-                        bomb.GetComponent<GridMovement>().x = 1;
-                        bomb.GetComponent<GridMovement>().y = 0;
-                        bomb.transform.eulerAngles = new Vector3(0, 0, 90);
-                    }
-                    else if (transform.eulerAngles.z == 90)
-                    {
-                        GameObject bomb = Instantiate(bombPrefeb, new Vector2(transform.position.x, transform.position.y + 1), transform.rotation);
-                        bomb.GetComponent<GridMovement>().x = 0;
-                        bomb.GetComponent<GridMovement>().y = 1;
-                        bomb.transform.eulerAngles = new Vector3(0, 0, 180);
-                    }
-                    else if (transform.eulerAngles.z == 180)
-                    {
-                        GameObject bomb = Instantiate(bombPrefeb, new Vector2(transform.position.x - 1, transform.position.y), transform.rotation);
-                        bomb.GetComponent<GridMovement>().x = -1;
-                        bomb.GetComponent<GridMovement>().y = 0;
-                        bomb.transform.eulerAngles = new Vector3(0, 0, 270);
-                    }
-                    else if (transform.eulerAngles.z == 270)
-                    {
-                        GameObject bomb = Instantiate(bombPrefeb, new Vector2(transform.position.x, transform.position.y - 1), transform.rotation);
-                        bomb.GetComponent<GridMovement>().x = 0;
-                        bomb.GetComponent<GridMovement>().y = -1;
-                        bomb.transform.eulerAngles = new Vector3(0, 0, 0);
-                    }
+                    animator.SetFloat("horizontal", 0);
+                    animator.SetFloat("vertical", -1);
+
+                    GameObject bomb = Instantiate(bombPrefeb, new Vector2(transform.position.x, transform.position.y - 1), transform.rotation);
+                    bomb.GetComponent<GridMovement>().x = 0;
+                    bomb.GetComponent<GridMovement>().y = -1;
+                    bomb.transform.eulerAngles = new Vector3(0, 0, 0);
+                }
+                else if (Input.GetKeyDown(KeyCode.RightArrow))
+                {
+                    animator.SetFloat("horizontal", 1);
+                    animator.SetFloat("vertical", 0);
+
+                    GameObject bomb = Instantiate(bombPrefeb, new Vector2(transform.position.x + 1, transform.position.y), transform.rotation);
+                    bomb.GetComponent<GridMovement>().x = 1;
+                    bomb.GetComponent<GridMovement>().y = 0;
+                    bomb.transform.eulerAngles = new Vector3(0, 0, 90);
                 }
             }
         }
