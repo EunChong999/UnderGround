@@ -7,7 +7,7 @@ using static UnityEngine.Rendering.DebugUI.Table;
 public class SwitchGravity : MonoBehaviour
 {
     public Transform[] spaceCheck;
-    [HideInInspector] public Transform direction;
+    public Transform direction;
     [SerializeField] private LayerMask groundLayer;
 
     [HideInInspector] public bool isChangingGravity;
@@ -46,7 +46,7 @@ public class SwitchGravity : MonoBehaviour
         ChangeGravity();
     }
 
-    void GroundCheck(Transform transform)
+    public void GroundCheck(Transform transform)
     {
         if (IsGrounded(transform) && transform.position.x % 1 == 0 && transform.position.y % 1 == 0)
         {

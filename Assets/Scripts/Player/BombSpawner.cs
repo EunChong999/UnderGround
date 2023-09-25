@@ -24,10 +24,8 @@ public class BombSpawner : MonoBehaviour
         {
             if (!switchGravity.isChangingGravity)
             {
-                if (Input.GetKeyDown(KeyCode.UpArrow)) // Complete
+                if (Input.GetKeyDown(KeyCode.UpArrow) && switchGravity.direction != switchGravity.spaceCheck[0]) // Complete
                 {
-                    switchGravity.direction = switchGravity.spaceCheck[0];
-
                     animator.SetFloat("horizontal", 0);
                     animator.SetFloat("vertical", 1);
 
@@ -36,10 +34,8 @@ public class BombSpawner : MonoBehaviour
                     bomb.GetComponent<GridMovement>().y = 1;
                     bomb.transform.eulerAngles = new Vector3(0, 0, 180);
                 }
-                else if (Input.GetKeyDown(KeyCode.LeftArrow))
+                else if (Input.GetKeyDown(KeyCode.LeftArrow) && switchGravity.direction != switchGravity.spaceCheck[1])
                 {
-                    switchGravity.direction = switchGravity.spaceCheck[1];
-
                     animator.SetFloat("horizontal", -1);
                     animator.SetFloat("vertical", 0);
 
@@ -48,10 +44,8 @@ public class BombSpawner : MonoBehaviour
                     bomb.GetComponent<GridMovement>().y = 0;
                     bomb.transform.eulerAngles = new Vector3(0, 0, 270);
                 }
-                else if (Input.GetKeyDown(KeyCode.DownArrow))
+                else if (Input.GetKeyDown(KeyCode.DownArrow) && switchGravity.direction != switchGravity.spaceCheck[2])
                 {
-                    switchGravity.direction = switchGravity.spaceCheck[2];
-
                     animator.SetFloat("horizontal", 0);
                     animator.SetFloat("vertical", -1);
 
@@ -60,10 +54,8 @@ public class BombSpawner : MonoBehaviour
                     bomb.GetComponent<GridMovement>().y = -1;
                     bomb.transform.eulerAngles = new Vector3(0, 0, 0);
                 }
-                else if (Input.GetKeyDown(KeyCode.RightArrow))
+                else if (Input.GetKeyDown(KeyCode.RightArrow) && switchGravity.direction != switchGravity.spaceCheck[3])
                 {
-                    switchGravity.direction = switchGravity.spaceCheck[3];
-
                     animator.SetFloat("horizontal", 1);
                     animator.SetFloat("vertical", 0);
 
