@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Tilemaps;
 using Pathfinding;
+using Unity.VisualScripting;
 
 public class MapDestroyer : MonoBehaviour
 {
@@ -16,6 +17,13 @@ public class MapDestroyer : MonoBehaviour
     [SerializeField] private AstarPath astar;
 
     public Bounds updateBounds;
+
+    // Bounds를 시각화하는 함수
+    private void OnDrawGizmos()
+    {
+        Gizmos.color = Color.red; // 시각화 색상 설정
+        Gizmos.DrawWireCube(updateBounds.center, updateBounds.size); // Bounds를 시각화
+    }
 
     public void Explode(Transform worldPos)
     {
