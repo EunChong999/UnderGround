@@ -6,22 +6,22 @@ using static UnityEngine.Rendering.DebugUI.Table;
 
 public class SwitchGravity : MonoBehaviour
 {
+    [SerializeField] private Transform groundCheck;
     public Transform[] spaceCheck;
-    public Transform direction;
     [SerializeField] private LayerMask groundLayer;
 
     [HideInInspector] public bool isChangingGravity;
     private Rigidbody2D rb;
+    private RotateCamera rotationCamera;
     private GridMovement gridMovement;
     private Animator animator;
     Health health;
 
     void Start()
     {
-        direction = spaceCheck[2];
-
         isChangingGravity = false;
         rb = GetComponent<Rigidbody2D>();
+        rotationCamera = GameObject.Find("Virtual Camera").GetComponent<RotateCamera>();
         gridMovement = GetComponent<GridMovement>();
         animator = transform.GetChild(0).GetComponent<Animator>();
         health = GetComponent<Health>();
@@ -34,28 +34,26 @@ public class SwitchGravity : MonoBehaviour
 
     private void OnDrawGizmos()
     {
+        Gizmos.DrawSphere(groundCheck.position, 0.25f);
         Gizmos.DrawSphere(spaceCheck[0].position, 0.25f);
         Gizmos.DrawSphere(spaceCheck[1].position, 0.25f);
         Gizmos.DrawSphere(spaceCheck[2].position, 0.25f);
-        Gizmos.DrawSphere(spaceCheck[3].position, 0.25f);
     }
 
     void Update()
     {
-        GroundCheck(direction);
+        GroundCheck();
         ChangeGravity();
     }
 
-    public void GroundCheck(Transform transform)
+    void GroundCheck()
     {
-        if (IsGrounded(transform) && transform.position.x % 1 == 0 && transform.position.y % 1 == 0)
+        if (IsGrounded(groundCheck) && transform.position.x % 1 == 0 && transform.position.y % 1 == 0)
         {
-            animator.SetBool("isWalking", false);
             isChangingGravity = false;
         }
         else
         {
-            animator.SetBool("isWalking", true);
             isChangingGravity = true;
         }
     }
@@ -68,55 +66,134 @@ public class SwitchGravity : MonoBehaviour
             {
                 if (Input.GetKeyDown(KeyCode.W)) // Complete
                 {
-                    direction = spaceCheck[0];
+                    animator.SetBool("IsVertical", true);
 
-                    animator.SetFloat("horizontal", 0);
-                    animator.SetFloat("vertical", 1);
+                    if (transform.eulerAngles.z == 0)
+                    {
+                        gridMovement.x = 0;
+                        gridMovement.y = 1;
+                        transform.eulerAngles = new Vector3(0, 0, 180);
+                    }
+                    else if (transform.eulerAngles.z == 90)
+                    {
+                        gridMovement.x = -1;
+                        gridMovement.y = 0;
+                        transform.eulerAngles = new Vector3(0, 0, 270);
+                    }
+                    else if (transform.eulerAngles.z == 180)
+                    {
+                        gridMovement.x = 0;
+                        gridMovement.y = -1;
+                        transform.eulerAngles = new Vector3(0, 0, 0);
+                    }
+                    else if (transform.eulerAngles.z == 270)
+                    {
+                        gridMovement.x = 1;
+                        gridMovement.y = 0;
+                        transform.eulerAngles = new Vector3(0, 0, 90);
+                    }
 
-                    gridMovement.x = 0;
-                    gridMovement.y = 1;
+                    rotationCamera.ChangeRotate(transform.eulerAngles.z);
                 }
                 else if (Input.GetKeyDown(KeyCode.A))
                 {
-                    direction = spaceCheck[1];
+                    animator.SetBool("IsHorizontal", true);
 
-                    animator.SetFloat("horizontal", -1);
-                    animator.SetFloat("vertical", 0);
+                    if (transform.eulerAngles.z == 0)
+                    {
+                        gridMovement.x = -1;
+                        gridMovement.y = 0;
+                        transform.eulerAngles = new Vector3(0, 0, 270);
+                        rotationCamera.ChangeRotate(270);
+                    }
+                    else if (transform.eulerAngles.z == 90)
+                    {
+                        gridMovement.x = 0;
+                        gridMovement.y = -1;
+                        transform.eulerAngles = new Vector3(0, 0, 0);
+                        rotationCamera.ChangeRotate(0);
+                    }
+                    else if (transform.eulerAngles.z == 180)
+                    {
+                        gridMovement.x = 1;
+                        gridMovement.y = 0;
+                        transform.eulerAngles = new Vector3(0, 0, 90);
+                        rotationCamera.ChangeRotate(90);
+                    }
+                    else if (transform.eulerAngles.z == 270)
+                    {
+                        gridMovement.x = 0;
+                        gridMovement.y = 1;
+                        transform.eulerAngles = new Vector3(0, 0, 180);
+                        rotationCamera.ChangeRotate(180);
+                    }
 
-                    gridMovement.x = -1;
-                    gridMovement.y = 0;
-                }
-                else if (Input.GetKeyDown(KeyCode.S))
-                {
-                    direction = spaceCheck[2];
-
-                    animator.SetFloat("horizontal", 0);
-                    animator.SetFloat("vertical", -1);
-
-                    gridMovement.x = 0;
-                    gridMovement.y = -1;
+                    rotationCamera.ChangeRotate(transform.eulerAngles.z);
                 }
                 else if (Input.GetKeyDown(KeyCode.D))
                 {
-                    direction = spaceCheck[3];
+                    animator.SetBool("IsHorizontal", true);
 
-                    animator.SetFloat("horizontal", 1);
-                    animator.SetFloat("vertical", 0);
+                    if (transform.eulerAngles.z == 0)
+                    {
+                        gridMovement.x = 1;
+                        gridMovement.y = 0;
+                        transform.eulerAngles = new Vector3(0, 0, 90);
+                    }
+                    else if (transform.eulerAngles.z == 90)
+                    {
+                        gridMovement.x = 0;
+                        gridMovement.y = 1;
+                        transform.eulerAngles = new Vector3(0, 0, 180);
+                    }
+                    else if (transform.eulerAngles.z == 180)
+                    {
+                        gridMovement.x = -1;
+                        gridMovement.y = 0;
+                        transform.eulerAngles = new Vector3(0, 0, 270);
+                    }
+                    else if (transform.eulerAngles.z == 270)
+                    {
+                        gridMovement.x = 0;
+                        gridMovement.y = -1;
+                        transform.eulerAngles = new Vector3(0, 0, 0);
+                    }
 
-                    gridMovement.x = 1;
-                    gridMovement.y = 0;
+                    rotationCamera.ChangeRotate(transform.eulerAngles.z);
+                }
+                else
+                {
+                    animator.SetBool("IsHorizontal", false);
+                    animator.SetBool("IsVertical", false);
                 }
             }
         }
         else
         {
-            // 플레이어 사망 시 제일 마지막에 저장된 중력의 방향으로 떨어짐
+            // ?÷???? ??? ?? ???? ???????? ????? ????? ???????? ??????
             if (isChangingGravity)
             {
-                gridMovement.x = 0;
-                gridMovement.y = -1;
+                if (transform.eulerAngles.z == 0)
+                {
+                    gridMovement.x = 0;
+                    gridMovement.y = -1;
+                }
+                else if (transform.eulerAngles.z == 90)
+                {
+                    gridMovement.x = 1;
+                    gridMovement.y = 0;
+                }
+                else if (transform.eulerAngles.z == 180)
+                {
+                    gridMovement.x = 0;
+                    gridMovement.y = 1;
+                }
+                else if (transform.eulerAngles.z == 270)
+                {
+                    gridMovement.x = -1;
+                    gridMovement.y = 0;
+                }
             }
         }
     }
 }
-

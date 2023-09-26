@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Tilemaps;
+using Pathfinding;
 
 public class MapDestroyer : MonoBehaviour
 {
@@ -11,6 +12,10 @@ public class MapDestroyer : MonoBehaviour
     [SerializeField] private Tile destructibleTile;
     [SerializeField] private GameObject explosionPrefeb;
     [SerializeField] private int explosionRange;
+
+    [SerializeField] private AstarPath astar;
+
+    public Bounds updateBounds;
 
     public void Explode(Transform worldPos)
     {
@@ -82,6 +87,9 @@ public class MapDestroyer : MonoBehaviour
         if (objectTile == destructibleTile || objectRuleTile == destructibleTile) 
         {
             objectTilemap.SetTile(cell, null);
+
+            // 주어진 bounds와 delay로 그래프 업데이트 예약
+            AstarPath.active.UpdateGraphs(updateBounds, 0);
         }
 
         Vector3 pos = gamePlayTilemap.GetCellCenterWorld(cell);
