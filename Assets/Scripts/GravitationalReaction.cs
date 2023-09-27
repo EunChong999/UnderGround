@@ -18,49 +18,13 @@ public class GravitationalReaction : MonoBehaviour
     {
         transform.rotation = player.transform.rotation;
 
-        if (player.transform.eulerAngles.z == 0)
+        if (player.transform.position.x < transform.position.x)
         {
-            if (player.transform.position.x < transform.position.x)
-            {
-                transform.localScale = new Vector3(1, 1, 1);
-            }
-            else
-            {
-                transform.localScale = new Vector3(-1, 1, 1);
-            }
+            transform.localScale = new Vector3(1, 1, 1);
         }
-        else if (player.transform.eulerAngles.z == 90)
+        else
         {
-            if (player.transform.position.y < transform.position.y)
-            {
-                transform.localScale = new Vector3(1, 1, 1);
-            }
-            else
-            {
-                transform.localScale = new Vector3(-1, 1, 1);
-            }
-        }
-        else if (player.transform.eulerAngles.z == 180)
-        {
-            if (player.transform.position.x < transform.position.x)
-            {
-                transform.localScale = new Vector3(-1, 1, 1);
-            }
-            else
-            {
-                transform.localScale = new Vector3(1, 1, 1);
-            }
-        }
-        else if (player.transform.eulerAngles.z == 270)
-        {
-            if (player.transform.position.y < transform.position.y)
-            {
-                transform.localScale = new Vector3(-1, 1, 1);
-            }
-            else
-            {
-                transform.localScale = new Vector3(1, 1, 1);
-            }
+            transform.localScale = new Vector3(-1, 1, 1);
         }
     }
 }

@@ -29,28 +29,28 @@ public class CameraZoom : MonoBehaviour
 
         if (switchGravity.isMoving) 
         {
-            if (zoom < maxZoom) 
+            if (zoom < maxZoom - 0.01f) 
             {
-                zoom = Mathf.Lerp(zoom, maxZoom, 0.05f);
                 pixelPerfect.enabled = false;
+                zoom = Mathf.Lerp(zoom, maxZoom, 0.05f);
             }
             else
             {
-                zoom = maxZoom;
                 pixelPerfect.enabled = true;
+                zoom = maxZoom;
             }
         }
         else
         {
-            if (zoom > minZoom)
+            if (zoom > minZoom + 0.01f)
             {
-                zoom = Mathf.Lerp(zoom, minZoom, 0.05f);
                 pixelPerfect.enabled = false;
+                zoom = Mathf.Lerp(zoom, minZoom, 0.05f);
             }
             else
             {
-                zoom = minZoom;
                 pixelPerfect.enabled = true;
+                zoom = minZoom;
             }
         }
     }
