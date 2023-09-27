@@ -3201,9 +3201,9 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1720445816}
-  - {fileID: 1639192506}
   - {fileID: 2123648296}
   - {fileID: 1556482957}
+  - {fileID: 1639192506}
   - {fileID: 2097374055}
   - {fileID: 670861663}
   - {fileID: 1238231215}
@@ -3222,15 +3222,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 45e7a78e8b033a44687eb93f8599279d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  groundCheck: {fileID: 1639192506}
   spaceCheck:
   - {fileID: 2123648296}
   - {fileID: 1556482957}
+  - {fileID: 1639192506}
   - {fileID: 2097374055}
   groundLayer:
     serializedVersion: 2
     m_Bits: 72
-  isChangingGravity: 0
+  isSpaced: 00000000
+  direction: {fileID: 0}
+  isMoving: 0
 --- !u!114 &1124584961
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3627,7 +3629,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1192449316}
   - component: {fileID: 1192449315}
-  - component: {fileID: 1192449317}
   - component: {fileID: 1192449319}
   - component: {fileID: 1192449318}
   m_Layer: 0
@@ -3692,20 +3693,6 @@ Transform:
   m_Father: {fileID: 300502710}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1192449317
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1192449314}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0ee7c62d2085c244b9790fbb717f1335, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  lerpTime: 10
-  currentTime: 0
 --- !u!114 &1192449318
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4099,7 +4086,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   version: 1
   data:
-    dataString: UEsDBBQAAAgIAABIIexgkj8aXwIAABAFAAALACQAZ3JhcGgwLmpzb24KACAAAAAAAAEAGAAAgD7V3rGdAQCAPtXesZ0BAIA+1d6xnQFlVE1z2jAQ/SuMzqVjnEBCby0hpIckTGgnF18Ua401yJJHkgMkw3/vrixjh54svbcfbz/kTya1qyH3xq6sFI9GAPsxYnRm30Y9+QAHvjV6Iz+gs3mVwpdkxIPNC/fSID4hN2cq8FbmP/VWkXGCYKNlYWy1FFtYGOcdwgVXDpCyxpO3RuhzxA74Gc/J5Yin9IZOH3iaJ6MTHnPQHmxvmnyfRtP2RKatZaNzxasaBMnuHaZd6GlrprGgaEHic6OUdFEN88c6VPvCj1SrkBwrC+lTvJYgt6WPl7Pjc1E48LFsy4930mKD2ojsl2m7VnG3azW9c9VQjps0yGljPv5HjyeBLqypHrq0k4RS+FLmOxSYc+cHXR3Cd73uSejMnqsdf1PwWoJ+MitrGi2Q9LYh18ZBetdfz5UtSsh3Pd5KvQCbejCbbjJxLlTDKRR/WChZvYWhXbfARpnQ6jB5sDiU3yg47IWLIRAlFX8d/OHb4QJF4l5a55GKVWqS92YaS6ZsGXpG1TR+YayGAEfRNWiu/HGNYfzlBC+4QdoL5p7TU4nJI9e9gAuXAPf2SXJBrc3+PCxXmv0juPK58Upq6EUT8YR9Whit2wVzX0ny2jS24PnAa9tI8XWzmLhNp7eTokjErJjNZsn4ep5e5zy94nMQVyKZsLB6UmOZXK1bnbE7ODTdB9e4Zt0PZLSyvA67Lizfr+RHZQb6pC7MJrcA+rmN0HXIgcUk+B7FUkjszwa8lzqMm31mTJl8ByI7B8pCpcuDtzzro2Sslu/GE5KxRfhjZIzg8yqvLbxL2FPyLtiJnf4BUEsDBBQAAAgIAABIIeyvuKp6bQAAAHgAAAAJACQAbWV0YS5qc29uCgAgAAAAAAABABgAAIA+1d6xnQEAgD7V3rGdAQCAPtXesZ0Bq1YqSy0qzszPU7JSMNEz0jM011FQSi9KLMgoBooYgjilmSkgdrRSioWRqYVhWppBilmamZmZga6JpZFJcqKRcaJlaopxioGhUixQfUllQapfYm4qRE9AYklGWmZeSmZeup57UWaKO8hopdhaAFBLAQItABQAAAgIAABIIexgkj8aXwIAABAFAAALACQAAAAAAAAAAAAAAAAAAABncmFwaDAuanNvbgoAIAAAAAAAAQAYAACAPtXesZ0BAIA+1d6xnQEAgD7V3rGdAVBLAQItABQAAAgIAABIIeyvuKp6bQAAAHgAAAAJACQAAAAAAAAAAAAAAKwCAABtZXRhLmpzb24KACAAAAAAAAEAGAAAgD7V3rGdAQCAPtXesZ0BAIA+1d6xnQFQSwUGAAAAAAIAAgC4AAAAZAMAAAAA
+    dataString: UEsDBBQAAAgIAABIIezHayYxYgIAABUFAAALACQAZ3JhcGgwLmpzb24KACAAAAAAAAEAGAAAgD7V3rGdAQCAPtXesZ0BAIA+1d6xnQFlVE1z2jAQ/SuMziVjCJDQWwuE9EDChHRy8UWx1liDLHkkOUAy/PfuyjZ23BPLe/vx9kP+YlK7AhJv7NpKsTEC2M8BI5v9GLTkI5z43uid/ITG500Kn5ETDz4v3EuD+IjCnMnBW5n80ntFzhGCpZapsflK7GFhnHcIp1w5QMoaT9Eaoa8BO+HPcE4hZ7TGd2R9ojWPBhc0E9AebOsa3Uxr18oi18qz1InieQGCZLcB0yb1tHLT2FDtQeITo5R0tRrmz0XodldkYIHaFZJjc0FBdEMBGch95klqN/o5TR34unfLz0tpcUpVWvbbVKPLuTtUwj64KqnQ3ThoqnJu/qOHo0Cn1uSPTdlRRCV8JpPDCz8n3PnOaLvwslU+CuM5cnXg7wreMtBPZm1NqQWS3pYUWjoYL9u/184WGSSHFq+k9sCy6CyoWU+9HOrhEpo/LZTM38MgJxWwUybMO6wfLG7mDwoOx+HqFIiSir8OXvm+e0U18SCt80jVXWqS925KS65sFWZG3ZR+YayGANeiC9Bc+fMW0/j+Bntcp2yPeeD0XuriNdc8g15IgFv/KOpRW3O8Lstl5rgBlz2XXkkNrWginnBOC6N1dWDuO0lRu9KmPOlE7Uspvl8WE/fj6f0oTSMxS2ezWTSczMeThI9v+RzErYhGLJye1NgmV9tKZz0dXJpuk2s8s+YrMlhbXoRbF5Yf1/IzNx19Uqdml1gA/VxlaCbkwGIRfJRiJSTOZwfeSx3Wzb5ipkxyABFfE8Wh09XJWx63WWJWyA/jCYnZInw2Ykbw9ZS3Fj4kHKl4k+zCLv8AUEsDBBQAAAgIAABIIeyvuKp6bQAAAHgAAAAJACQAbWV0YS5qc29uCgAgAAAAAAABABgAAIA+1d6xnQEAgD7V3rGdAQCAPtXesZ0Bq1YqSy0qzszPU7JSMNEz0jM011FQSi9KLMgoBooYgjilmSkgdrRSioWRqYVhWppBilmamZmZga6JpZFJcqKRcaJlaopxioGhUixQfUllQapfYm4qRE9AYklGWmZeSmZeup57UWaKO8hopdhaAFBLAQItABQAAAgIAABIIezHayYxYgIAABUFAAALACQAAAAAAAAAAAAAAAAAAABncmFwaDAuanNvbgoAIAAAAAAAAQAYAACAPtXesZ0BAIA+1d6xnQEAgD7V3rGdAVBLAQItABQAAAgIAABIIeyvuKp6bQAAAHgAAAAJACQAAAAAAAAAAAAAAK8CAABtZXRhLmpzb24KACAAAAAAAAEAGAAAgD7V3rGdAQCAPtXesZ0BAIA+1d6xnQFQSwUGAAAAAAIAAgC4AAAAZwMAAAAA
     upgradeData: 
     file_cachedStartup: {fileID: 0}
     data_cachedStartup: 
@@ -7119,7 +7106,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1639192506}
   m_Layer: 0
-  m_Name: Ground Check
+  m_Name: Down Space Check
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

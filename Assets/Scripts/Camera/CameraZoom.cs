@@ -27,7 +27,7 @@ public class CameraZoom : MonoBehaviour
     {
         camera.m_Lens.OrthographicSize = zoom;
 
-        if (switchGravity.isChangingGravity) 
+        if (switchGravity.isMoving) 
         {
             if (zoom < maxZoom) 
             {
