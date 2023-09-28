@@ -19,7 +19,6 @@ public class SwitchGravity : MonoBehaviour
 
     void Start()
     {
-        direction = spaceCheck[2];
         rb = GetComponent<Rigidbody2D>();
         gridMovement = GetComponent<GridMovement>();
         animator = transform.GetChild(0).GetComponent<Animator>();

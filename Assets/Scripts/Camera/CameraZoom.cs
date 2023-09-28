@@ -12,6 +12,9 @@ public class CameraZoom : MonoBehaviour
     [SerializeField] private float minZoom;
     [SerializeField] private float maxZoom;
 
+    [SerializeField] private float smoothTime;
+
+    private float velocity;
     private SwitchGravity switchGravity;
     private CinemachinePixelPerfect pixelPerfect;
 
@@ -32,7 +35,7 @@ public class CameraZoom : MonoBehaviour
             if (zoom < maxZoom - 0.0001f) 
             {
                 pixelPerfect.enabled = false;
-                zoom = Mathf.Lerp(zoom, maxZoom, 0.05f);
+                zoom = Mathf.SmoothDamp(zoom, maxZoom, ref velocity, smoothTime);
             }
             else
             {
@@ -45,7 +48,7 @@ public class CameraZoom : MonoBehaviour
             if (zoom > minZoom + 0.0001f)
             {
                 pixelPerfect.enabled = false;
-                zoom = Mathf.Lerp(zoom, minZoom, 0.05f);
+                zoom = Mathf.SmoothDamp(zoom, minZoom, ref velocity, smoothTime);
             }
             else
             {
