@@ -19,17 +19,17 @@ public class MapDestroyer : MonoBehaviour
 
     public Bounds updateBounds;
 
-    public List<GameObject> pooledUpObjects = new List<GameObject>();  
-    public List<GameObject> pooledLeftObjects = new List<GameObject>();  
-    public List<GameObject> pooledDownObjects = new List<GameObject>();  
-    public List<GameObject> pooledRightObjects = new List<GameObject>();
+    public List<GameObject> pooledUpObjects;
+    public List<GameObject> pooledLeftObjects;
+    public List<GameObject> pooledDownObjects;
+    public List<GameObject> pooledRightObjects;
 
     [Space(25)]
 
-    public List<Vector3Int> pooledUpTilesPos = new List<Vector3Int>();  
-    public List<Vector3Int> pooledLeftTilesPos = new List<Vector3Int>();  
-    public List<Vector3Int> pooledDownTilesPos = new List<Vector3Int>();  
-    public List<Vector3Int> pooledRightTilesPos = new List<Vector3Int>();  
+    public List<Vector3Int> pooledUpTilesPos;
+    public List<Vector3Int> pooledLeftTilesPos;
+    public List<Vector3Int> pooledDownTilesPos;
+    public List<Vector3Int> pooledRightTilesPos;
 
     // Bounds를 시각화하는 함수
     private void OnDrawGizmos()
@@ -40,16 +40,16 @@ public class MapDestroyer : MonoBehaviour
 
     public void Explode(Transform worldPos)
     {
-        pooledUpObjects.Clear();
-        pooledLeftObjects.Clear();
-        pooledDownObjects.Clear();
-        pooledRightObjects.Clear();
+        pooledUpObjects = new List<GameObject>();
+        pooledLeftObjects = new List<GameObject>();
+        pooledDownObjects = new List<GameObject>();
+        pooledRightObjects = new List<GameObject>();
 
-        pooledUpTilesPos.Clear();
-        pooledLeftTilesPos.Clear();
-        pooledDownTilesPos.Clear();
-        pooledRightTilesPos.Clear();
-        
+        pooledUpTilesPos = new List<Vector3Int>();
+        pooledLeftTilesPos = new List<Vector3Int>();
+        pooledDownTilesPos = new List<Vector3Int>();
+        pooledRightTilesPos = new List<Vector3Int>();
+
         Vector3Int originCell = gamePlayTilemap.WorldToCell(worldPos.position);
 
         ExplodeCellCheck(worldPos, originCell, "middle");
@@ -102,7 +102,7 @@ public class MapDestroyer : MonoBehaviour
     // 코루틴 함수 정의
     IEnumerator ExplodeCell(List<GameObject> pooledObjects)
     {
-        for (int i = 0; i < pooledObjects.Count; i++) 
+        for (int i = 0; i < pooledObjects.Count; i++)
         {
             yield return new WaitForSeconds(interval);
 
@@ -126,7 +126,7 @@ public class MapDestroyer : MonoBehaviour
         yield break;
     }
 
-    bool ExplodeCellCheck(Transform worldPos ,Vector3Int originCell, string str)
+    bool ExplodeCellCheck(Transform worldPos, Vector3Int originCell, string str)
     {
         RuleTile gamePlayRuleTile = gamePlayTilemap.GetTile<RuleTile>(originCell);
 
