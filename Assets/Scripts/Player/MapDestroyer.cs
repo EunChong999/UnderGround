@@ -13,11 +13,23 @@ public class MapDestroyer : MonoBehaviour
     [SerializeField] private Tile destructibleTile;
     [SerializeField] private GameObject explosionPrefeb;
     [SerializeField] private int explosionRange;
-    [SerializeField] private int interval;
+    [SerializeField] private float interval;
 
     [SerializeField] private AstarPath astar;
 
     public Bounds updateBounds;
+
+    public List<GameObject> pooledUpObjects = new List<GameObject>();  
+    public List<GameObject> pooledLeftObjects = new List<GameObject>();  
+    public List<GameObject> pooledDownObjects = new List<GameObject>();  
+    public List<GameObject> pooledRightObjects = new List<GameObject>();
+
+    [Space(25)]
+
+    public List<Vector3Int> pooledUpTilesPos = new List<Vector3Int>();  
+    public List<Vector3Int> pooledLeftTilesPos = new List<Vector3Int>();  
+    public List<Vector3Int> pooledDownTilesPos = new List<Vector3Int>();  
+    public List<Vector3Int> pooledRightTilesPos = new List<Vector3Int>();  
 
     // Bounds를 시각화하는 함수
     private void OnDrawGizmos()
@@ -28,147 +40,164 @@ public class MapDestroyer : MonoBehaviour
 
     public void Explode(Transform worldPos)
     {
+        pooledUpObjects.Clear();
+        pooledLeftObjects.Clear();
+        pooledDownObjects.Clear();
+        pooledRightObjects.Clear();
+
+        pooledUpTilesPos.Clear();
+        pooledLeftTilesPos.Clear();
+        pooledDownTilesPos.Clear();
+        pooledRightTilesPos.Clear();
+        
         Vector3Int originCell = gamePlayTilemap.WorldToCell(worldPos.position);
 
-        ExplodeCellCheck(worldPos, originCell);
+        ExplodeCellCheck(worldPos, originCell, "middle");
 
         for (int i = 0; i < explosionRange; i++)
         {
-            if (ExplodeCellCheck(worldPos, originCell + new Vector3Int(0, i + 1, 0)))
-            {
-                ExplodeCellCheck(worldPos, originCell + new Vector3Int(0, i + 2, 0));
-            }
+            if (ExplodeCellCheck(worldPos, originCell + new Vector3Int(0, i + 1, 0), "up")) { }
             else
             {
-                Debug.Log("Up Explosion Size : " + Mathf.Abs(i));
-                //StartCoroutine(ExplodeCell(Mathf.Abs(i), worldPos, originCell));
+                StartCoroutine(ExplodeCell(pooledUpObjects));
+                StartCoroutine(ExplodeTile(pooledUpTilesPos));
                 break;
             }
         }
 
         for (int i = 0; i < explosionRange; i--)
         {
-            if (ExplodeCellCheck(worldPos, originCell + new Vector3Int(i - 1, 0, 0)))
-            {
-                ExplodeCellCheck(worldPos, originCell + new Vector3Int(i - 2, 0, 0));
-            }
+            if (ExplodeCellCheck(worldPos, originCell + new Vector3Int(i - 1, 0, 0), "left")) { }
             else
             {
-                Debug.Log("Left Explosion Size : " + Mathf.Abs(i));
-                //StartCoroutine(ExplodeCell(Mathf.Abs(i), worldPos, originCell));
+                StartCoroutine(ExplodeCell(pooledLeftObjects));
+                StartCoroutine(ExplodeTile(pooledLeftTilesPos));
                 break;
             }
         }
 
         for (int i = 0; i < explosionRange; i--)
         {
-            if (ExplodeCellCheck(worldPos, originCell + new Vector3Int(0, i - 1, 0)))
-            {
-                ExplodeCellCheck(worldPos, originCell + new Vector3Int(0, i - 2, 0));
-            }
+            if (ExplodeCellCheck(worldPos, originCell + new Vector3Int(0, i - 1, 0), "down")) { }
             else
             {
-                Debug.Log("Down Explosion Size : " + Mathf.Abs(i));
-                //StartCoroutine(ExplodeCell(Mathf.Abs(i), worldPos, originCell));
+                StartCoroutine(ExplodeCell(pooledDownObjects));
+                StartCoroutine(ExplodeTile(pooledDownTilesPos));
                 break;
             }
         }
 
         for (int i = 0; i < explosionRange; i++)
         {
-            if (ExplodeCellCheck(worldPos, originCell + new Vector3Int(i + 1, 0, 0)))
-            {
-                ExplodeCellCheck(worldPos, originCell + new Vector3Int(i + 2, 0, 0));
-            }
+            if (ExplodeCellCheck(worldPos, originCell + new Vector3Int(i + 1, 0, 0), "right")) { }
             else
             {
-                Debug.Log("Right Explosion Size : " + Mathf.Abs(i));
-                //StartCoroutine(ExplodeCell(Mathf.Abs(i), worldPos, originCell));
+                StartCoroutine(ExplodeCell(pooledRightObjects));
+                StartCoroutine(ExplodeTile(pooledRightTilesPos));
                 break;
             }
         }
     }
 
-    bool ExplodeCellCheck(Transform worldPos, Vector3Int cell)
+    // 코루틴 함수 정의
+    IEnumerator ExplodeCell(List<GameObject> pooledObjects)
     {
-        Tile gamePlayTile = gamePlayTilemap.GetTile<Tile>(cell);
-        RuleTile gamePlayRuleTile = gamePlayTilemap.GetTile<RuleTile>(cell);
-        Tile objectTile = objectTilemap.GetTile<Tile>(cell);
-        RuleTile objectRuleTile = objectTilemap.GetTile<RuleTile>(cell);
-
-        if (gamePlayTile == wallTile || gamePlayRuleTile == wallTile)
+        for (int i = 0; i < pooledObjects.Count; i++) 
         {
-            return false;
+            yield return new WaitForSeconds(interval);
+
+            pooledObjects[i].SetActive(true);
         }
 
-        if (objectTile == destructibleTile || objectRuleTile == destructibleTile)
+        yield break;
+    }
+
+    IEnumerator ExplodeTile(List<Vector3Int> pooledTilesPos)
+    {
+        for (int i = 0; i < pooledTilesPos.Count; i++)
         {
-            objectTilemap.SetTile(cell, null);
+            yield return new WaitForSeconds(interval);
+
+            objectTilemap.SetTile(pooledTilesPos[i], null);
 
             AstarPath.active.UpdateGraphs(updateBounds, 0);
         }
 
-        Vector3 pos = gamePlayTilemap.GetCellCenterWorld(cell);
-        Instantiate(explosionPrefeb, pos, worldPos.rotation);
-
-        return true;
+        yield break;
     }
 
-    private IEnumerator ExplodeCell(int explosionSize, Transform worldPos, Vector3Int originCell) // 받은 거리 값만큼 월드 포스를 기준으로 하여 정해진 방향으로 순차적으로 터뜨리기
+    bool ExplodeCellCheck(Transform worldPos ,Vector3Int originCell, string str)
     {
-        while (true)
+        RuleTile gamePlayRuleTile = gamePlayTilemap.GetTile<RuleTile>(originCell);
+
+        if (gamePlayRuleTile == wallTile)
         {
-            for (int i = 0; i < explosionSize; i++)
-            {
-                yield return new WaitForSeconds(interval);
-
-                if (ExplodeCellCheck(worldPos, originCell + new Vector3Int(0, i + 1, 0)))
-                {
-                    ExplodeCellCheck(worldPos, originCell + new Vector3Int(0, i + 2, 0));
-                }
-                else
-                {
-                    break;
-                }
-            }
-
-            for (int i = 0; i < explosionSize; i--)
-            {
-                if (ExplodeCellCheck(worldPos, originCell + new Vector3Int(i - 1, 0, 0)))
-                {
-                    ExplodeCellCheck(worldPos, originCell + new Vector3Int(i - 2, 0, 0));
-                }
-                else
-                {
-                    break;
-                }
-            }
-
-            for (int i = 0; i < explosionSize; i--)
-            {
-                if (ExplodeCellCheck(worldPos, originCell + new Vector3Int(0, i - 1, 0)))
-                {
-                    ExplodeCellCheck(worldPos, originCell + new Vector3Int(0, i - 2, 0));
-                }
-                else
-                {
-                    break;
-                }
-            }
-
-            for (int i = 0; i < explosionSize; i++)
-            {
-                if (ExplodeCellCheck(worldPos, originCell + new Vector3Int(i + 1, 0, 0)))
-                {
-                    ExplodeCellCheck(worldPos, originCell + new Vector3Int(i + 2, 0, 0));
-                }
-                else
-                {
-                    break;
-                }
-            }
-
-            yield break;
+            return false;
         }
+
+        Vector3 pos = gamePlayTilemap.GetCellCenterWorld(originCell);
+
+        switch (str)
+        {
+            case "middle":
+                Instantiate(explosionPrefeb, pos, worldPos.rotation);
+                break;
+            case "up":
+                GameObject objUp = Instantiate(explosionPrefeb, pos, worldPos.rotation);
+                objUp.SetActive(false);
+                pooledUpObjects.Add(objUp);
+
+                Tile objectUpTile = objectTilemap.GetTile<Tile>(originCell);
+
+                if (objectUpTile == destructibleTile)
+                {
+                    pooledUpTilesPos.Add(originCell);
+                }
+
+                break;
+            case "left":
+                GameObject objLeft = Instantiate(explosionPrefeb, pos, worldPos.rotation);
+                objLeft.SetActive(false);
+                pooledLeftObjects.Add(objLeft);
+
+                Tile objectLeftTile = objectTilemap.GetTile<Tile>(originCell);
+
+                if (objectLeftTile == destructibleTile)
+                {
+                    pooledLeftTilesPos.Add(originCell);
+                }
+
+                break;
+            case "down":
+                GameObject objDown = Instantiate(explosionPrefeb, pos, worldPos.rotation);
+                objDown.SetActive(false);
+                pooledDownObjects.Add(objDown);
+
+                Tile objectDownTile = objectTilemap.GetTile<Tile>(originCell);
+
+                if (objectDownTile == destructibleTile)
+                {
+                    pooledDownTilesPos.Add(originCell);
+                }
+
+                break;
+            case "right":
+                GameObject objRight = Instantiate(explosionPrefeb, pos, worldPos.rotation);
+                objRight.SetActive(false);
+                pooledRightObjects.Add(objRight);
+
+                Tile objectRightTile = objectTilemap.GetTile<Tile>(originCell);
+
+                if (objectRightTile == destructibleTile)
+                {
+                    pooledRightTilesPos.Add(originCell);
+                }
+
+                break;
+            default:
+                break;
+        }
+
+        return true;
     }
 }

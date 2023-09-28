@@ -3,7 +3,7 @@ using UnityEngine;
 
 public class MyScript : MonoBehaviour
 {
-    private float interval = 2.0f;
+    [SerializeField] private float interval;
 
     private void Start()
     {
@@ -13,7 +13,7 @@ public class MyScript : MonoBehaviour
 
     private IEnumerator RepeatedMethodWithParameters(float interval)
     {
-        while (true)
+        for(int i = 0; i < 10;  i++) 
         {
             yield return new WaitForSeconds(interval);
 
