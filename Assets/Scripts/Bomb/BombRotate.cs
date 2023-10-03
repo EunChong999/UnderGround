@@ -4,12 +4,10 @@ using UnityEngine;
 
 public class BombRotate : MonoBehaviour
 {
+    [SerializeField] private float rotateSpeed;
+
     void Update()
     {
-#if !UNITY_EDITOR
-        transform.Rotate(0, 0, 9);
-#else
-        transform.Rotate(0, 0, 3);
-#endif
+        transform.Rotate(0, 0, rotateSpeed * Time.deltaTime);
     }
 }
