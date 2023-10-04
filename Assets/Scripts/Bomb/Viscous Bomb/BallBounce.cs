@@ -24,5 +24,19 @@ public class BallBounce : MonoBehaviour
         var direction = Vector3.Reflect(lastVelocity.normalized, collision.contacts[0].normal);
 
         rb.velocity = direction * Mathf.Max(speed, 0f);
+
+        Vector3 scale = new Vector3(transform.localScale.x, transform.localScale.y, transform.localScale.z);
+
+        scale.x -= 0.025f;
+        scale.y -= 0.025f;
+
+        if (scale.x < 0 && scale.y < 0) 
+        {
+            scale.x = 0;
+            scale.y = 0;
+            gameObject.SetActive(false);
+        }
+
+        transform.localScale = scale;
     }
 }
