@@ -1281,7 +1281,7 @@ MonoBehaviour:
   wallTile: {fileID: 11400000, guid: b60440e396dbfad4eb5d05ae352986b7, type: 2}
   destructibleTile: {fileID: 11400000, guid: 5020d547ac1e6b64fb03225aaf28269f, type: 2}
   explosionPrefeb: {fileID: 1239234518779428570, guid: 60c59f393da4c624ab5739bcdb1a08d7, type: 3}
-  explosionRange: 25
+  explosionRange: 5
   interval: 0.25
   astar: {fileID: 1407282623}
   updateBounds:
@@ -1579,7 +1579,7 @@ MonoBehaviour:
   m_Follow: {fileID: 1124584956}
   m_Lens:
     FieldOfView: 40
-    OrthographicSize: 4.315698
+    OrthographicSize: 4.225
     NearClipPlane: 0.1
     FarClipPlane: 5000
     Dutch: 0

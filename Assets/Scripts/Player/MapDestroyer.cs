@@ -42,11 +42,13 @@ public class MapDestroyer : MonoBehaviour
     {
         pooledUpObjects = new List<GameObject>();
         pooledLeftObjects = new List<GameObject>();
+
         pooledDownObjects = new List<GameObject>();
         pooledRightObjects = new List<GameObject>();
 
         pooledUpTilesPos = new List<Vector3Int>();
         pooledLeftTilesPos = new List<Vector3Int>();
+
         pooledDownTilesPos = new List<Vector3Int>();
         pooledRightTilesPos = new List<Vector3Int>();
 
@@ -59,30 +61,24 @@ public class MapDestroyer : MonoBehaviour
             if (ExplodeCellCheck(worldPos, originCell + new Vector3Int(0, i + 1, 0), "up")) { }
             else
             {
-                StartCoroutine(ExplodeCell(pooledUpObjects));
-                StartCoroutine(ExplodeTile(pooledUpTilesPos));
                 break;
             }
         }
 
-        for (int i = 0; i < explosionRange; i--)
+        for (int i = 0; i < explosionRange; i++)
         {
-            if (ExplodeCellCheck(worldPos, originCell + new Vector3Int(i - 1, 0, 0), "left")) { }
+            if (ExplodeCellCheck(worldPos, originCell + new Vector3Int((i * (-1)) - 1, 0, 0), "left")) { }
             else
             {
-                StartCoroutine(ExplodeCell(pooledLeftObjects));
-                StartCoroutine(ExplodeTile(pooledLeftTilesPos));
                 break;
             }
         }
 
-        for (int i = 0; i < explosionRange; i--)
+        for (int i = 0; i < explosionRange; i++)
         {
-            if (ExplodeCellCheck(worldPos, originCell + new Vector3Int(0, i - 1, 0), "down")) { }
+            if (ExplodeCellCheck(worldPos, originCell + new Vector3Int(0, (i * (-1)) - 1, 0), "down")) { }
             else
             {
-                StartCoroutine(ExplodeCell(pooledDownObjects));
-                StartCoroutine(ExplodeTile(pooledDownTilesPos));
                 break;
             }
         }
@@ -92,11 +88,21 @@ public class MapDestroyer : MonoBehaviour
             if (ExplodeCellCheck(worldPos, originCell + new Vector3Int(i + 1, 0, 0), "right")) { }
             else
             {
-                StartCoroutine(ExplodeCell(pooledRightObjects));
-                StartCoroutine(ExplodeTile(pooledRightTilesPos));
                 break;
             }
         }
+
+        StartCoroutine(ExplodeCell(pooledUpObjects));
+        StartCoroutine(ExplodeTile(pooledUpTilesPos));
+
+        StartCoroutine(ExplodeCell(pooledLeftObjects));
+        StartCoroutine(ExplodeTile(pooledLeftTilesPos));
+
+        StartCoroutine(ExplodeCell(pooledDownObjects));
+        StartCoroutine(ExplodeTile(pooledDownTilesPos));
+
+        StartCoroutine(ExplodeCell(pooledRightObjects));
+        StartCoroutine(ExplodeTile(pooledRightTilesPos));
     }
 
     // 코루틴 함수 정의
