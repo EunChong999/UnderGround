@@ -22,7 +22,8 @@ public class Slime : MonoBehaviour
     [SerializeField]
     private LayerMask whatIsGround;
     private bool hasTurn;
-    private float zaxieAdd;
+    private float zAxisAdd;
+    [SerializeField]
     private int direction;
 
     private void Start()
@@ -50,9 +51,17 @@ public class Slime : MonoBehaviour
         {
             if (!hasTurn)
             {
-                zaxieAdd -= 90;
-                transform.eulerAngles = new Vector3(0, 0, zaxieAdd);
-                transform.position = new Vector2(transform.position.x /*+ 0.2f*/, transform.position.y /*- 0.2f*/);
+                if (wallDetected)
+                {
+                    zAxisAdd += 90;
+                }
+                else
+                {
+                    zAxisAdd -= 90;
+                }
+
+                transform.eulerAngles = new Vector3(0, 0, zAxisAdd);
+
                 hasTurn = true;
             }
         }
@@ -60,6 +69,36 @@ public class Slime : MonoBehaviour
         if (groundDetected)
         {
             hasTurn = false;
+        }
+
+        if (wallDetected)
+        {
+            if (!hasTurn)
+            {
+                if (!groundDetected)
+                {
+                    Debug.Log("Here");
+                    zAxisAdd -= 90;
+                }
+                else
+                {
+                    zAxisAdd += 90;
+                }
+
+                transform.eulerAngles = new Vector3(0, 0, zAxisAdd);
+
+                hasTurn = true;
+            }
+        }
+
+        if (zAxisAdd <= -360)
+        {
+            zAxisAdd = 0;
+        }
+
+        if (zAxisAdd >= 360)
+        {
+            zAxisAdd = 0;
         }
     }
 
