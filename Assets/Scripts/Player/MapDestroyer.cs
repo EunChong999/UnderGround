@@ -155,10 +155,7 @@ public class MapDestroyer : MonoBehaviour
 
                 Tile objectUpTile = objectTilemap.GetTile<Tile>(originCell);
 
-                if (objectUpTile == destructibleTile)
-                {
-                    pooledUpTilesPos.Add(originCell);
-                }
+                pooledUpTilesPos.Add(originCell);
 
                 break;
             case "left":
@@ -168,10 +165,7 @@ public class MapDestroyer : MonoBehaviour
 
                 Tile objectLeftTile = objectTilemap.GetTile<Tile>(originCell);
 
-                if (objectLeftTile == destructibleTile)
-                {
-                    pooledLeftTilesPos.Add(originCell);
-                }
+                pooledLeftTilesPos.Add(originCell);
 
                 break;
             case "down":
@@ -181,10 +175,7 @@ public class MapDestroyer : MonoBehaviour
 
                 Tile objectDownTile = objectTilemap.GetTile<Tile>(originCell);
 
-                if (objectDownTile == destructibleTile)
-                {
-                    pooledDownTilesPos.Add(originCell);
-                }
+                pooledDownTilesPos.Add(originCell);
 
                 break;
             case "right":
@@ -194,10 +185,7 @@ public class MapDestroyer : MonoBehaviour
 
                 Tile objectRightTile = objectTilemap.GetTile<Tile>(originCell);
 
-                if (objectRightTile == destructibleTile)
-                {
-                    pooledRightTilesPos.Add(originCell);
-                }
+                pooledRightTilesPos.Add(originCell);
 
                 break;
             default:
