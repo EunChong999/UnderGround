@@ -8,9 +8,12 @@ public class BallBounce : MonoBehaviour
 
     Vector3 lastVelocity;
 
+    private Ball ball;
+
     private void Start()
     {
         rb = GetComponent<Rigidbody2D>();
+        ball = GetComponent<Ball>();
     }
 
     private void Update()
@@ -18,25 +21,38 @@ public class BallBounce : MonoBehaviour
         lastVelocity = rb.velocity;
     }
 
-    private void OnCollisionEnter2D(Collision2D collision)
+    private void OnTriggerEnter2D(Collider2D collision)
     {
-        var speed = lastVelocity.magnitude;
-        var direction = Vector3.Reflect(lastVelocity.normalized, collision.contacts[0].normal);
-
-        rb.velocity = direction * Mathf.Max(speed, 0f);
-
-        Vector3 scale = new Vector3(transform.localScale.x, transform.localScale.y, transform.localScale.z);
-
-        scale.x -= 0.025f;
-        scale.y -= 0.025f;
-
-        if (scale.x < 0 && scale.y < 0) 
+        if (!collision.gameObject.name.Contains("Ball") && collision.CompareTag("Ground"))
         {
-            scale.x = 0;
-            scale.y = 0;
-            gameObject.SetActive(false);
-        }
+            var speed = lastVelocity.magnitude;
+            var direction = Vector3.zero;
 
-        transform.localScale = scale;
+            if (ball.isFixedX)
+            {
+                direction = Vector3.Reflect(lastVelocity.normalized, collision.transform.up);
+            }
+
+            if (ball.isFixedY)
+            {
+                direction = Vector3.Reflect(lastVelocity.normalized, collision.transform.right);
+            } 
+
+            rb.velocity = direction * Mathf.Max(speed, 0f);
+
+            Vector3 scale = new Vector3(transform.localScale.x, transform.localScale.y, transform.localScale.z);
+
+            scale.x -= 0.025f;
+            scale.y -= 0.025f;
+
+            if (scale.x < 0 && scale.y < 0)
+            {
+                scale.x = 0;
+                scale.y = 0;
+                gameObject.SetActive(false);
+            }
+
+            transform.localScale = scale;
+        }
     }
 }
