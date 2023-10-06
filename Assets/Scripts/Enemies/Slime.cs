@@ -21,6 +21,7 @@ public class Slime : MonoBehaviour
     private float wallCheckDistance;
     [SerializeField]
     private LayerMask whatIsGround;
+    [SerializeField]
     private bool hasTurn;
     private float zAxisAdd;
     [SerializeField]
