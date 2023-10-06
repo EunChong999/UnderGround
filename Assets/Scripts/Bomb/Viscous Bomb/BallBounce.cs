@@ -32,11 +32,10 @@ public class BallBounce : MonoBehaviour
             {
                 direction = Vector3.Reflect(lastVelocity.normalized, collision.transform.up);
             }
-
-            if (ball.isFixedY)
+            else
             {
                 direction = Vector3.Reflect(lastVelocity.normalized, collision.transform.right);
-            } 
+            }
 
             rb.velocity = direction * Mathf.Max(speed, 0f);
 
