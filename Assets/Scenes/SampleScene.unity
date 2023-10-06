@@ -245,7 +245,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 0
+  m_Constraints: 4
 --- !u!212 &22133226
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -310,7 +310,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 45d12df4f2db7784092192a881bf5d76, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 250
+  speed: 500
   detected: 00000000
   diagonalChecker:
   - {fileID: 1099807740}
@@ -320,7 +320,7 @@ MonoBehaviour:
   checkRaius: 0.1
   whatIsGround:
     serializedVersion: 2
-    m_Bits: 72
+    m_Bits: 8
   isRight: 1
   dir: 4
 --- !u!4 &22133228
@@ -852,7 +852,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 0
+  m_Constraints: 4
 --- !u!212 &251821541
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -917,7 +917,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 45d12df4f2db7784092192a881bf5d76, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 250
+  speed: 500
   detected: 00000000
   diagonalChecker:
   - {fileID: 1433751092}
@@ -927,7 +927,7 @@ MonoBehaviour:
   checkRaius: 0.1
   whatIsGround:
     serializedVersion: 2
-    m_Bits: 72
+    m_Bits: 8
   isRight: 0
   dir: 4
 --- !u!4 &251821543
@@ -1076,7 +1076,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 0
+  m_Constraints: 4
 --- !u!212 &370060212
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -1141,7 +1141,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 45d12df4f2db7784092192a881bf5d76, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 250
+  speed: 500
   detected: 00000000
   diagonalChecker:
   - {fileID: 1667396096}
@@ -1151,7 +1151,7 @@ MonoBehaviour:
   checkRaius: 0.1
   whatIsGround:
     serializedVersion: 2
-    m_Bits: 72
+    m_Bits: 8
   isRight: 1
   dir: 4
 --- !u!4 &370060214
@@ -1264,7 +1264,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 0
+  m_Constraints: 4
 --- !u!212 &376474878
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -1329,7 +1329,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 45d12df4f2db7784092192a881bf5d76, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 250
+  speed: 500
   detected: 00000000
   diagonalChecker:
   - {fileID: 1711221640}
@@ -1339,7 +1339,7 @@ MonoBehaviour:
   checkRaius: 0.1
   whatIsGround:
     serializedVersion: 2
-    m_Bits: 72
+    m_Bits: 8
   isRight: 1
   dir: 4
 --- !u!4 &376474880
@@ -1483,7 +1483,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 0
+  m_Constraints: 4
 --- !u!212 &417168405
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -1548,7 +1548,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 45d12df4f2db7784092192a881bf5d76, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 250
+  speed: 500
   detected: 00000000
   diagonalChecker:
   - {fileID: 775708545}
@@ -1558,7 +1558,7 @@ MonoBehaviour:
   checkRaius: 0.1
   whatIsGround:
     serializedVersion: 2
-    m_Bits: 72
+    m_Bits: 8
   isRight: 1
   dir: 4
 --- !u!4 &417168407
@@ -2430,7 +2430,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 0
+  m_Constraints: 4
 --- !u!212 &587040347
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -2495,7 +2495,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 45d12df4f2db7784092192a881bf5d76, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 250
+  speed: 500
   detected: 00000000
   diagonalChecker:
   - {fileID: 805175671}
@@ -2505,7 +2505,7 @@ MonoBehaviour:
   checkRaius: 0.1
   whatIsGround:
     serializedVersion: 2
-    m_Bits: 72
+    m_Bits: 8
   isRight: 0
   dir: 4
 --- !u!4 &587040349
@@ -2711,7 +2711,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 0
+  m_Constraints: 4
 --- !u!212 &703272759
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -2776,7 +2776,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 45d12df4f2db7784092192a881bf5d76, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 250
+  speed: 500
   detected: 00000000
   diagonalChecker:
   - {fileID: 715423522}
@@ -2786,7 +2786,7 @@ MonoBehaviour:
   checkRaius: 0.1
   whatIsGround:
     serializedVersion: 2
-    m_Bits: 72
+    m_Bits: 8
   isRight: 0
   dir: 4
 --- !u!4 &703272761
@@ -3026,7 +3026,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 0
+  m_Constraints: 4
 --- !u!212 &799557309
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -3091,7 +3091,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 45d12df4f2db7784092192a881bf5d76, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 250
+  speed: 500
   detected: 00000000
   diagonalChecker:
   - {fileID: 1866869772}
@@ -3101,7 +3101,7 @@ MonoBehaviour:
   checkRaius: 0.1
   whatIsGround:
     serializedVersion: 2
-    m_Bits: 72
+    m_Bits: 8
   isRight: 1
   dir: 4
 --- !u!4 &799557311
@@ -3786,7 +3786,7 @@ MonoBehaviour:
   m_Follow: {fileID: 1124584956}
   m_Lens:
     FieldOfView: 40
-    OrthographicSize: 4.225
+    OrthographicSize: 4.256483
     NearClipPlane: 0.1
     FarClipPlane: 5000
     Dutch: 0
@@ -7302,7 +7302,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 0
+  m_Constraints: 4
 --- !u!58 &1720445822
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -7712,7 +7712,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 0
+  m_Constraints: 4
 --- !u!212 &2039550136
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -7777,7 +7777,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 45d12df4f2db7784092192a881bf5d76, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 250
+  speed: 500
   detected: 00000000
   diagonalChecker:
   - {fileID: 499373684}
@@ -7787,7 +7787,7 @@ MonoBehaviour:
   checkRaius: 0.1
   whatIsGround:
     serializedVersion: 2
-    m_Bits: 72
+    m_Bits: 8
   isRight: 0
   dir: 4
 --- !u!4 &2039550138

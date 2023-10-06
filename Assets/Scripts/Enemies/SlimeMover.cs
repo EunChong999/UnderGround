@@ -35,10 +35,6 @@ public class SlimeMover : MonoBehaviour
     private void Update()
     {
         CheckGroundOrWall();
-    }
-
-    private void FixedUpdate()
-    {
         Movement();
     }
 
