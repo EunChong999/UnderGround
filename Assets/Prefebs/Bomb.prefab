@@ -352,7 +352,7 @@ MonoBehaviour:
   wallCheck: {fileID: 3050383449159211287}
   wallLayer:
     serializedVersion: 2
-    m_Bits: 72
+    m_Bits: 200
   countdown: 3
 --- !u!114 &3233497655360719923
 MonoBehaviour:
@@ -370,7 +370,7 @@ MonoBehaviour:
   movePoint: {fileID: 6696672255825342549}
   whatStopMovement:
     serializedVersion: 2
-    m_Bits: 72
+    m_Bits: 200
   x: 0
   y: 0
   isCollision: 0
