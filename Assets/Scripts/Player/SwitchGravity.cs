@@ -12,7 +12,6 @@ public class SwitchGravity : MonoBehaviour
     public bool[] isSpaced;
     private Rigidbody2D rb;
     private GridMovement gridMovement;
-    private Animator animator;
     Health health;
     public Transform direction;
     [HideInInspector] public bool isMoving;
@@ -21,7 +20,6 @@ public class SwitchGravity : MonoBehaviour
     {
         rb = GetComponent<Rigidbody2D>();
         gridMovement = GetComponent<GridMovement>();
-        animator = transform.GetChild(0).GetComponent<Animator>();
         health = GetComponent<Health>();
     }
 

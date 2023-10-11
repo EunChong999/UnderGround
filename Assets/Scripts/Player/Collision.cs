@@ -7,10 +7,12 @@ public class Collision : MonoBehaviour
     [SerializeField] private GameObject[] obstacles;
     bool isCollisioned;
     Health health;
+    SwitchGravity switchGravity;
 
     private void Start()
     {
         health = transform.parent.GetComponent<Health>();
+        switchGravity = transform.parent.GetComponent<SwitchGravity>();
     }
 
     private void OnTriggerStay2D(Collider2D collision)
@@ -20,9 +22,10 @@ public class Collision : MonoBehaviour
             for (int i = 0; i < obstacles.Length; i++)
             {
                 if (collision.name.Contains(obstacles[i].name) &&
-                    !transform.parent.GetComponent<Health>().isOnDamaged)
+                    !health.isOnDamaged &&
+                    !switchGravity.isMoving)
                 {
-                    StartCoroutine(transform.parent.GetComponent<Health>().OnDamaged());
+                    StartCoroutine(health.OnDamaged());
                 }
             }
         }
