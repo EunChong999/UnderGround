@@ -22,6 +22,8 @@ public class SlimeMover : MonoBehaviour
     [SerializeField] 
     direction dir;
 
+    [SerializeField] private Transform body;
+
     private void Start()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -30,20 +32,16 @@ public class SlimeMover : MonoBehaviour
     private void Update()
     {
         CheckGroundOrWall();
-    }
-
-    private void FixedUpdate()
-    {
         Movement();
     }
 
-    void PosRound()
+    void PosRound(float xPos, float yPos)
     {
         Vector3 position = new Vector3(transform.position.x, transform.position.y, transform.position.z);
         float x = Mathf.Round(position.x);
         float y = Mathf.Round(position.y);
         float z = Mathf.Round(position.z);
-        transform.position = new Vector3(x, y, z);
+        transform.position = new Vector3(x + xPos, y + yPos, z);
     }
 
     void CheckGroundOrWall()
@@ -133,7 +131,7 @@ public class SlimeMover : MonoBehaviour
             if (!detected[0] && !detected[1] && dir == direction.left)
             {
                 // Up 이동
-                PosRound();
+                PosRound(0.25f, 0.25f);
                 rb.constraints = RigidbodyConstraints2D.FreezePositionX;
                 rb.velocity = Vector2.up * speed * Time.fixedDeltaTime;
                 dir = direction.none;
@@ -142,7 +140,7 @@ public class SlimeMover : MonoBehaviour
             if (!detected[1] && !detected[2] && dir == direction.down)
             {
                 // Left 이동
-                PosRound();
+                PosRound(-0.25f, 0.25f);
                 rb.constraints = RigidbodyConstraints2D.FreezePositionY;
                 rb.velocity = Vector2.left * speed * Time.fixedDeltaTime;
                 dir = direction.none;
@@ -151,7 +149,7 @@ public class SlimeMover : MonoBehaviour
             if (!detected[2] && !detected[3] && dir == direction.right)
             {
                 // Down 이동
-                PosRound();
+                PosRound(-0.25f, -0.25f);
                 rb.constraints = RigidbodyConstraints2D.FreezePositionX;
                 rb.velocity = Vector2.down * speed * Time.fixedDeltaTime;
                 dir = direction.none;
@@ -160,7 +158,7 @@ public class SlimeMover : MonoBehaviour
             if (!detected[0] && !detected[3] && dir == direction.up)
             {
                 // Right 이동
-                PosRound();
+                PosRound(0.25f, -0.25f);
                 rb.constraints = RigidbodyConstraints2D.FreezePositionY;
                 rb.velocity = Vector2.right * speed * Time.fixedDeltaTime;
                 dir = direction.none;
@@ -171,6 +169,7 @@ public class SlimeMover : MonoBehaviour
             if ((detected[1] && detected[2] && detected[3])) 
             {
                 // Up 이동
+                body.localPosition = new Vector2(0.5f, 0.5f);
                 rb.constraints = RigidbodyConstraints2D.FreezePositionX;
                 rb.velocity = Vector2.up * speed * Time.fixedDeltaTime;
                 dir = direction.up;
@@ -180,6 +179,7 @@ public class SlimeMover : MonoBehaviour
                 if ((detected[2] && detected[3]))
                 {
                     // Left 이동
+                    body.localPosition = new Vector2(-0.5f, 0.5f);
                     rb.constraints = RigidbodyConstraints2D.FreezePositionY;
                     rb.velocity = Vector2.left * speed * Time.fixedDeltaTime;
                     dir = direction.left;
@@ -189,6 +189,7 @@ public class SlimeMover : MonoBehaviour
             if ((detected[0] && detected[2] && detected[3])) 
             {
                 // Left 이동
+                body.localPosition = new Vector2(-0.5f, 0.5f);
                 rb.constraints = RigidbodyConstraints2D.FreezePositionY;
                 rb.velocity = Vector2.left * speed * Time.fixedDeltaTime;
                 dir = direction.left;
@@ -198,6 +199,7 @@ public class SlimeMover : MonoBehaviour
                 if ((detected[0] && detected[3]))
                 {
                     // Down 이동
+                    body.localPosition = new Vector2(-0.5f, -0.5f);
                     rb.constraints = RigidbodyConstraints2D.FreezePositionX;
                     rb.velocity = Vector2.down * speed * Time.fixedDeltaTime;
                     dir = direction.down;
@@ -207,6 +209,7 @@ public class SlimeMover : MonoBehaviour
             if ((detected[0] && detected[1] && detected[3])) 
             {
                 // Down 이동
+                body.localPosition = new Vector2(-0.5f, -0.5f);
                 rb.constraints = RigidbodyConstraints2D.FreezePositionX;
                 rb.velocity = Vector2.down * speed * Time.fixedDeltaTime;
                 dir = direction.down;
@@ -216,6 +219,7 @@ public class SlimeMover : MonoBehaviour
                 if ((detected[0] && detected[1]))
                 {
                     // Right 이동
+                    body.localPosition = new Vector2(0.5f, -0.5f);
                     rb.constraints = RigidbodyConstraints2D.FreezePositionY;
                     rb.velocity = Vector2.right * speed * Time.fixedDeltaTime;
                     dir = direction.right;
@@ -225,6 +229,7 @@ public class SlimeMover : MonoBehaviour
             if ((detected[0] && detected[1] && detected[2]))
             {
                 // Right 이동
+                body.localPosition = new Vector2(0.5f, -0.5f);
                 rb.constraints = RigidbodyConstraints2D.FreezePositionY;
                 rb.velocity = Vector2.right * speed * Time.fixedDeltaTime;
                 dir = direction.right;
@@ -234,6 +239,7 @@ public class SlimeMover : MonoBehaviour
                 if ((detected[1] && detected[2]))
                 {
                     // Up 이동
+                    body.localPosition = new Vector2(0.5f, 0.5f);
                     rb.constraints = RigidbodyConstraints2D.FreezePositionX;
                     rb.velocity = Vector2.up * speed * Time.fixedDeltaTime;
                     dir = direction.up;
@@ -243,7 +249,8 @@ public class SlimeMover : MonoBehaviour
             if (!detected[0] && !detected[1] && dir == direction.right)
             {
                 // Up 이동
-                PosRound();
+                body.localPosition = new Vector2(0.5f, 0.5f);
+                PosRound(-0.25f, 0.25f);
                 rb.constraints = RigidbodyConstraints2D.FreezePositionX;
                 rb.velocity = Vector2.up * speed * Time.fixedDeltaTime;
                 dir = direction.none;
@@ -252,7 +259,8 @@ public class SlimeMover : MonoBehaviour
             if (!detected[1] && !detected[2] && dir == direction.up)
             {
                 // Left 이동
-                PosRound();
+                body.localPosition = new Vector2(-0.5f, 0.5f);
+                PosRound(-0.25f, -0.25f);
                 rb.constraints = RigidbodyConstraints2D.FreezePositionY;
                 rb.velocity = Vector2.left * speed * Time.fixedDeltaTime;
                 dir = direction.none;
@@ -261,7 +269,8 @@ public class SlimeMover : MonoBehaviour
             if (!detected[2] && !detected[3] && dir == direction.left)
             {
                 // Down 이동
-                PosRound();
+                body.localPosition = new Vector2(-0.5f, -0.5f);
+                PosRound(0.25f, -0.25f);
                 rb.constraints = RigidbodyConstraints2D.FreezePositionX;
                 rb.velocity = Vector2.down * speed * Time.fixedDeltaTime;
                 dir = direction.none;
@@ -270,7 +279,8 @@ public class SlimeMover : MonoBehaviour
             if (!detected[0] && !detected[3] && dir == direction.down)
             {
                 // Right 이동
-                PosRound();
+                body.localPosition = new Vector2(0.5f, -0.5f);
+                PosRound(0.25f, 0.25f);
                 rb.constraints = RigidbodyConstraints2D.FreezePositionY;
                 rb.velocity = Vector2.right * speed * Time.fixedDeltaTime;
                 dir = direction.none;

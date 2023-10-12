@@ -14,13 +14,15 @@ public class SwitchGravity : MonoBehaviour
     private GridMovement gridMovement;
     Health health;
     public Transform direction;
-    [HideInInspector] public bool isMoving;
+    public bool isMoving;
+    DigUpGround digUpGround;
 
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
         gridMovement = GetComponent<GridMovement>();
         health = GetComponent<Health>();
+        digUpGround = transform.GetChild(0).GetComponent<DigUpGround>();
     }
 
     public bool IsGrounded(Transform transform)
