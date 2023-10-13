@@ -29,13 +29,13 @@ public class DigUpGround : MonoBehaviour
 
         if (isIn)
         {
-            scaler.x = Mathf.Lerp(scaler.x, 0, .15f);
-            scaler.y = Mathf.Lerp(scaler.y, 0, .15f);
+            scaler.x = Mathf.Lerp(scaler.x, 0, .175f);
+            scaler.y = Mathf.Lerp(scaler.y, 0, .175f);
         }
         else
         {
-            scaler.x = Mathf.Lerp(scaler.x, 1, .15f);
-            scaler.y = Mathf.Lerp(scaler.y, 1, .15f);
+            scaler.x = Mathf.Lerp(scaler.x, 1, .175f);
+            scaler.y = Mathf.Lerp(scaler.y, 1, .175f);
         }
 
         if (switchGravity.isMoving)
@@ -64,13 +64,8 @@ public class DigUpGround : MonoBehaviour
         // 현재 위치와 모든 이전 위치 비교
         if (!spawnedTunnels.Contains(transform.position))
         {
-            Debug.Log("DigUp" + "(" + transform.position.x + ", " + transform.position.y + ")");
             Instantiate(underGroundTunnel, transform.position, Quaternion.identity);
             spawnedTunnels.Add(transform.position);
-        }
-        else
-        {
-            Debug.Log("이미 터널이 해당 위치에 생성되었습니다.");
         }
     }
 }

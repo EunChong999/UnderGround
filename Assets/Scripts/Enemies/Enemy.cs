@@ -4,15 +4,30 @@ using UnityEngine;
 
 public class Enemy : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    //[SerializeField] private GameObject[] obstacles;
+    //bool isCollisioned;
+    //Health health;
+    //SwitchGravity switchGravity;
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+    //private void Start()
+    //{
+    //    health = transform.parent.GetComponent<Health>();
+    //    switchGravity = transform.parent.GetComponent<SwitchGravity>();
+    //}
+
+    //private void OnTriggerStay2D(Collider2D collision)
+    //{
+    //    if (!health.isDead)
+    //    {
+    //        for (int i = 0; i < obstacles.Length; i++)
+    //        {
+    //            if (collision.name.Contains(obstacles[i].name) &&
+    //                !health.isOnDamaged &&
+    //                !switchGravity.isMoving)
+    //            {
+    //                StartCoroutine(health.OnDamaged());
+    //            }
+    //        }
+    //    }
+    //}
 }

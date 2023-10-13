@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: bb74f02f885e18a4e9c9096c3c545335
+guid: 29bfbdbf2f011a0458e42b4d488abe96
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -119,30 +119,17 @@ TextureImporter:
     ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
-  - serializedVersion: 3
-    buildTarget: iPhone
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 0
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
-    ignorePlatformSupport: 0
-    androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Ceiling Out (46x30)_0
+      name: Mole_Appearance_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 46
-        height: 30
+        width: 16
+        height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -150,20 +137,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e9e425f9ab94a7a449c58fb197f645ee
-      internalID: -1947017919
+      spriteID: 0d78c655305e80f47ba7707f3e749e0a
+      internalID: 128071587
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Ceiling Out (46x30)_1
+      name: Mole_Appearance_1
       rect:
         serializedVersion: 2
-        x: 46
+        x: 16
         y: 0
-        width: 46
-        height: 30
+        width: 16
+        height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -171,20 +158,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: fdc42315adde6a24c98834afc66a4d90
-      internalID: 470085049
+      spriteID: 2c562bb63469e05418e5d96e88f0ef20
+      internalID: 676877948
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Ceiling Out (46x30)_2
+      name: Mole_Appearance_2
       rect:
         serializedVersion: 2
-        x: 92
+        x: 32
         y: 0
-        width: 46
-        height: 30
+        width: 16
+        height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -192,20 +179,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 8b02b1d29b9c92e4d9492e2398cb45e8
-      internalID: -1992766151
+      spriteID: 44bce558d9cf35a4cba8b9419e34230f
+      internalID: 1698469820
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Ceiling Out (46x30)_3
+      name: Mole_Appearance_3
       rect:
         serializedVersion: 2
-        x: 138
+        x: 48
         y: 0
-        width: 46
-        height: 30
+        width: 16
+        height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -213,20 +200,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: dd69fb0eb14d8bd4ea8b8640bf9b37c8
-      internalID: 1665045887
+      spriteID: 9af8ccd8e71d3a84d86a1eac2a619a99
+      internalID: 1424441432
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Ceiling Out (46x30)_4
+      name: Mole_Appearance_4
       rect:
         serializedVersion: 2
-        x: 184
+        x: 64
         y: 0
-        width: 46
-        height: 30
+        width: 16
+        height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -234,20 +221,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 85b55b681e69088479950a693adb35e3
-      internalID: -1391238903
+      spriteID: f3a33a7831b926147a8b734b5915c1f3
+      internalID: 765319374
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Ceiling Out (46x30)_5
+      name: Mole_Appearance_5
       rect:
         serializedVersion: 2
-        x: 230
+        x: 80
         y: 0
-        width: 46
-        height: 30
+        width: 16
+        height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -255,20 +242,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d3154a05915a69847815ae879dbda86c
-      internalID: -436529150
+      spriteID: 9cff1c75c61eb744fb0853b573a3c2c0
+      internalID: 1210996421
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Ceiling Out (46x30)_6
+      name: Mole_Appearance_6
       rect:
         serializedVersion: 2
-        x: 276
+        x: 96
         y: 0
-        width: 46
-        height: 30
+        width: 16
+        height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -276,8 +263,134 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 52cd4b7ad0ee9d945af921fe3f33e27a
-      internalID: -1412999562
+      spriteID: 44239c7a77cb5eb41a522cadb4392fe9
+      internalID: -1821061115
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mole_Appearance_7
+      rect:
+        serializedVersion: 2
+        x: 112
+        y: 0
+        width: 16
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9687ad12859dfcb488aeb2219c4954fb
+      internalID: 461133540
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mole_Appearance_8
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 0
+        width: 16
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dedc6264fc3d4dd4ba6ef45ea0bd113e
+      internalID: 248899947
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mole_Appearance_9
+      rect:
+        serializedVersion: 2
+        x: 144
+        y: 0
+        width: 16
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bf161ffc20712da43b68e9ec7008046c
+      internalID: 950396453
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mole_Appearance_10
+      rect:
+        serializedVersion: 2
+        x: 160
+        y: 0
+        width: 16
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 43a2d5b8cc1d19243aceca98ade72bc5
+      internalID: 1362910901
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mole_Appearance_11
+      rect:
+        serializedVersion: 2
+        x: 176
+        y: 0
+        width: 16
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3c70ccd259e173741ba847e9f7eae16a
+      internalID: -860052672
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mole_Appearance_12
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 0
+        width: 16
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7d536fe56c0b9c348b4fe4c4301efe44
+      internalID: -224816450
       vertices: []
       indices: 
       edges: []
@@ -293,13 +406,19 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      Ceiling Out (46x30)_0: -1947017919
-      Ceiling Out (46x30)_1: 470085049
-      Ceiling Out (46x30)_2: -1992766151
-      Ceiling Out (46x30)_3: 1665045887
-      Ceiling Out (46x30)_4: -1391238903
-      Ceiling Out (46x30)_5: -436529150
-      Ceiling Out (46x30)_6: -1412999562
+      Mole_Appearance_0: 128071587
+      Mole_Appearance_1: 676877948
+      Mole_Appearance_10: 1362910901
+      Mole_Appearance_11: -860052672
+      Mole_Appearance_12: -224816450
+      Mole_Appearance_2: 1698469820
+      Mole_Appearance_3: 1424441432
+      Mole_Appearance_4: 765319374
+      Mole_Appearance_5: 1210996421
+      Mole_Appearance_6: -1821061115
+      Mole_Appearance_7: 461133540
+      Mole_Appearance_8: 248899947
+      Mole_Appearance_9: 950396453
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

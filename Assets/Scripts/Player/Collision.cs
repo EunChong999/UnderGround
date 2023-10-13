@@ -17,17 +17,11 @@ public class Collision : MonoBehaviour
 
     private void OnTriggerStay2D(Collider2D collision)
     {
-        if (!health.isDead)
+        if (collision.CompareTag("Obstacle") &&
+            !health.isOnDamaged &&
+            !switchGravity.isMoving)
         {
-            for (int i = 0; i < obstacles.Length; i++)
-            {
-                if (collision.name.Contains(obstacles[i].name) &&
-                    !health.isOnDamaged &&
-                    !switchGravity.isMoving)
-                {
-                    StartCoroutine(health.OnDamaged());
-                }
-            }
+            StartCoroutine(health.OnDamaged());
         }
     }
 }

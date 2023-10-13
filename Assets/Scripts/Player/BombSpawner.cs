@@ -91,6 +91,16 @@ public class BombSpawner : MonoBehaviour
                     bomb.transform.eulerAngles = new Vector3(0, 0, 90);
                 }
             }
+            else
+            {
+                animator.SetBool("isAttacking", false);
+                bombInHand.SetActive(false);
+            }
+        }
+        else
+        {
+            animator.SetBool("isAttacking", false);
+            bombInHand.SetActive(false);
         }
     }
 }
