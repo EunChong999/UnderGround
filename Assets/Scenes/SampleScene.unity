@@ -4718,7 +4718,7 @@ Rigidbody2D:
     serializedVersion: 2
     m_Bits: 0
   m_Interpolate: 0
-  m_SleepingMode: 1
+  m_SleepingMode: 0
   m_CollisionDetection: 0
   m_Constraints: 4
 --- !u!58 &1720445822
@@ -5219,7 +5219,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9119601444518642804, guid: ed52bdad80a8dcd409edb1d68ae3d3c1, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 9119601444518642804, guid: ed52bdad80a8dcd409edb1d68ae3d3c1, type: 3}
       propertyPath: m_TagString
@@ -5252,7 +5252,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2914336287300934344, guid: a67f84476d9500849a62376944922481, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2914336287300934344, guid: a67f84476d9500849a62376944922481, type: 3}
       propertyPath: m_TagString
@@ -5321,7 +5321,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2008971344551714126, guid: ed87912b4d3d886449585220b4c83a6d, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2008971344551714126, guid: ed87912b4d3d886449585220b4c83a6d, type: 3}
       propertyPath: m_TagString
