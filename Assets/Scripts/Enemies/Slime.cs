@@ -160,7 +160,6 @@ public class Slime : MonoBehaviour
             if (!detected[2] && !detected[3] && dir == direction.right)
             {
                 // Down ¿Ãµø
-                Debug.Log("Down");
                 PosRound();
                 rb.constraints = RigidbodyConstraints2D.FreezePositionX;
                 rb.velocity = Vector2.down * speed * Time.fixedDeltaTime;

@@ -537,7 +537,7 @@ Camera:
   far clip plane: 5000
   field of view: 40
   orthographic: 1
-  orthographic size: 4.21875
+  orthographic size: 8.4375
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -1280,7 +1280,7 @@ GameObject:
   - component: {fileID: 1124584963}
   m_Layer: 0
   m_Name: Player
-  m_TagString: Player
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1476,7 +1476,7 @@ MonoBehaviour:
   m_Follow: {fileID: 1124584956}
   m_Lens:
     FieldOfView: 40
-    OrthographicSize: 4.225
+    OrthographicSize: 7.547987
     NearClipPlane: 0.1
     FarClipPlane: 5000
     Dutch: 0
@@ -4602,9 +4602,9 @@ GameObject:
   - component: {fileID: 1720445822}
   - component: {fileID: 1720445821}
   - component: {fileID: 1720445823}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Body
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -5158,6 +5158,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 569787046006155115, guid: ed52bdad80a8dcd409edb1d68ae3d3c1, type: 3}
+      propertyPath: speed
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 569787046006155115, guid: ed52bdad80a8dcd409edb1d68ae3d3c1, type: 3}
       propertyPath: isRight
       value: 1
       objectReference: {fileID: 0}
@@ -5219,7 +5223,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9119601444518642804, guid: ed52bdad80a8dcd409edb1d68ae3d3c1, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 9119601444518642804, guid: ed52bdad80a8dcd409edb1d68ae3d3c1, type: 3}
       propertyPath: m_TagString
@@ -5252,7 +5256,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2914336287300934344, guid: a67f84476d9500849a62376944922481, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2914336287300934344, guid: a67f84476d9500849a62376944922481, type: 3}
       propertyPath: m_TagString
@@ -5321,11 +5325,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2008971344551714126, guid: ed87912b4d3d886449585220b4c83a6d, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2008971344551714126, guid: ed87912b4d3d886449585220b4c83a6d, type: 3}
       propertyPath: m_TagString
       value: Obstacle
+      objectReference: {fileID: 0}
+    - target: {fileID: 5672845764216951258, guid: ed87912b4d3d886449585220b4c83a6d, type: 3}
+      propertyPath: distance
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 5672845764216951258, guid: ed87912b4d3d886449585220b4c83a6d, type: 3}
+      propertyPath: obsLayer.m_Bits
+      value: 328
       objectReference: {fileID: 0}
     - target: {fileID: 6058055435354923004, guid: ed87912b4d3d886449585220b4c83a6d, type: 3}
       propertyPath: m_SortingOrder
