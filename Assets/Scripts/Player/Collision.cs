@@ -4,15 +4,14 @@ using UnityEngine;
 
 public class Collision : MonoBehaviour
 {
-    [SerializeField] private GameObject[] obstacles;
     bool isCollisioned;
     Health health;
     SwitchGravity switchGravity;
 
     private void Start()
     {
-        health = transform.parent.GetComponent<Health>();
-        switchGravity = transform.parent.GetComponent<SwitchGravity>();
+        health = GetComponent<Health>();
+        switchGravity = GetComponent<SwitchGravity>();
     }
 
     private void OnTriggerStay2D(Collider2D collision)
