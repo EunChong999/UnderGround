@@ -11,7 +11,7 @@ public class Bomb : MonoBehaviour
 
     public bool IsWalled()
     {
-        return Physics2D.OverlapCircle(wallCheck.position, 0.4f, wallLayer);
+        return Physics2D.OverlapCircle(wallCheck.position, 0.25f, wallLayer);
     }
 
     private void OnDrawGizmos()

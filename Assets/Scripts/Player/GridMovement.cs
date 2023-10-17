@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class GridMovement : MonoBehaviour
 {
+    public bool isMoveType;
     public float moveSpeed = 5;
     public Transform movePoint;
     public LayerMask whatStopMovement;
@@ -25,29 +26,56 @@ public class GridMovement : MonoBehaviour
     {
         transform.position = Vector3.MoveTowards(transform.position, movePoint.position, moveSpeed * Time.deltaTime);
 
-        if (!Physics2D.OverlapCircle(movePoint.position + new Vector3(x, 0, 0), .2f, whatStopMovement))
+        if (isMoveType)
         {
-            isCollision = false;
-            movePoint.position += new Vector3(x, 0, 0);
+            if (!Physics2D.OverlapCircle(movePoint.position + new Vector3(x, 0, 0), .25f, whatStopMovement))
+            {
+                isCollision = false;
+                movePoint.position += new Vector3(x, 0, 0);
+            }
+            else
+            {
+                isCollision = true;
+            }
+
+            if (!Physics2D.OverlapCircle(movePoint.position + new Vector3(0, y, 0), .25f, whatStopMovement))
+            {
+                isCollision = false;
+                movePoint.position += new Vector3(0, y, 0);
+            }
+            else
+            {
+                isCollision = true;
+            }
         }
         else
         {
-            isCollision = true;
+            if (!Physics2D.OverlapCircle(movePoint.position, .25f, whatStopMovement))
+            {
+                isCollision = false;
+                movePoint.position += new Vector3(x, 0, 0);
+            }
+            else
+            {
+                isCollision = true;
+            }
+
+            if (!Physics2D.OverlapCircle(movePoint.position, .25f, whatStopMovement))
+            {
+                isCollision = false;
+                movePoint.position += new Vector3(0, y, 0);
+            }
+            else
+            {
+                isCollision = true;
+            }
         }
 
-        if (!Physics2D.OverlapCircle(movePoint.position + new Vector3(0, y, 0), .2f, whatStopMovement))
-        {
-            isCollision = false;
-            movePoint.position += new Vector3(0, y, 0);
-        }
-        else
-        {
-            isCollision = true;
-        }
+
     }
 
     private void OnDrawGizmos()
     {
-        Gizmos.DrawSphere(movePoint.position, 0.2f);
+        Gizmos.DrawSphere(movePoint.position, 0.25f);
     }
 }
