@@ -50,20 +50,20 @@ public class GridMovement : MonoBehaviour
         }
         else
         {
-            if (!Physics2D.OverlapCircle(movePoint.position, .25f, whatStopMovement))
+            if (!Physics2D.OverlapCircle(movePoint.position + new Vector3(x * Time.deltaTime * moveSpeed, 0, 0), .25f, whatStopMovement))
             {
                 isCollision = false;
-                movePoint.position += new Vector3(x, 0, 0);
+                movePoint.position += new Vector3(x * Time.deltaTime * moveSpeed, 0, 0);
             }
             else
             {
                 isCollision = true;
             }
 
-            if (!Physics2D.OverlapCircle(movePoint.position, .25f, whatStopMovement))
+            if (!Physics2D.OverlapCircle(movePoint.position + new Vector3(0, y * Time.deltaTime * moveSpeed, 0), .25f, whatStopMovement))
             {
                 isCollision = false;
-                movePoint.position += new Vector3(0, y, 0);
+                movePoint.position += new Vector3(0, y * Time.deltaTime * moveSpeed, 0);
             }
             else
             {
