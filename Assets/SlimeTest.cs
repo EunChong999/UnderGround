@@ -117,15 +117,16 @@ public class SlimeTest : MonoBehaviour
                 transform.eulerAngles = new Vector3(0, 0, angle);
                 hasTurn = true;
             }
-            else
+        }
+
+        if (wallDetected) 
+        {
+            if (!hasTurn)
             {
-                if (!hasTurn)
-                {
-                    PosRound();
-                    angle += 90;
-                    transform.eulerAngles = new Vector3(0, 0, angle);
-                    hasTurn = true;
-                }
+                PosRound();
+                angle += 90;
+                transform.eulerAngles = new Vector3(0, 0, angle);
+                hasTurn = true;
             }
         }
     }
