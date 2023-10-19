@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: da058e473ddad034ab43d30953ab0542
+guid: c4920e9d50e79ca4681ee61d43f37022
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -123,7 +123,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Slime_Hit_0
+      name: slime-apear_0
       rect:
         serializedVersion: 2
         x: 0
@@ -137,14 +137,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 259b4f3db7ebfa74da71ebe0ff5da00a
-      internalID: -2091460721
+      spriteID: 19038d3b76980254581a32efb703f952
+      internalID: 1037665136
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Slime_Hit_1
+      name: slime-apear_1
       rect:
         serializedVersion: 2
         x: 16
@@ -158,8 +158,134 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a5d7db78ff13e7746b9999c2da74865c
-      internalID: -1773836130
+      spriteID: 2f502d27b5a83d84e9cbf78265fb5911
+      internalID: -2115086031
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: slime-apear_2
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 0
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d7568383af330a1478599b964a942222
+      internalID: 266010212
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: slime-apear_3
+      rect:
+        serializedVersion: 2
+        x: 48
+        y: 0
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ae21ca422615ea04c862f746696d9467
+      internalID: -155424502
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: slime-apear_4
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 0
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 318f3782473e46146a5c43ec89ebcaae
+      internalID: 1738949141
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: slime-apear_5
+      rect:
+        serializedVersion: 2
+        x: 80
+        y: 0
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7bb30941ed8bb1f4895996d43d62d7f6
+      internalID: -731531738
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: slime-apear_6
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 0
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 30e49aa3c959c4848bba5ad185518d50
+      internalID: -667971389
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: slime-apear_7
+      rect:
+        serializedVersion: 2
+        x: 112
+        y: 0
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b01bdb0acf566644b9fab01b5ac9e56b
+      internalID: 678920569
       vertices: []
       indices: 
       edges: []
@@ -175,8 +301,14 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      Slime_Hit_0: -2091460721
-      Slime_Hit_1: -1773836130
+      slime-apear_0: 1037665136
+      slime-apear_1: -2115086031
+      slime-apear_2: 266010212
+      slime-apear_3: -155424502
+      slime-apear_4: 1738949141
+      slime-apear_5: -731531738
+      slime-apear_6: -667971389
+      slime-apear_7: 678920569
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

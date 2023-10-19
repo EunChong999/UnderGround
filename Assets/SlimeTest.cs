@@ -33,16 +33,25 @@ public class SlimeTest : MonoBehaviour
     private Vector2 groundCheckDir;
     [SerializeField]
     private Vector2 wallCheckDir;
+    [SerializeField]
+    private SpriteRenderer spriteRenderer;
+    [SerializeField]
+    private Transform body;
+    [SerializeField]
+    private Animator animator;
 
     private void Start()
     {
         rb = GetComponent<Rigidbody2D>();
         hasTurn = false;
         checkers.parent = null;
+        body.parent = null;
+        animator.SetTrigger("appear");
     }
     private void Update()
     {
         checkers.position = transform.position;
+        body.position = transform.position; 
         CheckGroundOrWall();
         ChangeAngle();
     }
@@ -67,6 +76,7 @@ public class SlimeTest : MonoBehaviour
             groundCheckDir = -transform.up;
             wallCheckDir = transform.right;
             groundPositionChecker.localPosition = groundPositionCheckerPos[0];
+            spriteRenderer.flipX = false;
         }
         else if (angle == 270 || angle == -90)
         {
@@ -79,6 +89,7 @@ public class SlimeTest : MonoBehaviour
             groundCheckDir = -transform.up;
             wallCheckDir = transform.right;
             groundPositionChecker.localPosition = groundPositionCheckerPos[2];
+            spriteRenderer.flipX = true;
         }
         else if (angle == 90 || angle == -270)
         {
@@ -119,7 +130,7 @@ public class SlimeTest : MonoBehaviour
             }
         }
 
-        if (wallDetected) 
+        if (wallDetected)
         {
             if (!hasTurn)
             {
