@@ -11,15 +11,27 @@ public class GridMovement : MonoBehaviour
     [HideInInspector] public float x;
     [HideInInspector] public float y;
     [HideInInspector] public bool isCollision;
+    UndergroundMovement undergroundMovement;
 
     void Start()
     {
         movePoint.parent = null;
+        undergroundMovement = GetComponent<UndergroundMovement>();
     }
 
     void Update()
     {
-        MoveGrid();
+        if (isMoveType)
+        {
+            if (undergroundMovement.isMoveStart)
+            {
+                MoveGrid();
+            }
+        }
+        else
+        {
+            MoveGrid();
+        }
     }
 
     void MoveGrid()

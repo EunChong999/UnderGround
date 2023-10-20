@@ -16,6 +16,7 @@ public class UndergroundMovement : MonoBehaviour
     public Transform direction;
     public bool isMoving;
     DigUpGround digUpGround;
+    public bool isMoveStart;
 
     void Start()
     {
@@ -23,6 +24,7 @@ public class UndergroundMovement : MonoBehaviour
         gridMovement = GetComponent<GridMovement>();
         health = GetComponent<Health>();
         digUpGround = transform.GetChild(0).GetComponent<DigUpGround>();
+        isMoveStart = false;
     }
 
     public bool IsGrounded(Transform transform)
@@ -40,12 +42,15 @@ public class UndergroundMovement : MonoBehaviour
 
     void Update()
     {
-        isSpaced[0] = GroundCheck(spaceCheck[0]);
-        isSpaced[1] = GroundCheck(spaceCheck[1]);
-        isSpaced[2] = GroundCheck(spaceCheck[2]);
-        isSpaced[3] = GroundCheck(spaceCheck[3]);
+        if (isMoveStart) 
+        {
+            isSpaced[0] = GroundCheck(spaceCheck[0]);
+            isSpaced[1] = GroundCheck(spaceCheck[1]);
+            isSpaced[2] = GroundCheck(spaceCheck[2]);
+            isSpaced[3] = GroundCheck(spaceCheck[3]);
 
-        isMoving = GroundCheck(direction);
+            isMoving = GroundCheck(direction);
+        }
 
         ChangeGravity();
     }
@@ -68,26 +73,30 @@ public class UndergroundMovement : MonoBehaviour
         {
             if(!isMoving)
             {
-                if (Input.GetKeyDown(KeyCode.W) && isSpaced[0])
+                if (Input.GetKeyDown(KeyCode.W) && (isSpaced[0] || !isMoveStart))
                 {
+                    isMoveStart = true;
                     direction = spaceCheck[0];
                     gridMovement.x = 0;
                     gridMovement.y = 1;
                 }
-                else if (Input.GetKeyDown(KeyCode.A) && isSpaced[1])
+                else if (Input.GetKeyDown(KeyCode.A) && (isSpaced[1] || !isMoveStart))
                 {
+                    isMoveStart = true;
                     direction = spaceCheck[1];
                     gridMovement.x = -1;
                     gridMovement.y = 0;
                 }
-                else if (Input.GetKeyDown(KeyCode.S) && isSpaced[2])
+                else if (Input.GetKeyDown(KeyCode.S) && (isSpaced[2] || !isMoveStart))
                 {
+                    isMoveStart = true;
                     direction = spaceCheck[2];
                     gridMovement.x = 0;
                     gridMovement.y = -1;
                 }
-                else if (Input.GetKeyDown(KeyCode.D) && isSpaced[3])
+                else if (Input.GetKeyDown(KeyCode.D) && (isSpaced[3] || !isMoveStart))
                 {
+                    isMoveStart = true;
                     direction = spaceCheck[3];
                     gridMovement.x = 1;
                     gridMovement.y = 0;
