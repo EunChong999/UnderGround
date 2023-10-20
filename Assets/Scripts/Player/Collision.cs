@@ -6,19 +6,19 @@ public class Collision : MonoBehaviour
 {
     bool isCollisioned;
     Health health;
-    SwitchGravity switchGravity;
+    UndergroundMovement undergroundMovement;
 
     private void Start()
     {
         health = GetComponent<Health>();
-        switchGravity = GetComponent<SwitchGravity>();
+        undergroundMovement = GetComponent<UndergroundMovement>();
     }
 
     private void OnTriggerStay2D(Collider2D collision)
     {
         if (collision.CompareTag("Obstacle") &&
             !health.isOnDamaged &&
-            !switchGravity.isMoving)
+            !undergroundMovement.isMoving)
         {
             StartCoroutine(health.OnDamaged());
         }

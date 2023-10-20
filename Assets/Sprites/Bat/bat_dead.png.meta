@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 101960c01f7ae0b4594ada514e8b4ef4
+guid: becbbd2ff0291d24f862a87faa0c9842
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -119,30 +119,17 @@ TextureImporter:
     ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
-  - serializedVersion: 3
-    buildTarget: iPhone
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 0
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
-    ignorePlatformSupport: 0
-    androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Hit (46x30)_0
+      name: bat_dead_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 46
-        height: 30
+        width: 32
+        height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -150,20 +137,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 383f5053d6a4d9a428cb1c86cdb29d1c
-      internalID: -372041060
+      spriteID: 8a87f7e1c4c90c448ad35a170a54c001
+      internalID: 74890508
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Hit (46x30)_1
+      name: bat_dead_1
       rect:
         serializedVersion: 2
-        x: 46
+        x: 32
         y: 0
-        width: 46
-        height: 30
+        width: 32
+        height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -171,71 +158,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a2c018f39009bad468181dc52afb7b18
-      internalID: 1773461047
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Hit (46x30)_2
-      rect:
-        serializedVersion: 2
-        x: 92
-        y: 0
-        width: 46
-        height: 30
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 1345aaf0ee590064e838a756cecaa501
-      internalID: -2107125047
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Hit (46x30)_3
-      rect:
-        serializedVersion: 2
-        x: 138
-        y: 0
-        width: 46
-        height: 30
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 7927211af169ca646a557b147157ca44
-      internalID: 510796557
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Hit (46x30)_4
-      rect:
-        serializedVersion: 2
-        x: 184
-        y: 0
-        width: 46
-        height: 30
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: d6b0bcc55e2921542b7dab00daf10b34
-      internalID: 972484443
+      spriteID: 7212153386b59ef41b12e2f0bf77aff7
+      internalID: -179865867
       vertices: []
       indices: 
       edges: []
@@ -251,11 +175,8 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      Hit (46x30)_0: -372041060
-      Hit (46x30)_1: 1773461047
-      Hit (46x30)_2: -2107125047
-      Hit (46x30)_3: 510796557
-      Hit (46x30)_4: 972484443
+      bat_dead_0: 74890508
+      bat_dead_1: -179865867
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

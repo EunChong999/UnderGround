@@ -4,7 +4,7 @@ using System;
 using UnityEngine;
 using static UnityEngine.Rendering.DebugUI.Table;
 
-public class SwitchGravity : MonoBehaviour
+public class UndergroundMovement : MonoBehaviour
 {
     public Transform[] spaceCheck;
     [SerializeField] private LayerMask groundLayer;

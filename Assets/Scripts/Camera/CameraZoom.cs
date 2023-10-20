@@ -15,14 +15,14 @@ public class CameraZoom : MonoBehaviour
     [SerializeField] private float smoothTime;
 
     private float velocity;
-    private SwitchGravity switchGravity;
+    private UndergroundMovement undergroundMovement;
     private CinemachinePixelPerfect pixelPerfect;
 
     void Start()
     {
         camera = GetComponent<CinemachineVirtualCamera>();
         zoom = minZoom;
-        switchGravity = GameObject.Find("Player").GetComponent<SwitchGravity>();
+        undergroundMovement = GameObject.Find("Player").GetComponent<UndergroundMovement>();
         pixelPerfect = GetComponent<CinemachinePixelPerfect>();
     }
 
@@ -30,7 +30,7 @@ public class CameraZoom : MonoBehaviour
     {
         camera.m_Lens.OrthographicSize = zoom;
 
-        if (switchGravity.isMoving) 
+        if (undergroundMovement.isMoving) 
         {
             if (zoom < maxZoom - 0.0001f) 
             {

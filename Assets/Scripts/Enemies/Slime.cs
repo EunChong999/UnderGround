@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SlimeTest : MonoBehaviour
+public class Slime : MonoBehaviour
 {
     private Rigidbody2D rb;
     [SerializeField]

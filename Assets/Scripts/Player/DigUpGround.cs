@@ -9,7 +9,7 @@ public class DigUpGround : MonoBehaviour
     [SerializeField] private GameObject underGroundSill;
     private List<Vector3> spawnedTunnels = new List<Vector3>();
     private List<Vector3> spawnedSills = new List<Vector3>();
-    private SwitchGravity switchGravity;
+    private UndergroundMovement undergroundMovement;
 
     public Vector3 scaler = new Vector3(1, 1, 1);
     public bool isIn;
@@ -19,7 +19,7 @@ public class DigUpGround : MonoBehaviour
 
     private void Start()
     {
-        switchGravity = transform.parent.GetComponent<SwitchGravity>();
+        undergroundMovement = transform.parent.GetComponent<UndergroundMovement>();
         //StartCoroutine(DigDown());
     }
 
@@ -38,7 +38,7 @@ public class DigUpGround : MonoBehaviour
             scaler.y = Mathf.Lerp(scaler.y, 1, .175f);
         }
 
-        if (switchGravity.isMoving)
+        if (undergroundMovement.isMoving)
         {
             isIn = true;
             lamp.GetComponent<Light2D>().intensity = Mathf.Lerp(lamp.GetComponent<Light2D>().intensity, 0, .05f);
