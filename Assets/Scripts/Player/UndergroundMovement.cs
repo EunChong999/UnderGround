@@ -13,7 +13,7 @@ public class UndergroundMovement : MonoBehaviour
     private Rigidbody2D rb;
     private GridMovement gridMovement;
     Health health;
-    public Transform direction;
+    private Transform direction;
     public bool isMoving;
     DigUpGround digUpGround;
     public bool isMoveStart;
