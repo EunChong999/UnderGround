@@ -39,6 +39,12 @@ public class Slime : MonoBehaviour
     private Transform body;
     [SerializeField]
     private Animator animator;
+    [SerializeField]
+    private float waitTime;
+
+    private WaitForSeconds waitForSeconds;
+
+    private bool isStartMove;
 
     private void Start()
     {
@@ -47,7 +53,17 @@ public class Slime : MonoBehaviour
         checkers.parent = null;
         body.parent = null;
         animator.SetTrigger("appear");
+        waitForSeconds = new WaitForSeconds(waitTime);
+        isStartMove = false;
+        StartCoroutine(StartMove());
     }
+
+    IEnumerator StartMove()
+    {
+        yield return waitForSeconds;
+        isStartMove = true;
+    }
+
     private void Update()
     {
         checkers.position = transform.position;
@@ -55,9 +71,13 @@ public class Slime : MonoBehaviour
         CheckGroundOrWall();
         ChangeAngle();
     }
+
     private void FixedUpdate()
     {
-        Movement();
+        if (isStartMove)
+        {
+            Movement();
+        }
     }
 
     void PosRound()
