@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Collision : MonoBehaviour
+public class PlayerCollision : MonoBehaviour
 {
     bool isCollisioned;
     Health health;
@@ -18,7 +18,7 @@ public class Collision : MonoBehaviour
     {
         if (collision.CompareTag("Obstacle") &&
             !health.isOnDamaged &&
-            !undergroundMovement.isMoving)
+            undergroundMovement.isReached)
         {
             StartCoroutine(health.OnDamaged());
         }

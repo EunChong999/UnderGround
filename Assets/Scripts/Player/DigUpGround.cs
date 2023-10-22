@@ -38,19 +38,19 @@ public class DigUpGround : MonoBehaviour
             scaler.y = Mathf.Lerp(scaler.y, 1, .175f);
         }
 
-        if (undergroundMovement.isMoving)
-        {
-            isIn = true;
-            lamp.GetComponent<Light2D>().intensity = Mathf.Lerp(lamp.GetComponent<Light2D>().intensity, 0, .05f);
-            tunnel.SetActive(false);
-            DigDown();
-        }
-        else
+        if (undergroundMovement.isReached) 
         {
             isIn = false;
             lamp.GetComponent<Light2D>().intensity = Mathf.Lerp(lamp.GetComponent<Light2D>().intensity, 2, .05f);
             tunnel.SetActive(true);
             DigUp();
+        }
+        else
+        {
+            isIn = true;
+            lamp.GetComponent<Light2D>().intensity = Mathf.Lerp(lamp.GetComponent<Light2D>().intensity, 0, .05f);
+            tunnel.SetActive(false);
+            DigDown();
         }
     }
 

@@ -8,9 +8,8 @@ public class GridMovement : MonoBehaviour
     public float moveSpeed = 5;
     public Transform movePoint;
     public LayerMask whatStopMovement;
-    [HideInInspector] public float x;
-    [HideInInspector] public float y;
-    [HideInInspector] public bool isCollision;
+    public float x;
+    public float y;
     UndergroundMovement undergroundMovement;
 
     void Start()
@@ -42,48 +41,26 @@ public class GridMovement : MonoBehaviour
         {
             if (!Physics2D.OverlapCircle(movePoint.position + new Vector3(x, 0, 0), .25f, whatStopMovement))
             {
-                isCollision = false;
                 movePoint.position += new Vector3(x, 0, 0);
-            }
-            else
-            {
-                isCollision = true;
             }
 
             if (!Physics2D.OverlapCircle(movePoint.position + new Vector3(0, y, 0), .25f, whatStopMovement))
             {
-                isCollision = false;
                 movePoint.position += new Vector3(0, y, 0);
-            }
-            else
-            {
-                isCollision = true;
             }
         }
         else
         {
             if (!Physics2D.OverlapCircle(movePoint.position + new Vector3(x * Time.deltaTime * moveSpeed, 0, 0), .25f, whatStopMovement))
             {
-                isCollision = false;
                 movePoint.position += new Vector3(x * Time.deltaTime * moveSpeed, 0, 0);
-            }
-            else
-            {
-                isCollision = true;
             }
 
             if (!Physics2D.OverlapCircle(movePoint.position + new Vector3(0, y * Time.deltaTime * moveSpeed, 0), .25f, whatStopMovement))
             {
-                isCollision = false;
                 movePoint.position += new Vector3(0, y * Time.deltaTime * moveSpeed, 0);
             }
-            else
-            {
-                isCollision = true;
-            }
         }
-
-
     }
 
     private void OnDrawGizmos()

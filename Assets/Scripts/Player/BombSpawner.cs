@@ -23,7 +23,7 @@ public class BombSpawner : MonoBehaviour
     {
         if (!health.isDead)
         {
-            if (!undergroundMovement.isMoving)
+            if (undergroundMovement.isReached)
             {
                 if (Input.GetKey(KeyCode.UpArrow) && (undergroundMovement.isSpaced[0] || !undergroundMovement.isMoveStart))
                 {

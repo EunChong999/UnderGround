@@ -30,7 +30,7 @@ public class CameraZoom : MonoBehaviour
     {
         camera.m_Lens.OrthographicSize = zoom;
 
-        if (undergroundMovement.isMoving) 
+        if (!undergroundMovement.isReached) 
         {
             if (zoom < maxZoom - 0.0001f) 
             {
