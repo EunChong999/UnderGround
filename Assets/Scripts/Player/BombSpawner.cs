@@ -9,56 +9,56 @@ public class BombSpawner : MonoBehaviour
     [SerializeField] private GameObject bombInHand;
 
     private UndergroundMovement undergroundMovement;
-    private Health health;
+    private PlayerHealth playerHealth;
     private Animator animator;
 
     void Start()
     {
-        health = GetComponent<Health>();
+        playerHealth = GetComponent<PlayerHealth>();
         undergroundMovement = GetComponent<UndergroundMovement>();
         animator = transform.GetChild(0).GetComponent<Animator>();
     }
 
     void Update()
     {
-        if (!health.isDead)
+        if (!playerHealth.isDead)
         {
             if (undergroundMovement.isReached)
             {
                 if (Input.GetKey(KeyCode.UpArrow) && (undergroundMovement.isSpaced[0] || !undergroundMovement.isMoveStart))
                 {
-                    animator.SetBool("isAttacking", true);
-                    animator.SetFloat("horizontal", 0);
-                    animator.SetFloat("vertical", 1);
+                    animator.SetBool("IsAttacking", true);
+                    animator.SetFloat("Horizontal", 0);
+                    animator.SetFloat("Vertical", 1);
                     bombInHand.SetActive(false);
                 }
                 else if (Input.GetKey(KeyCode.LeftArrow) && (undergroundMovement.isSpaced[1] || !undergroundMovement.isMoveStart))
                 {
-                    animator.SetBool("isAttacking", true);
-                    animator.SetFloat("horizontal", -1);
-                    animator.SetFloat("vertical", 0);
+                    animator.SetBool("IsAttacking", true);
+                    animator.SetFloat("Horizontal", -1);
+                    animator.SetFloat("Vertical", 0);
                     bombInHand.SetActive(true);
                     bombInHand.transform.localPosition = new Vector2(-0.15f, -0.25f);
                 }
                 else if (Input.GetKey(KeyCode.DownArrow) && (undergroundMovement.isSpaced[2] || !undergroundMovement.isMoveStart))
                 {
-                    animator.SetBool("isAttacking", true);
-                    animator.SetFloat("horizontal", 0);
-                    animator.SetFloat("vertical", -1);
+                    animator.SetBool("IsAttacking", true);
+                    animator.SetFloat("Horizontal", 0);
+                    animator.SetFloat("Vertical", -1);
                     bombInHand.SetActive(true);
                     bombInHand.transform.localPosition = new Vector2(-0.15f, -0.25f);
                 }
                 else if (Input.GetKey(KeyCode.RightArrow) && (undergroundMovement.isSpaced[3] || !undergroundMovement.isMoveStart))
                 {
-                    animator.SetBool("isAttacking", true);
-                    animator.SetFloat("horizontal", 1);
-                    animator.SetFloat("vertical", 0);
+                    animator.SetBool("IsAttacking", true);
+                    animator.SetFloat("Horizontal", 1);
+                    animator.SetFloat("Vertical", 0);
                     bombInHand.SetActive(true);
                     bombInHand.transform.localPosition = new Vector2(0.15f, -0.25f);
                 }
                 else
                 {
-                    animator.SetBool("isAttacking", false);
+                    animator.SetBool("IsAttacking", false);
                     bombInHand.SetActive(false);
                 }
 
@@ -93,13 +93,13 @@ public class BombSpawner : MonoBehaviour
             }
             else
             {
-                animator.SetBool("isAttacking", false);
+                animator.SetBool("IsAttacking", false);
                 bombInHand.SetActive(false);
             }
         }
         else
         {
-            animator.SetBool("isAttacking", false);
+            animator.SetBool("IsAttacking", false);
             bombInHand.SetActive(false);
         }
     }

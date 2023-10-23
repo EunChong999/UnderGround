@@ -26,6 +26,26 @@ public class Mole : MonoBehaviour
 
     private void Update()
     {
+        FlipX();
+        CheckPoint();
+    }
+
+    private void FlipX()
+    {
+        transform.rotation = player.transform.rotation;
+
+        if (player.transform.position.x < transform.position.x)
+        {
+            transform.localScale = new Vector3(-1, 1, 1);
+        }
+        else
+        {
+            transform.localScale = new Vector3(1, 1, 1);
+        }
+    }
+
+    private void CheckPoint()
+    {
         raycastHit2Dright = Physics2D.Raycast(transform.position, Vector2.right, distance, obsLayer);
         raycastHit2Dleft = Physics2D.Raycast(transform.position, Vector2.left, distance, obsLayer);
         raycastHit2Dup = Physics2D.Raycast(transform.position, Vector2.up, distance, obsLayer);

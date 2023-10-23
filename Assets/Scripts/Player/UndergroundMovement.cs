@@ -14,7 +14,7 @@ public class UndergroundMovement : MonoBehaviour
     private Rigidbody2D rb;
     [HideInInspector]
     public GridMovement gridMovement;
-    Health health;
+    PlayerHealth playerHealth;
     public Transform direction;
     [HideInInspector]
     public bool isMoveStart;
@@ -25,7 +25,7 @@ public class UndergroundMovement : MonoBehaviour
     {
         rb = GetComponent<Rigidbody2D>();
         gridMovement = GetComponent<GridMovement>();
-        health = GetComponent<Health>();
+        playerHealth = GetComponent<PlayerHealth>();
         isMoveStart = false;
     }
 
@@ -71,7 +71,7 @@ public class UndergroundMovement : MonoBehaviour
 
     void ChangeGravity()
     {
-        if (!health.isDead)
+        if (!playerHealth.isDead)
         {
             if(isReached)
             {

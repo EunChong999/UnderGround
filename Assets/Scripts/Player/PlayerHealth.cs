@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class Health : MonoBehaviour
+public class PlayerHealth : MonoBehaviour
 {
     public int health;
     public int numOfHearts;
@@ -73,7 +73,9 @@ public class Health : MonoBehaviour
         // 변경된 색상 적용
         transform.GetChild(0).GetComponent<SpriteRenderer>().color = spriteColor;
 
-        animator.SetTrigger("IsDamage");
+        animator.SetBool("IsDead", false);
+
+        animator.SetTrigger("Damage");
 
         yield return new WaitForSeconds(coolTime);
 
@@ -101,6 +103,6 @@ public class Health : MonoBehaviour
         // 변경된 색상 적용
         transform.GetChild(0).GetComponent<SpriteRenderer>().color = spriteColor;
 
-        animator.SetTrigger("IsDead");
+        animator.SetBool("IsDead", true);
     }
 }

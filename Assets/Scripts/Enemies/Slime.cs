@@ -37,14 +37,6 @@ public class Slime : MonoBehaviour
     private SpriteRenderer spriteRenderer;
     [SerializeField]
     private Transform body;
-    [SerializeField]
-    private Animator animator;
-    [SerializeField]
-    private float waitTime;
-
-    private WaitForSeconds waitForSeconds;
-
-    private bool isStartMove;
 
     private void Start()
     {
@@ -52,16 +44,6 @@ public class Slime : MonoBehaviour
         hasTurn = false;
         checkers.parent = null;
         body.parent = null;
-        animator.SetTrigger("appear");
-        waitForSeconds = new WaitForSeconds(waitTime);
-        isStartMove = false;
-        StartCoroutine(StartMove());
-    }
-
-    IEnumerator StartMove()
-    {
-        yield return waitForSeconds;
-        isStartMove = true;
     }
 
     private void Update()
@@ -74,10 +56,7 @@ public class Slime : MonoBehaviour
 
     private void FixedUpdate()
     {
-        if (isStartMove)
-        {
-            Movement();
-        }
+        Movement();
     }
 
     void PosRound()

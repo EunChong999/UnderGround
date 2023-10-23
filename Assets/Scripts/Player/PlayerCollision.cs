@@ -4,23 +4,22 @@ using UnityEngine;
 
 public class PlayerCollision : MonoBehaviour
 {
-    bool isCollisioned;
-    Health health;
+    PlayerHealth playerHealth;
     UndergroundMovement undergroundMovement;
 
     private void Start()
     {
-        health = GetComponent<Health>();
+        playerHealth = GetComponent<PlayerHealth>();
         undergroundMovement = GetComponent<UndergroundMovement>();
     }
 
     private void OnTriggerStay2D(Collider2D collision)
     {
         if (collision.CompareTag("Obstacle") &&
-            !health.isOnDamaged &&
+            !playerHealth.isOnDamaged &&
             undergroundMovement.isReached)
         {
-            StartCoroutine(health.OnDamaged());
+            StartCoroutine(playerHealth.OnDamaged());
         }
     }
 }
