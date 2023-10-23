@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Experimental.Rendering.Universal;
+using UnityEngine.SceneManagement;
 
 public class CameraZoom : MonoBehaviour
 {
@@ -20,40 +21,46 @@ public class CameraZoom : MonoBehaviour
 
     void Start()
     {
-        camera = GetComponent<CinemachineVirtualCamera>();
-        zoom = minZoom;
-        undergroundMovement = GameObject.Find("Player").GetComponent<UndergroundMovement>();
-        pixelPerfect = GetComponent<CinemachinePixelPerfect>();
+        if (SceneManager.GetActiveScene().name == "Game Play Scene")
+        {
+            camera = GetComponent<CinemachineVirtualCamera>();
+            zoom = minZoom;
+            undergroundMovement = GameObject.Find("Player").GetComponent<UndergroundMovement>();
+            pixelPerfect = GetComponent<CinemachinePixelPerfect>();
+        }
     }
 
     void Update()
     {
-        camera.m_Lens.OrthographicSize = zoom;
+        if (SceneManager.GetActiveScene().name == "Game Play Scene")
+        {
+            camera.m_Lens.OrthographicSize = zoom;
 
-        if (!undergroundMovement.isReached) 
-        {
-            if (zoom < maxZoom - 0.0001f) 
+            if (!undergroundMovement.isReached)
             {
-                pixelPerfect.enabled = false;
-                zoom = Mathf.SmoothDamp(zoom, maxZoom, ref velocity, smoothTime);
+                if (zoom < maxZoom - 0.0001f)
+                {
+                    pixelPerfect.enabled = false;
+                    zoom = Mathf.SmoothDamp(zoom, maxZoom, ref velocity, smoothTime);
+                }
+                else
+                {
+                    pixelPerfect.enabled = true;
+                    zoom = maxZoom;
+                }
             }
             else
             {
-                pixelPerfect.enabled = true;
-                zoom = maxZoom;
-            }
-        }
-        else
-        {
-            if (zoom > minZoom + 0.0001f)
-            {
-                pixelPerfect.enabled = false;
-                zoom = Mathf.SmoothDamp(zoom, minZoom, ref velocity, smoothTime);
-            }
-            else
-            {
-                pixelPerfect.enabled = true;
-                zoom = minZoom;
+                if (zoom > minZoom + 0.0001f)
+                {
+                    pixelPerfect.enabled = false;
+                    zoom = Mathf.SmoothDamp(zoom, minZoom, ref velocity, smoothTime);
+                }
+                else
+                {
+                    pixelPerfect.enabled = true;
+                    zoom = minZoom;
+                }
             }
         }
     }
