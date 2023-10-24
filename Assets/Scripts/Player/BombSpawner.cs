@@ -7,6 +7,8 @@ public class BombSpawner : MonoBehaviour
 {
     [SerializeField] private GameObject bombPrefeb;
     [SerializeField] private GameObject bombInHand;
+    [SerializeField] private bool isGetKey;
+    [SerializeField] private bool isGetKeyUp;
 
     private UndergroundMovement undergroundMovement;
     private PlayerHealth playerHealth;

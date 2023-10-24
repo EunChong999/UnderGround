@@ -2376,7 +2376,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   shadow: {fileID: 1857611260}
-  range: 5
 --- !u!114 &742368224
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2694,6 +2693,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bombPrefeb: {fileID: 9129206177978930681, guid: a615cf81639c18b4eb0fad82ff1c0fc4, type: 3}
   bombInHand: {fileID: 1400049498113488132}
+  isGetKey: 0
+  isGetKeyUp: 0
 --- !u!114 &1124584964
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2865,7 +2866,7 @@ MonoBehaviour:
   m_Follow: {fileID: 1124584956}
   m_Lens:
     FieldOfView: 40
-    OrthographicSize: 4.244716
+    OrthographicSize: 4.225
     NearClipPlane: 0.1
     FarClipPlane: 5000
     Dutch: 0

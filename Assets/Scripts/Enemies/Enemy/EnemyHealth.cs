@@ -20,6 +20,7 @@ public class EnemyHealth : MonoBehaviour
     private float distance;
     private GameObject player;
     private GameObject body;
+    private Collider2D collider2D;
 
     [HideInInspector]
     public bool isAppeared;
@@ -31,6 +32,8 @@ public class EnemyHealth : MonoBehaviour
         player = GameObject.Find("Player");
         body = transform.GetChild(0).gameObject;
         body.SetActive(false);
+        collider2D = GetComponent<Collider2D>();    
+        collider2D.enabled = false;
         waitForSeconds = new WaitForSeconds(waitTime);
         isStartMove = false;
         isAppeared = false;
@@ -39,6 +42,7 @@ public class EnemyHealth : MonoBehaviour
     private void Appear()
     {
         body.SetActive(true);
+        collider2D.enabled = true;
         animator.SetTrigger("Appear");
         StartCoroutine(StartMove());
         isAppeared = true;
@@ -68,7 +72,7 @@ public class EnemyHealth : MonoBehaviour
     public void Dead()
     {
         isDead = true;
-
+        collider2D.enabled = false;
         animator.SetBool("IsDead", true);
     }
 }

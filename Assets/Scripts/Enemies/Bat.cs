@@ -12,11 +12,6 @@ public class Bat : MonoBehaviour
     [SerializeField]
     private Transform shadow;
 
-    [SerializeField]
-    private float range;
-
-    private float distance;
-
     private GameObject player;
 
     void Start()
@@ -32,9 +27,7 @@ public class Bat : MonoBehaviour
     {
         if (enemyHealth.isAppeared)
         {
-            distance = Vector2.Distance(transform.position, player.transform.position);
-
-            if (!enemyHealth.isDead && distance < range)
+            if (!enemyHealth.isDead)
             {
                 shadow.localPosition = new Vector3(0, 0, 0);
                 aIPath.canMove = true;
