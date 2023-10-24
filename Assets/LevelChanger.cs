@@ -6,12 +6,10 @@ using UnityEngine.UI;
 
 public class LevelChanger : MonoBehaviour
 {
-    private Animator animator;
-    private string targetSceneName;
-
     public static bool isLoading;
 
-    [SerializeField]
+    private Animator animator;
+    private string targetSceneName;
     private Image image;
 
     private void Awake()
@@ -21,6 +19,7 @@ public class LevelChanger : MonoBehaviour
 
     private void Start()
     {
+        image = GameObject.Find("Black Fade").GetComponent<Image>();    
         animator = GetComponent<Animator>();
     }
 
@@ -29,10 +28,12 @@ public class LevelChanger : MonoBehaviour
         if (isLoading)
         {
             image.raycastTarget = true;
+            image.maskable = true;
         }
         else
         {
             image.raycastTarget = false;
+            image.maskable = false;
         }
 
         if (SceneManager.GetActiveScene().name == "Game Title Scene" && !isLoading)

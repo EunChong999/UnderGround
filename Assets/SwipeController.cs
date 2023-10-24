@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using DG.Tweening;
 using UnityEngine.EventSystems;
 
 public class SwipeController : MonoBehaviour, IEndDragHandler
@@ -12,9 +13,9 @@ public class SwipeController : MonoBehaviour, IEndDragHandler
     [SerializeField]
     RectTransform levelPagesRect;
     [SerializeField]
-    float tweenTime;
+    float tweenDuration;
     [SerializeField]
-    LeanTweenType tweenType;
+    Ease easeType;
 
     int currentPage;
     Vector3 targetPos;
@@ -23,7 +24,6 @@ public class SwipeController : MonoBehaviour, IEndDragHandler
     private void Awake()
     {
         currentPage = 1;
-        targetPos = levelPagesRect.localPosition;
         dragThreshould = Screen.width / 15;
     }
 
@@ -32,7 +32,7 @@ public class SwipeController : MonoBehaviour, IEndDragHandler
         if (currentPage < maxPage)
         {
             currentPage++;
-            targetPos += pageStep;
+            targetPos.x += pageStep.x;
             MovePage();
         }
     }
@@ -42,14 +42,14 @@ public class SwipeController : MonoBehaviour, IEndDragHandler
         if (currentPage > 1)
         {
             currentPage--;
-            targetPos -= pageStep;
+            targetPos.x -= pageStep.x;
             MovePage();
         }
     }
 
     private void MovePage()
     {
-        levelPagesRect.LeanMoveLocal(targetPos, tweenTime).setEase(tweenType);
+        levelPagesRect.DOAnchorPosX(targetPos.x, tweenDuration).SetEase(easeType);
     }
 
     public void OnEndDrag(PointerEventData eventData)

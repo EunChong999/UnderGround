@@ -1015,7 +1015,7 @@ Camera:
   far clip plane: 5000
   field of view: 40
   orthographic: 1
-  orthographic size: 4.21875
+  orthographic size: 5.625
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -2866,7 +2866,7 @@ MonoBehaviour:
   m_Follow: {fileID: 1124584956}
   m_Lens:
     FieldOfView: 40
-    OrthographicSize: 4.225
+    OrthographicSize: 4.858664
     NearClipPlane: 0.1
     FarClipPlane: 5000
     Dutch: 0
@@ -3246,7 +3246,7 @@ MonoBehaviour:
   m_ScaleFactor: 1
   m_ReferenceResolution: {x: 1920, y: 1080}
   m_ScreenMatchMode: 0
-  m_MatchWidthOrHeight: 1
+  m_MatchWidthOrHeight: 0
   m_PhysicalUnit: 3
   m_FallbackScreenDPI: 96
   m_DefaultSpriteDPI: 96
@@ -11586,7 +11586,7 @@ MonoBehaviour:
   isIn: 1
   lamp: {fileID: 1238231214}
   tunnel: {fileID: 1221319147}
-  speed: 0.175
+  speed: 30
 --- !u!1 &1786717673
 GameObject:
   m_ObjectHideFlags: 0
@@ -11654,7 +11654,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f7fa13972ba0c144190aeafed991305e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  image: {fileID: 1197694465}
 --- !u!1 &1826590263
 GameObject:
   m_ObjectHideFlags: 0

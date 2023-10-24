@@ -33,13 +33,13 @@ public class DigUpGround : MonoBehaviour
 
             if (isIn)
             {
-                scaler.x = Mathf.Lerp(scaler.x, 0, speed);
-                scaler.y = Mathf.Lerp(scaler.y, 0, speed);
+                scaler.x = Mathf.Lerp(scaler.x, 0, speed * Time.deltaTime);
+                scaler.y = Mathf.Lerp(scaler.y, 0, speed * Time.deltaTime);
             }
             else
             {
-                scaler.x = Mathf.Lerp(scaler.x, 1, speed);
-                scaler.y = Mathf.Lerp(scaler.y, 1, speed);
+                scaler.x = Mathf.Lerp(scaler.x, 1, speed * Time.deltaTime);
+                scaler.y = Mathf.Lerp(scaler.y, 1, speed * Time.deltaTime);
             }
 
             if (undergroundMovement.isReached)
