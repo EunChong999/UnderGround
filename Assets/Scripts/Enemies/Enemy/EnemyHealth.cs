@@ -12,19 +12,36 @@ public class EnemyHealth : MonoBehaviour
 
     [SerializeField]
     private float waitTime;
+    [SerializeField]
+    private float range;
 
     private WaitForSeconds waitForSeconds;
-
     private bool isStartMove;
+    private float distance;
+    private GameObject player;
+    private GameObject body;
+
+    [HideInInspector]
+    public bool isAppeared;
 
     private void Start()
     {
         animator = transform.GetChild(0).GetComponent<Animator>();
         animator.SetBool("IsDead", false);
-        animator.SetTrigger("Appear");
+        player = GameObject.Find("Player");
+        body = transform.GetChild(0).gameObject;
+        body.SetActive(false);
         waitForSeconds = new WaitForSeconds(waitTime);
         isStartMove = false;
+        isAppeared = false;
+    }
+
+    private void Appear()
+    {
+        body.SetActive(true);
+        animator.SetTrigger("Appear");
         StartCoroutine(StartMove());
+        isAppeared = true;
     }
 
     IEnumerator StartMove()
@@ -35,6 +52,13 @@ public class EnemyHealth : MonoBehaviour
 
     private void Update()
     {
+        distance = Vector2.Distance(transform.position, player.transform.position);
+
+        if (distance < range && !isAppeared)
+        {
+            Appear();
+        }
+
         if (health <= 0)
         {
             Dead();

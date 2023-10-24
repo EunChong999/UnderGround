@@ -44,17 +44,20 @@ public class UndergroundMovement : MonoBehaviour
 
     void Update()
     {
-        if (isMoveStart) 
+        if (!LevelChanger.isLoading)
         {
-            isSpaced[0] = GroundCheck(spaceCheck[0]);
-            isSpaced[1] = GroundCheck(spaceCheck[1]);
-            isSpaced[2] = GroundCheck(spaceCheck[2]);
-            isSpaced[3] = GroundCheck(spaceCheck[3]);
+            if (isMoveStart)
+            {
+                isSpaced[0] = GroundCheck(spaceCheck[0]);
+                isSpaced[1] = GroundCheck(spaceCheck[1]);
+                isSpaced[2] = GroundCheck(spaceCheck[2]);
+                isSpaced[3] = GroundCheck(spaceCheck[3]);
 
-            isReached = (isStopped && transform.position.x % 1 == 0 && transform.position.y % 1 == 0);
+                isReached = (isStopped && transform.position.x % 1 == 0 && transform.position.y % 1 == 0);
+            }
+
+            ChangeGravity();
         }
-
-        ChangeGravity();
     }
 
     bool GroundCheck(Transform direction)

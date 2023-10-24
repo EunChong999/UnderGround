@@ -16,41 +16,46 @@ public class DigUpGround : MonoBehaviour
 
     [SerializeField] private GameObject lamp;
     [SerializeField] private GameObject tunnel;
+    [SerializeField] private float speed;
 
     private void Start()
     {
         undergroundMovement = transform.parent.GetComponent<UndergroundMovement>();
+        isIn = false;
         //StartCoroutine(DigDown());
     }
 
     private void Update()
     {
-        transform.localScale = scaler;
+        if (!LevelChanger.isLoading)
+        {
+            transform.localScale = scaler;
 
-        if (isIn)
-        {
-            scaler.x = Mathf.Lerp(scaler.x, 0, .175f);
-            scaler.y = Mathf.Lerp(scaler.y, 0, .175f);
-        }
-        else
-        {
-            scaler.x = Mathf.Lerp(scaler.x, 1, .175f);
-            scaler.y = Mathf.Lerp(scaler.y, 1, .175f);
-        }
+            if (isIn)
+            {
+                scaler.x = Mathf.Lerp(scaler.x, 0, speed);
+                scaler.y = Mathf.Lerp(scaler.y, 0, speed);
+            }
+            else
+            {
+                scaler.x = Mathf.Lerp(scaler.x, 1, speed);
+                scaler.y = Mathf.Lerp(scaler.y, 1, speed);
+            }
 
-        if (undergroundMovement.isReached) 
-        {
-            isIn = false;
-            lamp.GetComponent<Light2D>().intensity = Mathf.Lerp(lamp.GetComponent<Light2D>().intensity, 2, .05f);
-            tunnel.SetActive(true);
-            DigUp();
-        }
-        else
-        {
-            isIn = true;
-            lamp.GetComponent<Light2D>().intensity = Mathf.Lerp(lamp.GetComponent<Light2D>().intensity, 0, .05f);
-            tunnel.SetActive(false);
-            DigDown();
+            if (undergroundMovement.isReached)
+            {
+                isIn = false;
+                lamp.GetComponent<Light2D>().intensity = Mathf.Lerp(lamp.GetComponent<Light2D>().intensity, 2, .05f);
+                tunnel.SetActive(true);
+                DigUp();
+            }
+            else
+            {
+                isIn = true;
+                lamp.GetComponent<Light2D>().intensity = Mathf.Lerp(lamp.GetComponent<Light2D>().intensity, 0, .05f);
+                tunnel.SetActive(false);
+                DigDown();
+            }
         }
     }
 

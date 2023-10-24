@@ -2,14 +2,17 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class LevelChanger : MonoBehaviour
 {
     private Animator animator;
-    private Scene targetScene;
+    private string targetSceneName;
+
+    public static bool isLoading;
 
     [SerializeField]
-    private bool isLoading;
+    private Image image;
 
     private void Awake()
     {
@@ -23,15 +26,35 @@ public class LevelChanger : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Space) && !isLoading)
+        if (isLoading)
         {
-            LoadGamePlayScene();
+            image.raycastTarget = true;
+        }
+        else
+        {
+            image.raycastTarget = false;
+        }
+
+        if (SceneManager.GetActiveScene().name == "Game Title Scene" && !isLoading)
+        {
+            if (Input.anyKeyDown)
+            {
+                LoadGameStageScene();
+            }
+        }
+
+        if (SceneManager.GetActiveScene().name == "Game Play Scene" && !isLoading)
+        {
+            if (Input.GetKeyDown(KeyCode.Space))
+            {
+                LoadGamePlayScene();
+            }
         }
     }
 
     public void OnFadeOutComplete()
     {
-        SceneManager.LoadScene(targetScene.name);
+        SceneManager.LoadScene(targetSceneName);
     }
 
     public void OnFadeInComplete()
@@ -41,19 +64,19 @@ public class LevelChanger : MonoBehaviour
     
     private void LoadGameTitleScene()
     {
-        targetScene = SceneManager.GetSceneByName("Game Title Scene");
+        targetSceneName = "Game Title Scene";
         animator.SetTrigger("FadeOut");
     }
 
     private void LoadGameStageScene()
     {
-        targetScene = SceneManager.GetSceneByName("Game Stage Scene");
+        targetSceneName = "Game Stage Scene";
         animator.SetTrigger("FadeOut");
     }
 
     private void LoadGamePlayScene()
     {
-        targetScene = SceneManager.GetSceneByName("Game Play Scene");
+        targetSceneName = "Game Play Scene";
         animator.SetTrigger("FadeOut");
     }
 }

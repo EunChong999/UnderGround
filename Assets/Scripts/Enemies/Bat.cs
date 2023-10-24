@@ -12,9 +12,12 @@ public class Bat : MonoBehaviour
     [SerializeField]
     private Transform shadow;
 
-    private GameObject player;
+    [SerializeField]
+    private float range;
 
-    private CircleCollider2D circleCollider;
+    private float distance;
+
+    private GameObject player;
 
     void Start()
     {
@@ -23,24 +26,25 @@ public class Bat : MonoBehaviour
         enemyHealth = GetComponent<EnemyHealth>();
 
         player = GameObject.Find("Player");
-
-        circleCollider = GetComponent<CircleCollider2D>();
     }
 
     void Update()
     {
-        if (!enemyHealth.isDead)
+        if (enemyHealth.isAppeared)
         {
-            shadow.localPosition = new Vector3(0, 0, 0);
-            aIPath.canMove = true;
-            circleCollider.enabled = true;
-            FlipX();
-        }
-        else
-        {
-            shadow.localPosition = new Vector3(0, 0.25f, 0);
-            circleCollider.enabled = false;
-            aIPath.canMove = false;
+            distance = Vector2.Distance(transform.position, player.transform.position);
+
+            if (!enemyHealth.isDead && distance < range)
+            {
+                shadow.localPosition = new Vector3(0, 0, 0);
+                aIPath.canMove = true;
+                FlipX();
+            }
+            else
+            {
+                shadow.localPosition = new Vector3(0, 0.25f, 0);
+                aIPath.canMove = false;
+            }
         }
     }
 
