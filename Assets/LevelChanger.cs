@@ -50,6 +50,7 @@ public class LevelChanger : MonoBehaviour
 
     private void Start()
     {
+        isLoading = true;
         image = GameObject.Find("Black Fade").GetComponent<Image>();    
         animator = GetComponent<Animator>();
     }
@@ -96,18 +97,21 @@ public class LevelChanger : MonoBehaviour
     
     private void LoadGameTitleScene()
     {
+        isLoading = true;
         targetSceneName = "Game Title Scene";
         animator.SetTrigger("FadeOut");
     }
 
     private void LoadGameStageScene()
     {
+        isLoading = true;
         targetSceneName = "Game Stage Scene";
         animator.SetTrigger("FadeOut");
     }
 
     private void LoadGamePlayScene()
     {
+        isLoading = true;
         targetSceneName = "Game Play Scene";
         animator.SetTrigger("FadeOut");
     }
