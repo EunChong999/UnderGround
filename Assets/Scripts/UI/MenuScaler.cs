@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
 
-public class MenuScale : MonoBehaviour
+public class MenuScaler : MonoBehaviour
 {
     [SerializeField]
     private Transform trans;

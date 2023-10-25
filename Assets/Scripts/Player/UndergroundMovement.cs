@@ -44,7 +44,7 @@ public class UndergroundMovement : MonoBehaviour
 
     void Update()
     {
-        if (!LevelChanger.Instance.isLoading)
+        if (!LevelManager.Instance.isLoading)
         {
             if (isMoveStart)
             {

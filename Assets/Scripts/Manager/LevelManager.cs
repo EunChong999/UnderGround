@@ -1,18 +1,23 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
-public class LevelChanger : MonoBehaviour
+public class LevelManager : MonoBehaviour
 {
-    private static LevelChanger instance = null;
+    private static LevelManager instance = null;
 
     public bool isLoading;
+    public GameObject[] levels;
 
     private Animator animator;
     private string targetSceneName;
     private Image image;
+
+    //[HideInInspector]
+    public int currentLevel;
 
     private void Awake()
     {
@@ -36,7 +41,7 @@ public class LevelChanger : MonoBehaviour
     }
 
     //게임 매니저 인스턴스에 접근할 수 있는 프로퍼티. static이므로 다른 클래스에서 맘껏 호출할 수 있다.
-    public static LevelChanger Instance
+    public static LevelManager Instance
     {
         get
         {
@@ -51,6 +56,7 @@ public class LevelChanger : MonoBehaviour
     private void Start()
     {
         isLoading = true;
+        currentLevel = 1;
         image = GameObject.Find("Black Fade").GetComponent<Image>();    
         animator = GetComponent<Animator>();
     }
@@ -65,14 +71,6 @@ public class LevelChanger : MonoBehaviour
         {
             image.raycastTarget = false;
         }
-
-        //if (SceneManager.GetActiveScene().name == "Game Title Scene" && !isLoading)
-        //{
-        //    if (Input.anyKeyDown)
-        //    {
-        //        LoadGameStageScene();
-        //    }
-        //}
 
         if (SceneManager.GetActiveScene().name == "Game Play Scene" && !isLoading)
         {
@@ -91,6 +89,11 @@ public class LevelChanger : MonoBehaviour
     public void OnFadeInComplete()
     {
         isLoading = false;
+    }
+
+    public void SpawnLevel()
+    {
+        Instantiate(levels[currentLevel - 1]);
     }
 
     private void Fade()

@@ -960,7 +960,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 17109e06599e96c4e8c0671d8005f267, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  scaleDuration: 0.1
+  scaleDuration: 0.5
   easeType: 24
   loadSceneName: Game Stage Scene
 --- !u!1 &1774456716
@@ -1257,7 +1257,7 @@ GameObject:
   - component: {fileID: 8622543602902676477}
   - component: {fileID: 8160888776495553446}
   m_Layer: 0
-  m_Name: LevelChanger
+  m_Name: Level Manager
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1395,6 +1395,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isLoading: 1
+  levels:
+  - {fileID: 8553162297141716356, guid: fd2d23bd26d08aa4aac670344d1c5b5c, type: 3}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  currentLevel: 0
 --- !u!95 &8622543602902676477
 Animator:
   serializedVersion: 5
