@@ -60,21 +60,19 @@ public class LevelChanger : MonoBehaviour
         if (isLoading)
         {
             image.raycastTarget = true;
-            image.maskable = true;
         }
         else
         {
             image.raycastTarget = false;
-            image.maskable = false;
         }
 
-        if (SceneManager.GetActiveScene().name == "Game Title Scene" && !isLoading)
-        {
-            if (Input.anyKeyDown)
-            {
-                LoadGameStageScene();
-            }
-        }
+        //if (SceneManager.GetActiveScene().name == "Game Title Scene" && !isLoading)
+        //{
+        //    if (Input.anyKeyDown)
+        //    {
+        //        LoadGameStageScene();
+        //    }
+        //}
 
         if (SceneManager.GetActiveScene().name == "Game Play Scene" && !isLoading)
         {
