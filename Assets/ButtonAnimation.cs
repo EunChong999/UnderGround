@@ -11,16 +11,16 @@ public class ButtonAnimation : MonoBehaviour
     [SerializeField]
     private Ease easeType;
 
-    Button button;
+    protected Button button;
     Vector3 upScale = new Vector3(1.2f, 1.2f, 1);
 
-    private void Awake()
+    protected void Awake()
     {
         button = GetComponent<Button>();
         button.onClick.AddListener(Anim);
     }
 
-    private void Anim()
+    protected void Anim()
     {
         GetComponent<RectTransform>().DOScale(upScale, scaleDuration).SetEase(easeType);
         GetComponent<RectTransform>().DOScale(Vector3.one, scaleDuration).SetDelay(scaleDuration);

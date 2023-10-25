@@ -94,25 +94,28 @@ public class LevelChanger : MonoBehaviour
     {
         isLoading = false;
     }
+
+    private void Fade()
+    {
+        isLoading = true;
+        animator.SetTrigger("FadeOut");
+    }
     
-    private void LoadGameTitleScene()
+    public void LoadGameTitleScene()
     {
-        isLoading = true;
+        Fade();
         targetSceneName = "Game Title Scene";
-        animator.SetTrigger("FadeOut");
     }
 
-    private void LoadGameStageScene()
+    public void LoadGameStageScene()
     {
-        isLoading = true;
+        Fade();
         targetSceneName = "Game Stage Scene";
-        animator.SetTrigger("FadeOut");
     }
 
-    private void LoadGamePlayScene()
+    public void LoadGamePlayScene()
     {
-        isLoading = true;
+        Fade();
         targetSceneName = "Game Play Scene";
-        animator.SetTrigger("FadeOut");
     }
 }
