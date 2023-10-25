@@ -23,7 +23,7 @@ public class BombSpawner : MonoBehaviour
 
     void Update()
     {
-        if (!LevelChanger.isLoading)
+        if (!LevelChanger.Instance.isLoading)
         {
             if (!playerHealth.isDead)
             {

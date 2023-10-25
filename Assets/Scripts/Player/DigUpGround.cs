@@ -27,7 +27,7 @@ public class DigUpGround : MonoBehaviour
 
     private void Update()
     {
-        if (!LevelChanger.isLoading)
+        if (!LevelChanger.Instance.isLoading)
         {
             transform.localScale = scaler;
 
