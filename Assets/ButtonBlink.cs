@@ -6,6 +6,7 @@ using UnityEngine.UI;
 
 public class ButtonBlink : MonoBehaviour
 {
+    public bool isBlinkType;
     [SerializeField]
     private Sprite unClickedSprite;
     [SerializeField]
@@ -15,14 +16,29 @@ public class ButtonBlink : MonoBehaviour
 
     private WaitForSeconds waitForSeconds;
 
-    private void Start()
+    private void Awake()
     {
+        if (Time.timeScale == 1)
+        {
+            waitTime = 0.5f;
+        }
+
         waitForSeconds = new WaitForSeconds(waitTime);
+
+        if (!isBlinkType) 
+        {
+            gameObject.GetComponent<Image>().sprite = unClickedSprite;
+        }
     }
 
-    private void OnEnable()
+    private IEnumerator Start()
     {
-        StartCoroutine(Blink());
+        yield return new WaitForSeconds(0.25f);
+
+        if (isBlinkType)
+        {
+            StartCoroutine(Blink());
+        }
     }
 
     IEnumerator Blink()
