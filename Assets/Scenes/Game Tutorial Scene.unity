@@ -135,7 +135,6 @@ GameObject:
   - component: {fileID: 65131202}
   - component: {fileID: 65131201}
   - component: {fileID: 65131200}
-  - component: {fileID: 65131199}
   - component: {fileID: 65131198}
   - component: {fileID: 65131197}
   - component: {fileID: 65131196}
@@ -239,22 +238,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b68609d66c239c542b194c30f1704c80, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &65131199
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 65131194}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 346a2b344f124154695d4a1429b261c4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  bombPrefeb: {fileID: 9129206177978930681, guid: a615cf81639c18b4eb0fad82ff1c0fc4, type: 3}
-  bombInHand: {fileID: 321933679}
-  isGetKey: 0
-  isGetKeyUp: 0
 --- !u!114 &65131200
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -15,29 +15,35 @@ public class ButtonBlink : MonoBehaviour
     private float waitTime;
 
     private WaitForSeconds waitForSeconds;
+    private bool isBlinking;
 
-    private void Awake()
+    private void OnEnable()
+    {
+        isBlinking = false;
+    }
+
+    private void Update()
     {
         if (Time.timeScale == 1)
         {
             waitTime = 0.5f;
         }
+        else
+        {
+            waitTime = 0.05f;
+        }
 
         waitForSeconds = new WaitForSeconds(waitTime);
 
-        if (!isBlinkType) 
+        if (!isBlinkType)
         {
             gameObject.GetComponent<Image>().sprite = unClickedSprite;
         }
-    }
 
-    private IEnumerator Start()
-    {
-        yield return new WaitForSeconds(0.25f);
-
-        if (isBlinkType)
+        if (isBlinkType && !isBlinking)
         {
             StartCoroutine(Blink());
+            isBlinking = true;
         }
     }
 

@@ -54,7 +54,7 @@ public class UndergroundMovement : MonoBehaviour
             isReached = (isStopped && transform.position.x % 1 == 0 && transform.position.y % 1 == 0);
         }
 
-        ChangeGravity();
+        Move();
     }
 
     bool GroundCheck(Transform direction)
@@ -69,7 +69,7 @@ public class UndergroundMovement : MonoBehaviour
         }
     }
 
-    void ChangeGravity()
+    void Move()
     {
         if (!playerHealth.isDead)
         {
