@@ -9,6 +9,13 @@ public class PauseMenu : MonoBehaviour
     [SerializeField]
     GameObject backGround;
 
+    private GameObject player;
+
+    private void Start()
+    {
+        player = GameObject.Find("Player");
+    }
+
     public void Pause()
     {
         pauseMenu.SetActive(true);
@@ -25,6 +32,7 @@ public class PauseMenu : MonoBehaviour
 
     public void Restart()
     {
+        player.SetActive(false);
         pauseMenu.SetActive(false);
         backGround.SetActive(false);
         Time.timeScale = 1.0f;
@@ -32,6 +40,7 @@ public class PauseMenu : MonoBehaviour
 
     public void MainMenu()
     {
+        player.SetActive(false);
         pauseMenu.SetActive(false);
         backGround.SetActive(false);
         Time.timeScale = 1.0f;

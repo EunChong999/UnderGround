@@ -11,6 +11,7 @@ public class HoleSceneLoad : MonoBehaviour
         if (!isCollisioned)
         {
             LevelManager.Instance.LoadGameStageScene();
+            collision.gameObject.SetActive(false);
             isCollisioned = true;
         }
     }

@@ -13,7 +13,7 @@ public class EnemyCollision : MonoBehaviour
 
     private void OnTriggerStay2D(Collider2D collision)
     {
-        if (collision.CompareTag("Obstacle") &&
+        if (collision.CompareTag("Obstacle") && collision.gameObject.layer != 7 &&
             !enemyHealth.isDead)
         {
             enemyHealth.Dead();
