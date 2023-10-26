@@ -6,6 +6,8 @@ public class Slime : MonoBehaviour
 {
     private Rigidbody2D rb;
     [SerializeField]
+    EnemyHealth enemyHealth;
+    [SerializeField]
     private float speed;
     [SerializeField]
     private bool groundDetected;
@@ -48,10 +50,16 @@ public class Slime : MonoBehaviour
 
     private void Update()
     {
-        checkers.position = transform.position;
-        body.position = transform.position; 
-        CheckGroundOrWall();
-        ChangeAngle();
+        if (enemyHealth.isAppeared)
+        {
+            if (!enemyHealth.isDead)
+            {
+                checkers.position = transform.position;
+                body.position = transform.position;
+                CheckGroundOrWall();
+                ChangeAngle();
+            }
+        }
     }
 
     private void FixedUpdate()

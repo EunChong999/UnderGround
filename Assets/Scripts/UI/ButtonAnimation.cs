@@ -22,7 +22,7 @@ public class ButtonAnimation : MonoBehaviour
 
     protected void Anim()
     {
-        GetComponent<RectTransform>().DOScale(upScale, scaleDuration).SetEase(easeType);
-        GetComponent<RectTransform>().DOScale(Vector3.one, scaleDuration).SetDelay(scaleDuration);
+        GetComponent<RectTransform>().DOScale(upScale, scaleDuration).SetEase(easeType).SetUpdate(true);
+        GetComponent<RectTransform>().DOScale(Vector3.one, scaleDuration).SetDelay(scaleDuration).SetUpdate(true);
     }
 }

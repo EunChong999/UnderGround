@@ -10,6 +10,7 @@ public class LevelManager : MonoBehaviour
     private static LevelManager instance = null;
 
     public bool isLoading;
+    public bool isTutorialCompleted;
     public GameObject[] levels;
 
     private Animator animator;
@@ -110,8 +111,17 @@ public class LevelManager : MonoBehaviour
 
     public void LoadGameStageScene()
     {
-        Fade();
-        targetSceneName = "Game Stage Scene";
+        if (!isTutorialCompleted)
+        {
+            Fade();
+            targetSceneName = "Game Tutorial Scene";
+            isTutorialCompleted = true;
+        }
+        else
+        {
+            Fade();
+            targetSceneName = "Game Stage Scene";
+        }
     }
 
     public void LoadGamePlayScene()

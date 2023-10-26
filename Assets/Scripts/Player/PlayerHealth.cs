@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class PlayerHealth : MonoBehaviour
@@ -35,24 +36,27 @@ public class PlayerHealth : MonoBehaviour
             Dead();
         }
 
-        for (int i = 0; i < hearts.Length; i++)
+        if(SceneManager.GetActiveScene().name != "Game Tutorial Scene")
         {
-            if (i < health)
+            for (int i = 0; i < hearts.Length; i++)
             {
-                hearts[i].sprite = fullHeart;
-            }
-            else
-            {
-                hearts[i].sprite = emptyHeart;
-            }
+                if (i < health)
+                {
+                    hearts[i].sprite = fullHeart;
+                }
+                else
+                {
+                    hearts[i].sprite = emptyHeart;
+                }
 
-            if (i < numOfHearts)
-            {
-                hearts[i].enabled = true;
-            }
-            else
-            {
-                hearts[i].enabled = false;
+                if (i < numOfHearts)
+                {
+                    hearts[i].enabled = true;
+                }
+                else
+                {
+                    hearts[i].enabled = false;
+                }
             }
         }
     }
@@ -91,6 +95,11 @@ public class PlayerHealth : MonoBehaviour
 
     public void Dead()
     {
+        if (!isDead) 
+        {
+            LevelManager.Instance.LoadGamePlayScene();
+        }
+
         isDead = true;
 
         // 현재 색상 정보 가져오기

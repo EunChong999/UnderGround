@@ -15,11 +15,14 @@ public class PlayerCollision : MonoBehaviour
 
     private void OnTriggerStay2D(Collider2D collision)
     {
-        if (collision.CompareTag("Obstacle") &&
-            !playerHealth.isOnDamaged &&
-            undergroundMovement.isReached)
+        if (!LevelManager.Instance.isLoading)
         {
-            StartCoroutine(playerHealth.OnDamaged());
+            if (collision.CompareTag("Obstacle") &&
+                !playerHealth.isOnDamaged &&
+                undergroundMovement.isReached)
+            {
+                StartCoroutine(playerHealth.OnDamaged());
+            }
         }
     }
 }

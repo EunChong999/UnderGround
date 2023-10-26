@@ -27,35 +27,32 @@ public class DigUpGround : MonoBehaviour
 
     private void Update()
     {
-        if (!LevelManager.Instance.isLoading)
+        transform.localScale = scaler;
+
+        if (isIn)
         {
-            transform.localScale = scaler;
+            scaler.x = Mathf.Lerp(scaler.x, 0, speed * Time.deltaTime);
+            scaler.y = Mathf.Lerp(scaler.y, 0, speed * Time.deltaTime);
+        }
+        else
+        {
+            scaler.x = Mathf.Lerp(scaler.x, 1, speed * Time.deltaTime);
+            scaler.y = Mathf.Lerp(scaler.y, 1, speed * Time.deltaTime);
+        }
 
-            if (isIn)
-            {
-                scaler.x = Mathf.Lerp(scaler.x, 0, speed * Time.deltaTime);
-                scaler.y = Mathf.Lerp(scaler.y, 0, speed * Time.deltaTime);
-            }
-            else
-            {
-                scaler.x = Mathf.Lerp(scaler.x, 1, speed * Time.deltaTime);
-                scaler.y = Mathf.Lerp(scaler.y, 1, speed * Time.deltaTime);
-            }
-
-            if (undergroundMovement.isReached)
-            {
-                isIn = false;
-                lamp.GetComponent<Light2D>().intensity = Mathf.Lerp(lamp.GetComponent<Light2D>().intensity, 2, .05f);
-                tunnel.SetActive(true);
-                DigUp();
-            }
-            else
-            {
-                isIn = true;
-                lamp.GetComponent<Light2D>().intensity = Mathf.Lerp(lamp.GetComponent<Light2D>().intensity, 0, .05f);
-                tunnel.SetActive(false);
-                DigDown();
-            }
+        if (undergroundMovement.isReached)
+        {
+            isIn = false;
+            lamp.GetComponent<Light2D>().intensity = Mathf.Lerp(lamp.GetComponent<Light2D>().intensity, 2, .05f);
+            tunnel.SetActive(true);
+            DigUp();
+        }
+        else
+        {
+            isIn = true;
+            lamp.GetComponent<Light2D>().intensity = Mathf.Lerp(lamp.GetComponent<Light2D>().intensity, 0, .05f);
+            tunnel.SetActive(false);
+            DigDown();
         }
     }
 

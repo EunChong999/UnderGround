@@ -6,6 +6,7 @@ using UnityEngine;
 public class Bat : MonoBehaviour
 {
     private AIPath aIPath;
+    private AIDestinationSetter aIDestinationSetter;
 
     private EnemyHealth enemyHealth;
 
@@ -17,10 +18,13 @@ public class Bat : MonoBehaviour
     void Start()
     {
         aIPath = GetComponent<AIPath>();
+        aIDestinationSetter = GetComponent<AIDestinationSetter>();  
 
         enemyHealth = GetComponent<EnemyHealth>();
 
         player = GameObject.Find("Player");
+
+        aIDestinationSetter.target = player.transform;
     }
 
     void Update()
