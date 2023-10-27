@@ -42,7 +42,6 @@ public class EnemyHealth : MonoBehaviour
     private void Appear()
     {
         body.SetActive(true);
-        collider2D.enabled = true;
         animator.SetTrigger("Appear");
         StartCoroutine(StartMove());
         isAppeared = true;
@@ -51,6 +50,7 @@ public class EnemyHealth : MonoBehaviour
     IEnumerator StartMove()
     {
         yield return waitForSeconds;
+        collider2D.enabled = true;
         isStartMove = true;
     }
 
