@@ -12,8 +12,7 @@ public class SoundManager : MonoBehaviour
 
     void Update()
     {
-        if(SceneManager.GetActiveScene().name == "Game Play Scene" || 
-           SceneManager.GetActiveScene().name == "Game Tutorial Scene")
+        if(SceneManager.GetActiveScene().name == "Game Play Scene")
         {
             regular.SetActive(false);
             battle.SetActive(true);
