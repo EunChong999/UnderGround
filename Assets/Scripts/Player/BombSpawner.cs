@@ -8,7 +8,7 @@ public class BombSpawner : MonoBehaviour
     [SerializeField] private GameObject bombPrefeb;
     [SerializeField] private GameObject bombInHand;
     [SerializeField] private bool isGetKey;
-    [SerializeField] private bool isGetKeyUp;
+    [SerializeField] private bool[] isKeysGetKey;
 
     private UndergroundMovement undergroundMovement;
     private PlayerHealth playerHealth;
@@ -27,71 +27,8 @@ public class BombSpawner : MonoBehaviour
         {
             if (undergroundMovement.isReached)
             {
-                if (Input.GetKey(KeyCode.UpArrow) && (undergroundMovement.isSpaced[0] || !undergroundMovement.isMoveStart))
-                {
-                    animator.SetBool("IsAttacking", true);
-                    animator.SetFloat("Horizontal", 0);
-                    animator.SetFloat("Vertical", 1);
-                    bombInHand.SetActive(false);
-                }
-                else if (Input.GetKey(KeyCode.LeftArrow) && (undergroundMovement.isSpaced[1] || !undergroundMovement.isMoveStart))
-                {
-                    animator.SetBool("IsAttacking", true);
-                    animator.SetFloat("Horizontal", -1);
-                    animator.SetFloat("Vertical", 0);
-                    bombInHand.SetActive(true);
-                    bombInHand.transform.localPosition = new Vector2(-0.15f, -0.25f);
-                }
-                else if (Input.GetKey(KeyCode.DownArrow) && (undergroundMovement.isSpaced[2] || !undergroundMovement.isMoveStart))
-                {
-                    animator.SetBool("IsAttacking", true);
-                    animator.SetFloat("Horizontal", 0);
-                    animator.SetFloat("Vertical", -1);
-                    bombInHand.SetActive(true);
-                    bombInHand.transform.localPosition = new Vector2(-0.15f, -0.25f);
-                }
-                else if (Input.GetKey(KeyCode.RightArrow) && (undergroundMovement.isSpaced[3] || !undergroundMovement.isMoveStart))
-                {
-                    animator.SetBool("IsAttacking", true);
-                    animator.SetFloat("Horizontal", 1);
-                    animator.SetFloat("Vertical", 0);
-                    bombInHand.SetActive(true);
-                    bombInHand.transform.localPosition = new Vector2(0.15f, -0.25f);
-                }
-                else
-                {
-                    animator.SetBool("IsAttacking", false);
-                    bombInHand.SetActive(false);
-                }
-
-                if (Input.GetKeyUp(KeyCode.UpArrow) && (undergroundMovement.isSpaced[0] || !undergroundMovement.isMoveStart))
-                {
-                    GameObject bomb = Instantiate(bombPrefeb, new Vector2(transform.position.x, transform.position.y + 0.25f), transform.rotation);
-                    bomb.GetComponent<GridMovement>().x = 0;
-                    bomb.GetComponent<GridMovement>().y = 1;
-                    bomb.transform.eulerAngles = new Vector3(0, 0, 180);
-                }
-                else if (Input.GetKeyUp(KeyCode.LeftArrow) && (undergroundMovement.isSpaced[1] || !undergroundMovement.isMoveStart))
-                {
-                    GameObject bomb = Instantiate(bombPrefeb, new Vector2(transform.position.x - 0.25f, transform.position.y), transform.rotation);
-                    bomb.GetComponent<GridMovement>().x = -1;
-                    bomb.GetComponent<GridMovement>().y = 0;
-                    bomb.transform.eulerAngles = new Vector3(0, 0, 270);
-                }
-                else if (Input.GetKeyUp(KeyCode.DownArrow) && (undergroundMovement.isSpaced[2] || !undergroundMovement.isMoveStart))
-                {
-                    GameObject bomb = Instantiate(bombPrefeb, new Vector2(transform.position.x, transform.position.y - 0.25f), transform.rotation);
-                    bomb.GetComponent<GridMovement>().x = 0;
-                    bomb.GetComponent<GridMovement>().y = -1;
-                    bomb.transform.eulerAngles = new Vector3(0, 0, 0);
-                }
-                else if (Input.GetKeyUp(KeyCode.RightArrow) && (undergroundMovement.isSpaced[3] || !undergroundMovement.isMoveStart))
-                {
-                    GameObject bomb = Instantiate(bombPrefeb, new Vector2(transform.position.x + 0.25f, transform.position.y), transform.rotation);
-                    bomb.GetComponent<GridMovement>().x = 1;
-                    bomb.GetComponent<GridMovement>().y = 0;
-                    bomb.transform.eulerAngles = new Vector3(0, 0, 90);
-                }
+                LookDirection();
+                ThrowBomb();
             }
             else
             {
@@ -103,6 +40,118 @@ public class BombSpawner : MonoBehaviour
         {
             animator.SetBool("IsAttacking", false);
             bombInHand.SetActive(false);
+        }
+    }
+
+    private void LookDirection()
+    {
+        if (Input.GetKey(KeyCode.UpArrow) && (undergroundMovement.isSpaced[0] || !undergroundMovement.isMoveStart) && (!isGetKey || isKeysGetKey[0]))
+        {
+            isKeysGetKey[0] = true;
+            isKeysGetKey[1] = false;
+            isKeysGetKey[2] = false;
+            isKeysGetKey[3] = false;
+            isGetKey = true;
+            animator.SetBool("IsAttacking", true);
+            animator.SetFloat("Horizontal", 0);
+            animator.SetFloat("Vertical", 1);
+            bombInHand.SetActive(false);
+        }
+        else if (Input.GetKey(KeyCode.LeftArrow) && (undergroundMovement.isSpaced[1] || !undergroundMovement.isMoveStart) && (!isGetKey || isKeysGetKey[1]))
+        {
+            isKeysGetKey[0] = false;
+            isKeysGetKey[1] = true;
+            isKeysGetKey[2] = false;
+            isKeysGetKey[3] = false;
+            isGetKey = true;
+            animator.SetBool("IsAttacking", true);
+            animator.SetFloat("Horizontal", -1);
+            animator.SetFloat("Vertical", 0);
+            bombInHand.SetActive(true);
+            bombInHand.transform.localPosition = new Vector2(-0.15f, -0.25f);
+        }
+        else if (Input.GetKey(KeyCode.DownArrow) && (undergroundMovement.isSpaced[2] || !undergroundMovement.isMoveStart) && (!isGetKey || isKeysGetKey[2]))
+        {
+            isKeysGetKey[0] = false;
+            isKeysGetKey[1] = false;
+            isKeysGetKey[2] = true;
+            isKeysGetKey[3] = false;
+            isGetKey = true;
+            animator.SetBool("IsAttacking", true);
+            animator.SetFloat("Horizontal", 0);
+            animator.SetFloat("Vertical", -1);
+            bombInHand.SetActive(true);
+            bombInHand.transform.localPosition = new Vector2(-0.15f, -0.25f);
+        }
+        else if (Input.GetKey(KeyCode.RightArrow) && (undergroundMovement.isSpaced[3] || !undergroundMovement.isMoveStart) && (!isGetKey || isKeysGetKey[3]))
+        {
+            isKeysGetKey[0] = false;
+            isKeysGetKey[1] = false;
+            isKeysGetKey[2] = false;
+            isKeysGetKey[3] = true;
+            isGetKey = true;
+            animator.SetBool("IsAttacking", true);
+            animator.SetFloat("Horizontal", 1);
+            animator.SetFloat("Vertical", 0);
+            bombInHand.SetActive(true);
+            bombInHand.transform.localPosition = new Vector2(0.15f, -0.25f);
+        }
+        else
+        {
+            animator.SetBool("IsAttacking", false);
+            bombInHand.SetActive(false);
+        }
+    }
+
+    private void ThrowBomb()
+    {
+        if (Input.GetKeyUp(KeyCode.UpArrow) && (undergroundMovement.isSpaced[0] || !undergroundMovement.isMoveStart) && isKeysGetKey[0])
+        {
+            GameObject bomb = Instantiate(bombPrefeb, new Vector2(transform.position.x, transform.position.y + 0.25f), transform.rotation);
+            bomb.GetComponent<GridMovement>().x = 0;
+            bomb.GetComponent<GridMovement>().y = 1;
+            bomb.transform.eulerAngles = new Vector3(0, 0, 180);
+            isKeysGetKey[0] = false;
+            isKeysGetKey[1] = false;
+            isKeysGetKey[2] = false;
+            isKeysGetKey[3] = false;
+            isGetKey = false;
+        }
+        else if (Input.GetKeyUp(KeyCode.LeftArrow) && (undergroundMovement.isSpaced[1] || !undergroundMovement.isMoveStart) && isKeysGetKey[1])
+        {
+            GameObject bomb = Instantiate(bombPrefeb, new Vector2(transform.position.x - 0.25f, transform.position.y), transform.rotation);
+            bomb.GetComponent<GridMovement>().x = -1;
+            bomb.GetComponent<GridMovement>().y = 0;
+            bomb.transform.eulerAngles = new Vector3(0, 0, 270);
+            isKeysGetKey[0] = false;
+            isKeysGetKey[1] = false;
+            isKeysGetKey[2] = false;
+            isKeysGetKey[3] = false;
+            isGetKey = false;
+        }
+        else if (Input.GetKeyUp(KeyCode.DownArrow) && (undergroundMovement.isSpaced[2] || !undergroundMovement.isMoveStart) && isKeysGetKey[2])
+        {
+            GameObject bomb = Instantiate(bombPrefeb, new Vector2(transform.position.x, transform.position.y - 0.25f), transform.rotation);
+            bomb.GetComponent<GridMovement>().x = 0;
+            bomb.GetComponent<GridMovement>().y = -1;
+            bomb.transform.eulerAngles = new Vector3(0, 0, 0);
+            isKeysGetKey[0] = false;
+            isKeysGetKey[1] = false;
+            isKeysGetKey[2] = false;
+            isKeysGetKey[3] = false;
+            isGetKey = false;
+        }
+        else if (Input.GetKeyUp(KeyCode.RightArrow) && (undergroundMovement.isSpaced[3] || !undergroundMovement.isMoveStart) && isKeysGetKey[3])
+        {
+            GameObject bomb = Instantiate(bombPrefeb, new Vector2(transform.position.x + 0.25f, transform.position.y), transform.rotation);
+            bomb.GetComponent<GridMovement>().x = 1;
+            bomb.GetComponent<GridMovement>().y = 0;
+            bomb.transform.eulerAngles = new Vector3(0, 0, 90);
+            isKeysGetKey[0] = false;
+            isKeysGetKey[1] = false;
+            isKeysGetKey[2] = false;
+            isKeysGetKey[3] = false;
+            isGetKey = false;
         }
     }
 }

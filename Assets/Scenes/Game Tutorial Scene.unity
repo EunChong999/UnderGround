@@ -3804,7 +3804,7 @@ MonoBehaviour:
   underGroundTunnel: {fileID: 8687113948785847671, guid: 984380a12181a6342a28aa65a0b25a29, type: 3}
   underGroundSill: {fileID: 3413953983272779424, guid: 8b344a37747d1f34fabf0359a8f9de58, type: 3}
   scaler: {x: 1, y: 1, z: 1}
-  isIn: 1
+  isIn: 0
   lamp: {fileID: 1500447971}
   tunnel: {fileID: 219907478}
   speed: 30
