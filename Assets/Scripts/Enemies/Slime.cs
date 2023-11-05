@@ -6,7 +6,7 @@ public class Slime : MonoBehaviour
 {
     private Rigidbody2D rb;
     [SerializeField]
-    EnemyHealth enemyHealth;
+    private bool isRight;
     [SerializeField]
     private float speed;
     [SerializeField]
@@ -50,16 +50,10 @@ public class Slime : MonoBehaviour
 
     private void Update()
     {
-        if (enemyHealth.isAppeared)
-        {
-            if (!enemyHealth.isDead)
-            {
-                checkers.position = transform.position;
-                body.position = transform.position;
-                CheckGroundOrWall();
-                ChangeAngle();
-            }
-        }
+        checkers.position = transform.position;
+        body.position = transform.position;
+        CheckGroundOrWall();
+        ChangeAngle();
     }
 
     private void FixedUpdate()
@@ -78,31 +72,63 @@ public class Slime : MonoBehaviour
 
     void CheckGroundOrWall()
     {
-        if (angle == 0 || angle == -360)
+        if (isRight)
         {
-            groundCheckDir = -transform.up;
-            wallCheckDir = transform.right;
-            groundPositionChecker.localPosition = groundPositionCheckerPos[0];
-            spriteRenderer.flipX = false;
+            if (angle == 0 || angle == -360)
+            {
+                groundCheckDir = -transform.up;
+                wallCheckDir = transform.right;
+                groundPositionChecker.localPosition = groundPositionCheckerPos[0];
+                spriteRenderer.flipX = false;
+            }
+            else if (angle == 270 || angle == -90)
+            {
+                groundCheckDir = -transform.up;
+                wallCheckDir = transform.right;
+                groundPositionChecker.localPosition = groundPositionCheckerPos[1];
+            }
+            else if (angle == 180 || angle == -180)
+            {
+                groundCheckDir = -transform.up;
+                wallCheckDir = transform.right;
+                groundPositionChecker.localPosition = groundPositionCheckerPos[2];
+                spriteRenderer.flipX = true;
+            }
+            else if (angle == 90 || angle == -270)
+            {
+                groundCheckDir = -transform.up;
+                wallCheckDir = transform.right;
+                groundPositionChecker.localPosition = groundPositionCheckerPos[3];
+            }
         }
-        else if (angle == 270 || angle == -90)
+        else
         {
-            groundCheckDir = -transform.up;
-            wallCheckDir = transform.right;
-            groundPositionChecker.localPosition = groundPositionCheckerPos[1];
-        }
-        else if (angle == 180 || angle == -180)
-        {
-            groundCheckDir = -transform.up;
-            wallCheckDir = transform.right;
-            groundPositionChecker.localPosition = groundPositionCheckerPos[2];
-            spriteRenderer.flipX = true;
-        }
-        else if (angle == 90 || angle == -270)
-        {
-            groundCheckDir = -transform.up;
-            wallCheckDir = transform.right;
-            groundPositionChecker.localPosition = groundPositionCheckerPos[3];
+            if (angle == 0 || angle == -360)
+            {
+                groundCheckDir = -transform.up;
+                wallCheckDir = -transform.right;
+                groundPositionChecker.localPosition = groundPositionCheckerPos[2];
+                spriteRenderer.flipX = true;
+            }
+            else if (angle == 270 || angle == -90)
+            {
+                groundCheckDir = -transform.up;
+                wallCheckDir = -transform.right;
+                groundPositionChecker.localPosition = groundPositionCheckerPos[3];
+            }
+            else if (angle == 180 || angle == -180)
+            {
+                groundCheckDir = -transform.up;
+                wallCheckDir = -transform.right;
+                groundPositionChecker.localPosition = groundPositionCheckerPos[0];
+                spriteRenderer.flipX = false;
+            }
+            else if (angle == 90 || angle == -270)
+            {
+                groundCheckDir = -transform.up;
+                wallCheckDir = -transform.right;
+                groundPositionChecker.localPosition = groundPositionCheckerPos[1];
+            }
         }
 
         groundDetected = Physics2D.Raycast(groundPositionChecker.position, groundCheckDir, groundCheckDistance, whatIsGround);
@@ -130,8 +156,26 @@ public class Slime : MonoBehaviour
         {
             if (!hasTurn)
             {
+                if (spriteRenderer.flipX)
+                {
+                    spriteRenderer.flipX = false;
+                }
+                else
+                {
+                    spriteRenderer.flipX = true;
+                }
+
                 PosRound();
-                angle -= 90;
+
+                if (isRight)
+                {
+                    angle -= 90;
+                }
+                else
+                {
+                    angle += 90;
+                }
+
                 transform.eulerAngles = new Vector3(0, 0, angle);
                 hasTurn = true;
             }
@@ -142,7 +186,16 @@ public class Slime : MonoBehaviour
             if (!hasTurn)
             {
                 PosRound();
-                angle += 90;
+
+                if (isRight) 
+                {
+                    angle += 90;
+                }
+                else
+                {
+                    angle -= 90;
+                }
+
                 transform.eulerAngles = new Vector3(0, 0, angle);
                 hasTurn = true;
             }
@@ -151,7 +204,14 @@ public class Slime : MonoBehaviour
 
     void Movement()
     {
-        rb.velocity = transform.right * speed * Time.fixedDeltaTime;
+        if (isRight) 
+        {
+            rb.velocity = transform.right * speed * Time.fixedDeltaTime;
+        }
+        else
+        {
+            rb.velocity = -transform.right * speed * Time.fixedDeltaTime;
+        }
     }
 
     private void OnDrawGizmos()
