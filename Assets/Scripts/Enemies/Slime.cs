@@ -156,24 +156,29 @@ public class Slime : MonoBehaviour
         {
             if (!hasTurn)
             {
-                if (spriteRenderer.flipX)
-                {
-                    spriteRenderer.flipX = false;
-                }
-                else
-                {
-                    spriteRenderer.flipX = true;
-                }
-
                 PosRound();
 
                 if (isRight)
                 {
-                    angle -= 90;
+                    if (groundCheckDistance >= 0)
+                    {
+                        angle -= 90;
+                    }
+                    else
+                    {
+                        angle += 90;
+                    }
                 }
                 else
                 {
-                    angle += 90;
+                    if (groundCheckDistance >= 0)
+                    {
+                        angle += 90;
+                    }
+                    else
+                    {
+                        angle -= 90;
+                    }
                 }
 
                 transform.eulerAngles = new Vector3(0, 0, angle);
@@ -189,11 +194,25 @@ public class Slime : MonoBehaviour
 
                 if (isRight) 
                 {
-                    angle += 90;
+                    if (groundCheckDistance >= 0)
+                    {
+                        angle += 90;
+                    }
+                    else
+                    {
+                        angle -= 90;
+                    }
                 }
                 else
                 {
-                    angle -= 90;
+                    if (groundCheckDistance >= 0)
+                    {
+                        angle -= 90;
+                    }
+                    else
+                    {
+                        angle += 90;
+                    }
                 }
 
                 transform.eulerAngles = new Vector3(0, 0, angle);
