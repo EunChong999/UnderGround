@@ -6,21 +6,19 @@ public class EnemyHealth : MonoBehaviour
 {
     public int health;
     public bool isDead;
-    public float coolTime;
 
     private Animator animator;
 
     [SerializeField]
     private float waitTime;
     [SerializeField]
-    private float range;
+    private float appearRange;
 
     private WaitForSeconds waitForSeconds;
-    private bool isStartMove;
     private float distance;
     private GameObject player;
     private GameObject body;
-    private Collider2D collider2D;
+    private new Collider2D collider2D;
 
     [HideInInspector]
     public bool isAppeared;
@@ -35,7 +33,6 @@ public class EnemyHealth : MonoBehaviour
         collider2D = GetComponent<Collider2D>();    
         collider2D.enabled = false;
         waitForSeconds = new WaitForSeconds(waitTime);
-        isStartMove = false;
         isAppeared = false;
     }
 
@@ -51,14 +48,13 @@ public class EnemyHealth : MonoBehaviour
     {
         yield return waitForSeconds;
         collider2D.enabled = true;
-        isStartMove = true;
     }
 
     private void Update()
     {
         distance = Vector2.Distance(transform.position, player.transform.position);
 
-        if (distance < range && !isAppeared)
+        if (distance < appearRange && !isAppeared)
         {
             Appear();
         }

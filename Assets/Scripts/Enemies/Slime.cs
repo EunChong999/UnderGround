@@ -40,17 +40,22 @@ public class Slime : MonoBehaviour
     [SerializeField]
     private Transform body;
 
+    private EnemyHealth enemyHealth;
+
     public enum GroundState
     {
         left,
         right,
-        up
+        up,
+        down
     }
 
     public GroundState groundState;
 
     private void Start()
     {
+        enemyHealth = GetComponent<EnemyHealth>();
+
         rb = GetComponent<Rigidbody2D>();
         hasTurn = false;
         checkers.parent = null;
@@ -105,6 +110,9 @@ public class Slime : MonoBehaviour
                 break;
             case GroundState.up:
                 groundCheckDistance *= -1;
+
+                break;
+            case GroundState.down:
                 break;
             default:
                 break;
@@ -113,15 +121,27 @@ public class Slime : MonoBehaviour
 
     private void Update()
     {
-        checkers.position = transform.position;
-        body.position = transform.position;
-        CheckGroundOrWall();
-        ChangeAngle();
+        if (enemyHealth.isAppeared)
+        {
+            if (!enemyHealth.isDead)
+            {
+                checkers.position = transform.position;
+                body.position = transform.position;
+                CheckGroundOrWall();
+                ChangeAngle();
+            }
+        }
     }
 
     private void FixedUpdate()
     {
-        Movement();
+        if (enemyHealth.isAppeared)
+        {
+            if (!enemyHealth.isDead)
+            {
+                Movement();
+            }
+        }
     }
 
     void PosRound()
