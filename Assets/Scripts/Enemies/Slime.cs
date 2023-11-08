@@ -40,12 +40,75 @@ public class Slime : MonoBehaviour
     [SerializeField]
     private Transform body;
 
+    public enum GroundState
+    {
+        left,
+        right,
+        up
+    }
+
+    public GroundState groundState;
+
     private void Start()
     {
         rb = GetComponent<Rigidbody2D>();
         hasTurn = false;
         checkers.parent = null;
         body.parent = null;
+
+        GroundDir();
+    }
+
+    private void GroundDir()
+    {
+        switch (groundState)
+        {
+            case GroundState.left:
+
+                if (isRight)
+                {
+                    angle = -90;
+                    transform.eulerAngles = new Vector3(0, 0, angle);
+                    groundCheckDir = -transform.up;
+                    wallCheckDir = transform.right;
+                    groundPositionChecker.localPosition = groundPositionCheckerPos[1];
+                }
+                else
+                {
+                    angle = 270;
+                    transform.eulerAngles = new Vector3(0, 0, angle);
+                    groundCheckDir = -transform.up;
+                    wallCheckDir = -transform.right;
+                    groundPositionChecker.localPosition = groundPositionCheckerPos[1];
+                }
+
+                break;
+            case GroundState.right:
+
+                if (isRight)
+                {
+                    angle = -270;
+                    transform.eulerAngles = new Vector3(0, 0, angle);
+                    groundCheckDir = -transform.up;
+                    wallCheckDir = transform.right;
+                    groundPositionChecker.localPosition = groundPositionCheckerPos[1];
+                }
+                else
+                {
+                    angle = 90;
+                    transform.eulerAngles = new Vector3(0, 0, angle);
+                    groundCheckDir = -transform.up;
+                    wallCheckDir = -transform.right;
+                    groundPositionChecker.localPosition = groundPositionCheckerPos[1];
+                }
+
+                break;
+            case GroundState.up:
+                groundCheckDistance *= -1;
+                break;
+            default:
+                break;
+        }
     }
 
     private void Update()
