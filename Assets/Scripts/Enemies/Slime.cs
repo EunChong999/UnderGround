@@ -56,6 +56,8 @@ public class Slime : MonoBehaviour
     {
         enemyHealth = GetComponent<EnemyHealth>();
 
+        enemyHealth.Init();
+
         rb = GetComponent<Rigidbody2D>();
         hasTurn = false;
         checkers.parent = null;
@@ -121,6 +123,8 @@ public class Slime : MonoBehaviour
 
     private void Update()
     {
+        enemyHealth.ManageHealth();
+
         if (enemyHealth.isAppeared)
         {
             if (!enemyHealth.isDead)

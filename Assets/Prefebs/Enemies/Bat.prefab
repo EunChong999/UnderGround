@@ -138,9 +138,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   health: 1
   isDead: 0
-  coolTime: 1
   waitTime: 0.5
-  range: 1
+  appearRange: 1
   isAppeared: 0
 --- !u!114 &5727596145310625461
 MonoBehaviour:

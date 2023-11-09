@@ -22,6 +22,8 @@ public class Bat : MonoBehaviour
 
         enemyHealth = GetComponent<EnemyHealth>();
 
+        enemyHealth.Init();
+
         player = GameObject.Find("Player");
 
         aIDestinationSetter.target = player.transform;
@@ -29,6 +31,8 @@ public class Bat : MonoBehaviour
 
     void Update()
     {
+        enemyHealth.ManageHealth();
+
         if (enemyHealth.isAppeared)
         {
             if (!enemyHealth.isDead)

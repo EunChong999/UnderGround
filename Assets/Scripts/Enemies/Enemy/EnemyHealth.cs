@@ -23,20 +23,21 @@ public class EnemyHealth : MonoBehaviour
     [HideInInspector]
     public bool isAppeared;
 
-    private void Start()
+    public void Init()
     {
+        isAppeared = false;
+        isDead = false;
         animator = transform.GetChild(0).GetComponent<Animator>();
         animator.SetBool("IsDead", false);
         player = GameObject.Find("Player");
         body = transform.GetChild(0).gameObject;
         body.SetActive(false);
-        collider2D = GetComponent<Collider2D>();    
+        collider2D = GetComponent<Collider2D>();
         collider2D.enabled = false;
         waitForSeconds = new WaitForSeconds(waitTime);
-        isAppeared = false;
     }
 
-    private void Appear()
+    public void Appear()
     {
         body.SetActive(true);
         animator.SetTrigger("Appear");
@@ -44,13 +45,7 @@ public class EnemyHealth : MonoBehaviour
         isAppeared = true;
     }
 
-    IEnumerator StartMove()
-    {
-        yield return waitForSeconds;
-        collider2D.enabled = true;
-    }
-
-    private void Update()
+    public void ManageHealth()
     {
         distance = Vector2.Distance(transform.position, player.transform.position);
 
@@ -65,10 +60,23 @@ public class EnemyHealth : MonoBehaviour
         }
     }
 
+    IEnumerator StartMove()
+    {
+        yield return waitForSeconds;
+        collider2D.enabled = true;
+    }
+
     public void Dead()
     {
         isDead = true;
         collider2D.enabled = false;
         animator.SetBool("IsDead", true);
+
+        if (transform.childCount > 0) 
+        {
+            transform.GetChild(0).parent = null;
+        }
+
+        gameObject.SetActive(false);
     }
 }
