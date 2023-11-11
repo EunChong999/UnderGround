@@ -122,7 +122,7 @@ Transform:
   m_Children:
   - {fileID: 5169252197913189252}
   m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &8802393644577315940
 MonoBehaviour:
@@ -138,9 +138,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   health: 1
   isDead: 0
-  waitTime: 0.5
+  waitTime: 0.417
   appearRange: 1
   isAppeared: 0
+  isStartMove: 0
 --- !u!114 &5727596145310625461
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -18,14 +18,22 @@ public class Mole : MonoBehaviour
     RaycastHit2D raycastHit2Dup;
     RaycastHit2D raycastHit2Ddown;
 
+    EnemyHealth enemyHealth;
+
     private void Start()
     {
+        enemyHealth = GetComponent<EnemyHealth>();
+
+        enemyHealth.Init();
+
         player = GameObject.Find("Player");
         StartCoroutine(Shoot());
     }
 
     private void Update()
     {
+        enemyHealth.ManageHealth();
+
         FlipX();
         CheckPoint();
     }
@@ -63,29 +71,35 @@ public class Mole : MonoBehaviour
             GameObject bullet;
             Rigidbody2D rb;
 
-            if (raycastHit2Dleft && raycastHit2Dleft.transform.gameObject.CompareTag("Player")) 
+            if (enemyHealth.isStartMove)
             {
-                bullet = Instantiate(bulletPrefeb, firePoint.position, firePoint.rotation);
-                rb = bullet.GetComponent<Rigidbody2D>();
-                rb.AddForce(-firePoint.right * bulletForce, ForceMode2D.Impulse);
-            }
-            else if (raycastHit2Dright && raycastHit2Dright.transform.gameObject.CompareTag("Player"))
-            {
-                bullet = Instantiate(bulletPrefeb, firePoint.position, firePoint.rotation);
-                rb = bullet.GetComponent<Rigidbody2D>();
-                rb.AddForce(firePoint.right * bulletForce, ForceMode2D.Impulse);
-            }
-            else if (raycastHit2Ddown && raycastHit2Ddown.transform.gameObject.CompareTag("Player"))
-            {
-                bullet = Instantiate(bulletPrefeb, firePoint.position, firePoint.rotation);
-                rb = bullet.GetComponent<Rigidbody2D>();
-                rb.AddForce(-firePoint.up * bulletForce, ForceMode2D.Impulse);
-            }
-            else if (raycastHit2Dup && raycastHit2Dup.transform.gameObject.CompareTag("Player"))
-            {
-                bullet = Instantiate(bulletPrefeb, firePoint.position, firePoint.rotation);
-                rb = bullet.GetComponent<Rigidbody2D>();
-                rb.AddForce(firePoint.up * bulletForce, ForceMode2D.Impulse);
+                if (!enemyHealth.isDead)
+                {
+                    if (raycastHit2Dleft && raycastHit2Dleft.transform.gameObject.CompareTag("Player"))
+                    {
+                        bullet = Instantiate(bulletPrefeb, firePoint.position, firePoint.rotation);
+                        rb = bullet.GetComponent<Rigidbody2D>();
+                        rb.AddForce(-firePoint.right * bulletForce, ForceMode2D.Impulse);
+                    }
+                    else if (raycastHit2Dright && raycastHit2Dright.transform.gameObject.CompareTag("Player"))
+                    {
+                        bullet = Instantiate(bulletPrefeb, firePoint.position, firePoint.rotation);
+                        rb = bullet.GetComponent<Rigidbody2D>();
+                        rb.AddForce(firePoint.right * bulletForce, ForceMode2D.Impulse);
+                    }
+                    else if (raycastHit2Ddown && raycastHit2Ddown.transform.gameObject.CompareTag("Player"))
+                    {
+                        bullet = Instantiate(bulletPrefeb, firePoint.position, firePoint.rotation);
+                        rb = bullet.GetComponent<Rigidbody2D>();
+                        rb.AddForce(-firePoint.up * bulletForce, ForceMode2D.Impulse);
+                    }
+                    else if (raycastHit2Dup && raycastHit2Dup.transform.gameObject.CompareTag("Player"))
+                    {
+                        bullet = Instantiate(bulletPrefeb, firePoint.position, firePoint.rotation);
+                        rb = bullet.GetComponent<Rigidbody2D>();
+                        rb.AddForce(firePoint.up * bulletForce, ForceMode2D.Impulse);
+                    }
+                }
             }
 
             yield return new WaitForSeconds(1);

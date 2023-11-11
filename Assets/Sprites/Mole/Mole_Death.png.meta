@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 4981bba2b16dd244eb429c0cc58ba77d
+guid: 216e5fc7a7859cd44b09d1cba034fc79
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -119,16 +119,29 @@ TextureImporter:
     ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: iPhone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: shadow_0
+      name: Mole_Death_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 32
+        width: 16
         height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -137,8 +150,29 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 4609f6e2d1dc67947b9d08ef11e2ce68
-      internalID: 1540820555
+      spriteID: fbae550db671f364c9e12d5a4bd654c5
+      internalID: -1488086752
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mole_Death_1
+      rect:
+        serializedVersion: 2
+        x: 16
+        y: 0
+        width: 16
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d170580c963de4d4fbebb70137d5fdd6
+      internalID: -1984350512
       vertices: []
       indices: 
       edges: []
@@ -154,7 +188,8 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      shadow_0: 1540820555
+      Mole_Death_0: -1488086752
+      Mole_Death_1: -1984350512
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

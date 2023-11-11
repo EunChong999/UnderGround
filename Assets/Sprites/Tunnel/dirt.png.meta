@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: d6ea7ca8cc7f7eb469796abb52ead0b6
+guid: 88e40931df3014b4eb4c052b4d050798
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -119,17 +119,30 @@ TextureImporter:
     ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: iPhone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: stone_0
+      name: bic2_under_2_ID1-Recovered_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 8
-        height: 8
+        width: 32
+        height: 14
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -137,8 +150,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 2fa89a378f187f34496af67296c2f2ee
-      internalID: 1534876527
+      spriteID: 11b803659dc756742967b07601e063d6
+      internalID: -1469437954
       vertices: []
       indices: 
       edges: []
@@ -154,7 +167,7 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      stone_0: 1534876527
+      bic2_under_2_ID1-Recovered_0: -1469437954
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

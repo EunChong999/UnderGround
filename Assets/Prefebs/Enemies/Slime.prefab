@@ -36,7 +36,7 @@ Transform:
   - {fileID: 7888127226575053501}
   - {fileID: 313909714789221060}
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &3977076110236438676
 MonoBehaviour:
@@ -52,9 +52,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   health: 1
   isDead: 0
-  waitTime: 0.5
+  waitTime: 0.667
   appearRange: 1
   isAppeared: 0
+  isStartMove: 0
 --- !u!114 &1126742720269262536
 MonoBehaviour:
   m_ObjectHideFlags: 0
