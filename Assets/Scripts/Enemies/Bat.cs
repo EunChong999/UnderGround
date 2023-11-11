@@ -33,7 +33,7 @@ public class Bat : MonoBehaviour
     {
         enemyHealth.ManageHealth();
 
-        if (enemyHealth.isAppeared)
+        if (enemyHealth.isStartMove)
         {
             if (!enemyHealth.isDead)
             {

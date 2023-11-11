@@ -23,9 +23,13 @@ public class EnemyHealth : MonoBehaviour
     [HideInInspector]
     public bool isAppeared;
 
+    [HideInInspector]
+    public bool isStartMove;
+
     public void Init()
     {
         isAppeared = false;
+        isStartMove = false;
         isDead = false;
         animator = transform.GetChild(0).GetComponent<Animator>();
         animator.SetBool("IsDead", false);
@@ -39,10 +43,10 @@ public class EnemyHealth : MonoBehaviour
 
     public void Appear()
     {
+        isAppeared = true;
         body.SetActive(true);
         animator.SetTrigger("Appear");
         StartCoroutine(StartMove());
-        isAppeared = true;
     }
 
     public void ManageHealth()
@@ -63,6 +67,7 @@ public class EnemyHealth : MonoBehaviour
     IEnumerator StartMove()
     {
         yield return waitForSeconds;
+        isStartMove = true;
         collider2D.enabled = true;
     }
 

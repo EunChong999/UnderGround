@@ -125,7 +125,7 @@ public class Slime : MonoBehaviour
     {
         enemyHealth.ManageHealth();
 
-        if (enemyHealth.isAppeared)
+        if (enemyHealth.isStartMove)
         {
             if (!enemyHealth.isDead)
             {
@@ -139,7 +139,7 @@ public class Slime : MonoBehaviour
 
     private void FixedUpdate()
     {
-        if (enemyHealth.isAppeared)
+        if (enemyHealth.isStartMove)
         {
             if (!enemyHealth.isDead)
             {
