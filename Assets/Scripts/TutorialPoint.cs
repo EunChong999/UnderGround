@@ -12,18 +12,10 @@ public class TutorialPoint : MonoBehaviour
     [SerializeField]
     private GameObject guideUI;
 
-    [SerializeField]
-    private bool isStartPoint;
-
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.CompareTag("Player"))
         {
-            if(!isStartPoint)
-            {
-                Time.timeScale = 0.1f;
-            }
-
             guideUI.SetActive(true);
 
             for (int i = 0; i < direction.Length; i++)

@@ -9,6 +9,8 @@ public class UndergroundMovement : MonoBehaviour
     public Transform[] spaceCheck;
     [SerializeField] 
     private LayerMask groundLayer;
+    [SerializeField]
+    private bool[] isLockedKey;
 
     public bool[] isSpaced;
     private Rigidbody2D rb;
@@ -76,7 +78,7 @@ public class UndergroundMovement : MonoBehaviour
         {
             if(isReached)
             {
-                if (Input.GetKeyDown(KeyCode.W) && (isSpaced[0] || !isMoveStart))
+                if (Input.GetKeyDown(KeyCode.W) && (isSpaced[0] || !isMoveStart) && !isLockedKey[0])
                 {
                     isMoveStart = true;
                     direction = spaceCheck[0];
@@ -84,7 +86,7 @@ public class UndergroundMovement : MonoBehaviour
                     gridMovement.y = 1;
                     isStopped = false;
                 }
-                else if (Input.GetKeyDown(KeyCode.A) && (isSpaced[1] || !isMoveStart))
+                else if (Input.GetKeyDown(KeyCode.A) && (isSpaced[1] || !isMoveStart) && !isLockedKey[1])
                 {
                     isMoveStart = true;
                     direction = spaceCheck[1];
@@ -92,7 +94,7 @@ public class UndergroundMovement : MonoBehaviour
                     gridMovement.y = 0;
                     isStopped = false;
                 }
-                else if (Input.GetKeyDown(KeyCode.S) && (isSpaced[2] || !isMoveStart))
+                else if (Input.GetKeyDown(KeyCode.S) && (isSpaced[2] || !isMoveStart) && !isLockedKey[2])
                 {
                     isMoveStart = true;
                     direction = spaceCheck[2];
@@ -100,7 +102,7 @@ public class UndergroundMovement : MonoBehaviour
                     gridMovement.y = -1;
                     isStopped = false;
                 }
-                else if (Input.GetKeyDown(KeyCode.D) && (isSpaced[3] || !isMoveStart))
+                else if (Input.GetKeyDown(KeyCode.D) && (isSpaced[3] || !isMoveStart) && !isLockedKey[3])
                 {
                     isMoveStart = true;
                     direction = spaceCheck[3];
