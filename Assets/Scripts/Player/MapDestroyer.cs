@@ -128,8 +128,6 @@ public class MapDestroyer : MonoBehaviour
 
             AstarPath.active.UpdateGraphs(updateBounds, 0);
         }
-
-        yield break;
     }
 
     bool ExplodeCellCheck(Transform worldPos, Vector3Int originCell, string str)
