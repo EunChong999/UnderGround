@@ -8,7 +8,7 @@ public class HoleSceneLoad : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (!isCollisioned)
+        if (!isCollisioned && collision.CompareTag("Player"))
         {
             LevelManager.Instance.LoadGameStageScene();
             collision.gameObject.SetActive(false);

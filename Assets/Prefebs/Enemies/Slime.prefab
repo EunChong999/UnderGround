@@ -36,7 +36,7 @@ Transform:
   - {fileID: 7888127226575053501}
   - {fileID: 313909714789221060}
   m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &3977076110236438676
 MonoBehaviour:
@@ -53,7 +53,7 @@ MonoBehaviour:
   health: 1
   isDead: 0
   waitTime: 0.667
-  appearRange: 1
+  appearRange: 10
   isAppeared: 0
   isStartMove: 0
 --- !u!114 &1126742720269262536
@@ -103,6 +103,7 @@ MonoBehaviour:
   wallCheckDir: {x: 1, y: 0}
   spriteRenderer: {fileID: 6041484849038596692}
   body: {fileID: 7888127226575053501}
+  shadow: {fileID: 5730646744423989800}
   groundState: 2
 --- !u!50 &8933844564620468782
 Rigidbody2D:

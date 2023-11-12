@@ -53,7 +53,7 @@ public class BombSpawner : MonoBehaviour
 
     private void SelectDirection()
     {
-        if (Input.GetKeyDown(KeyCode.UpArrow) && (undergroundMovement.isSpaced[0] || !undergroundMovement.isMoveStart) && (!isGetKey || isKeysGetKey[0]) && !isLockedKey[0])
+        if (Input.GetKeyDown(KeyCode.UpArrow) && !isLockedKey[0])
         {
             isKeysGetKey[0] = true;
             isKeysGetKey[1] = false;
@@ -62,7 +62,7 @@ public class BombSpawner : MonoBehaviour
             isGetKey = true;
         }
 
-        if (Input.GetKeyDown(KeyCode.LeftArrow) && (undergroundMovement.isSpaced[1] || !undergroundMovement.isMoveStart) && (!isGetKey || isKeysGetKey[1]) && !isLockedKey[1])
+        if (Input.GetKeyDown(KeyCode.LeftArrow) && !isLockedKey[1])
         {
             isKeysGetKey[0] = false;
             isKeysGetKey[1] = true;
@@ -71,7 +71,7 @@ public class BombSpawner : MonoBehaviour
             isGetKey = true;
         }
 
-        if (Input.GetKeyDown(KeyCode.DownArrow) && (undergroundMovement.isSpaced[2] || !undergroundMovement.isMoveStart) && (!isGetKey || isKeysGetKey[2]) && !isLockedKey[2])
+        if (Input.GetKeyDown(KeyCode.DownArrow) && !isLockedKey[2])
         {
             isKeysGetKey[0] = false;
             isKeysGetKey[1] = false;
@@ -80,7 +80,7 @@ public class BombSpawner : MonoBehaviour
             isGetKey = true;
         }
 
-        if (Input.GetKeyDown(KeyCode.RightArrow) && (undergroundMovement.isSpaced[3] || !undergroundMovement.isMoveStart) && (!isGetKey || isKeysGetKey[3]) && !isLockedKey[3])
+        if (Input.GetKeyDown(KeyCode.RightArrow) && !isLockedKey[3])
         {
             isKeysGetKey[0] = false;
             isKeysGetKey[1] = false;

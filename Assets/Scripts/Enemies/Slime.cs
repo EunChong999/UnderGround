@@ -39,6 +39,8 @@ public class Slime : MonoBehaviour
     private SpriteRenderer spriteRenderer;
     [SerializeField]
     private Transform body;
+    [SerializeField]
+    private GameObject shadow;
 
     private EnemyHealth enemyHealth;
 
@@ -146,6 +148,11 @@ public class Slime : MonoBehaviour
                 Movement();
             }
         }
+    }
+
+    private void OnDisable()
+    {
+        shadow.SetActive(false);
     }
 
     void PosRound()

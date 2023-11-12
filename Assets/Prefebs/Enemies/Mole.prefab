@@ -190,7 +190,7 @@ MonoBehaviour:
   health: 1
   isDead: 0
   waitTime: 1
-  appearRange: 5
+  appearRange: 10
   isAppeared: 0
   isStartMove: 0
 --- !u!114 &481482333624912013

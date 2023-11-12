@@ -72,14 +72,6 @@ public class LevelManager : MonoBehaviour
         {
             image.raycastTarget = false;
         }
-
-        if (SceneManager.GetActiveScene().name == "Game Play Scene" && !isLoading)
-        {
-            if (Input.GetKeyDown(KeyCode.Space))
-            {
-                LoadGamePlayScene();
-            }
-        }
     }
 
     public void OnFadeOutComplete()

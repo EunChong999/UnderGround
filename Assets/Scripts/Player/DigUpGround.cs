@@ -22,7 +22,6 @@ public class DigUpGround : MonoBehaviour
     {
         undergroundMovement = transform.parent.GetComponent<UndergroundMovement>();
         isIn = false;
-        //StartCoroutine(DigDown());
     }
 
     private void Update()
@@ -52,13 +51,7 @@ public class DigUpGround : MonoBehaviour
             isIn = true;
             lamp.GetComponent<Light2D>().intensity = Mathf.Lerp(lamp.GetComponent<Light2D>().intensity, 0, .05f);
             tunnel.SetActive(false);
-            DigDown();
         }
-    }
-
-    public void DigDown()
-    {
-
     }
 
     public void DigUp()
