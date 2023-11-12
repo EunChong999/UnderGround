@@ -62,4 +62,22 @@ public class Bat : MonoBehaviour
             transform.localScale = new Vector3(1, 1, 1);
         }
     }
+
+    private void OnDisable()
+    {
+        if (enemyHealth.isStartMove)
+        {
+            if (!enemyHealth.isDead)
+            {
+                shadow.localPosition = new Vector3(0, 0, 0);
+                aIPath.canMove = true;
+                FlipX();
+            }
+            else
+            {
+                shadow.localPosition = new Vector3(0, 0.25f, 0);
+                aIPath.canMove = false;
+            }
+        }
+    }
 }

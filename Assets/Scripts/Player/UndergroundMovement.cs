@@ -54,6 +54,7 @@ public class UndergroundMovement : MonoBehaviour
             isReached = (isStopped && transform.position.x % 1 == 0 && transform.position.y % 1 == 0);
         }
 
+        if (Time.timeScale != 0) 
         Move();
     }
 
