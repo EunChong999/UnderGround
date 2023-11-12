@@ -15,6 +15,8 @@ public class PlayerHealth : MonoBehaviour
 
     public bool isOnDamaged;
     public bool isDead;
+    [SerializeField]
+    private bool canDamage;
     public float coolTime;
 
     Animator animator;
@@ -26,18 +28,18 @@ public class PlayerHealth : MonoBehaviour
 
     void Update()
     {
-        if (health > numOfHearts)
+        if (canDamage)
         {
-            health = numOfHearts;
-        }
+            if (health > numOfHearts)
+            {
+                health = numOfHearts;
+            }
 
-        if (health <= 0)
-        {
-            Dead();
-        }
+            if (health <= 0)
+            {
+                Dead();
+            }
 
-        if(SceneManager.GetActiveScene().name != "Game Tutorial Scene")
-        {
             for (int i = 0; i < hearts.Length; i++)
             {
                 if (i < health)

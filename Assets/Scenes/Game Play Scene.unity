@@ -1432,13 +1432,13 @@ MonoBehaviour:
   m_RequiresOpaqueTextureOption: 2
   m_CameraType: 0
   m_Cameras: []
-  m_RendererIndex: -1
+  m_RendererIndex: 0
   m_VolumeLayerMask:
     serializedVersion: 2
     m_Bits: 1
   m_VolumeTrigger: {fileID: 0}
   m_VolumeFrameworkUpdateModeOption: 0
-  m_RenderPostProcessing: 0
+  m_RenderPostProcessing: 1
   m_Antialiasing: 0
   m_AntialiasingQuality: 2
   m_StopNaN: 0
@@ -2727,6 +2727,30 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
+    - target: {fileID: 6164580874579564868, guid: 92594f5b9bb5f3045adf928d75bb637b, type: 3}
+      propertyPath: canDamage
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6164580874579564868, guid: 92594f5b9bb5f3045adf928d75bb637b, type: 3}
+      propertyPath: hearts.Array.data[0]
+      value: 
+      objectReference: {fileID: 1572494395}
+    - target: {fileID: 6164580874579564868, guid: 92594f5b9bb5f3045adf928d75bb637b, type: 3}
+      propertyPath: hearts.Array.data[1]
+      value: 
+      objectReference: {fileID: 1006793686}
+    - target: {fileID: 6164580874579564868, guid: 92594f5b9bb5f3045adf928d75bb637b, type: 3}
+      propertyPath: hearts.Array.data[2]
+      value: 
+      objectReference: {fileID: 1677857416}
+    - target: {fileID: 6164580874579564868, guid: 92594f5b9bb5f3045adf928d75bb637b, type: 3}
+      propertyPath: hearts.Array.data[3]
+      value: 
+      objectReference: {fileID: 1826590265}
+    - target: {fileID: 6164580874579564868, guid: 92594f5b9bb5f3045adf928d75bb637b, type: 3}
+      propertyPath: hearts.Array.data[4]
+      value: 
+      objectReference: {fileID: 492824177}
     - target: {fileID: 9183416457155780803, guid: 92594f5b9bb5f3045adf928d75bb637b, type: 3}
       propertyPath: m_RootOrder
       value: -1
