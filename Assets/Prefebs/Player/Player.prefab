@@ -609,6 +609,7 @@ MonoBehaviour:
   groundLayer:
     serializedVersion: 2
     m_Bits: 72
+  isLockedKey: 01010001
   isSpaced: 00000000
   gridMovement: {fileID: 0}
   direction: {fileID: 0}
@@ -651,6 +652,7 @@ MonoBehaviour:
   bombInHand: {fileID: 6582830836654700334}
   isGetKey: 0
   isKeysGetKey: 00000000
+  isLockedKey: 01010001
 --- !u!114 &3035225403937131660
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -724,7 +726,7 @@ CircleCollider2D:
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
-  m_Radius: 0.25
+  m_Radius: 0.5
 --- !u!1 &4097703493418699380
 GameObject:
   m_ObjectHideFlags: 0

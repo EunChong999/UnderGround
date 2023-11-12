@@ -8,7 +8,6 @@ public class DigUpGround : MonoBehaviour
     [SerializeField] private GameObject underGroundTunnel;
     [SerializeField] private GameObject underGroundSill;
     private List<Vector3> spawnedTunnels = new List<Vector3>();
-    private List<Vector3> spawnedSills = new List<Vector3>();
     private UndergroundMovement undergroundMovement;
 
     public Vector3 scaler = new Vector3(1, 1, 1);
