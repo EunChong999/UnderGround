@@ -12,6 +12,7 @@ public class BombSpawner : MonoBehaviour
     [SerializeField]
     private bool[] isLockedKey;
 
+    private bool isBombSpawned;
     private UndergroundMovement undergroundMovement;
     private PlayerHealth playerHealth;
     private Animator animator;
@@ -27,16 +28,19 @@ public class BombSpawner : MonoBehaviour
     {
         if (!playerHealth.isDead)
         {
+            // 방향 선택
+            SelectDirection();
+
             if (undergroundMovement.isReached)
             {
-                // 방향 선택
-                SelectDirection();
+                if (!isBombSpawned)
+                {
+                    // 방향 바라보기
+                    LookDirection();
 
-                // 방향 바라보기
-                LookDirection();
-
-                // 폭탄 던지기
-                ThrowBomb();
+                    // 폭탄 던지기
+                    ThrowBomb();
+                }
             }
             else
             {
@@ -134,6 +138,7 @@ public class BombSpawner : MonoBehaviour
     {
         if (Input.GetKeyUp(KeyCode.UpArrow) && (undergroundMovement.isSpaced[0] || !undergroundMovement.isMoveStart) && isKeysGetKey[0] && !isLockedKey[0])
         {
+            isBombSpawned = true;
             isKeysGetKey[0] = false;
             isKeysGetKey[1] = false;
             isKeysGetKey[2] = false;
@@ -143,10 +148,12 @@ public class BombSpawner : MonoBehaviour
             bomb.GetComponent<GridMovement>().x = 0;
             bomb.GetComponent<GridMovement>().y = 1;
             bomb.transform.eulerAngles = new Vector3(0, 0, 180);
+            Invoke(nameof(BombReset), 1.5f);
         }
 
         if (Input.GetKeyUp(KeyCode.LeftArrow) && (undergroundMovement.isSpaced[1] || !undergroundMovement.isMoveStart) && isKeysGetKey[1] && !isLockedKey[1])
         {
+            isBombSpawned = true;
             isKeysGetKey[0] = false;
             isKeysGetKey[1] = false;
             isKeysGetKey[2] = false;
@@ -156,10 +163,12 @@ public class BombSpawner : MonoBehaviour
             bomb.GetComponent<GridMovement>().x = -1;
             bomb.GetComponent<GridMovement>().y = 0;
             bomb.transform.eulerAngles = new Vector3(0, 0, 270);
+            Invoke(nameof(BombReset), 1.5f);
         }
 
         if (Input.GetKeyUp(KeyCode.DownArrow) && (undergroundMovement.isSpaced[2] || !undergroundMovement.isMoveStart) && isKeysGetKey[2] && !isLockedKey[2])
         {
+            isBombSpawned = true;
             isKeysGetKey[0] = false;
             isKeysGetKey[1] = false;
             isKeysGetKey[2] = false;
@@ -169,10 +178,12 @@ public class BombSpawner : MonoBehaviour
             bomb.GetComponent<GridMovement>().x = 0;
             bomb.GetComponent<GridMovement>().y = -1;
             bomb.transform.eulerAngles = new Vector3(0, 0, 0);
+            Invoke(nameof(BombReset), 1.5f);
         }
 
         if (Input.GetKeyUp(KeyCode.RightArrow) && (undergroundMovement.isSpaced[3] || !undergroundMovement.isMoveStart) && isKeysGetKey[3] && !isLockedKey[3])
         {
+            isBombSpawned = true;
             isKeysGetKey[0] = false;
             isKeysGetKey[1] = false;
             isKeysGetKey[2] = false;
@@ -182,6 +193,12 @@ public class BombSpawner : MonoBehaviour
             bomb.GetComponent<GridMovement>().x = 1;
             bomb.GetComponent<GridMovement>().y = 0;
             bomb.transform.eulerAngles = new Vector3(0, 0, 90);
+            Invoke(nameof(BombReset), 1.5f);
         }
+    }
+
+    private void BombReset()
+    {
+        isBombSpawned = false;
     }
 }
