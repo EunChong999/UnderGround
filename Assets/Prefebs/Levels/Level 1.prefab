@@ -6926,7 +6926,7 @@ TilemapCollider2D:
   m_Offset: {x: 0, y: 0}
   m_MaximumTileChangeCount: 1000
   m_ExtrusionFactor: 0
-  m_UseDelaunayMesh: 1
+  m_UseDelaunayMesh: 0
 --- !u!50 &5009669048442954959
 Rigidbody2D:
   serializedVersion: 4
@@ -6983,7 +6983,7 @@ CompositeCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
@@ -7561,7 +7561,7 @@ CompositeCollider2D:
       - {x: 1.0000293, y: -21}
   m_VertexDistance: 0.0005
   m_OffsetDistance: 0.00005
-  m_UseDelaunayMesh: 1
+  m_UseDelaunayMesh: 0
   m_CompositeGameObject: {fileID: 7763380307967742402}
 --- !u!1 &8466523021717971793
 GameObject:
@@ -8105,7 +8105,7 @@ TilemapCollider2D:
   m_Offset: {x: 0, y: 0}
   m_MaximumTileChangeCount: 1000
   m_ExtrusionFactor: 0
-  m_UseDelaunayMesh: 1
+  m_UseDelaunayMesh: 0
 --- !u!50 &1393165744638429020
 Rigidbody2D:
   serializedVersion: 4
@@ -8162,7 +8162,7 @@ CompositeCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
@@ -8302,7 +8302,7 @@ CompositeCollider2D:
       - {x: 1.0000293, y: -22}
   m_VertexDistance: 0.0005
   m_OffsetDistance: 0.00005
-  m_UseDelaunayMesh: 1
+  m_UseDelaunayMesh: 0
   m_CompositeGameObject: {fileID: 8466523021717971793}
 --- !u!1 &8553162297141716356
 GameObject:
