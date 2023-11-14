@@ -9,8 +9,7 @@ public class UndergroundMovement : MonoBehaviour
     public Transform[] spaceCheck;
     [SerializeField] 
     private LayerMask groundLayer;
-    [SerializeField]
-    private bool[] isLockedKey;
+    public bool[] isLockedKey;
 
     public bool[] isSpaced;
     private Rigidbody2D rb;

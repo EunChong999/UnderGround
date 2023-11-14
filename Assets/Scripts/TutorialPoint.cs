@@ -12,10 +12,38 @@ public class TutorialPoint : MonoBehaviour
     [SerializeField]
     private GameObject guideUI;
 
-    private void OnTriggerEnter2D(Collider2D collision)
+    [SerializeField]
+    private GameObject WASD;
+
+    [HideInInspector]
+    public bool isPointCleared;
+
+    private void Update()
+    {
+        if (isPointCleared)
+        {
+            guideUI.SetActive(false);
+            guideUI = WASD;
+            guideUI.SetActive(true);
+            isPointCleared = false;
+        }
+    }
+
+    private void OnTriggerStay2D(Collider2D collision)
     {
         if (collision.CompareTag("Player"))
         {
+            if (guideUI.name == "WASD")
+            {
+                collision.GetComponent<UndergroundMovement>().isLockedKey[2] = false;
+                collision.GetComponent<BombSpawner>().isLockedKey[2] = true;
+            }
+            else if (guideUI.name == "Arrow")
+            {
+                collision.GetComponent<UndergroundMovement>().isLockedKey[2] = true;
+                collision.GetComponent<BombSpawner>().isLockedKey[2] = false;
+            }
+            
             guideUI.SetActive(true);
 
             for (int i = 0; i < direction.Length; i++)
@@ -36,7 +64,10 @@ public class TutorialPoint : MonoBehaviour
     {
         if (collision.CompareTag("Player"))
         {
-            Time.timeScale = 1f;
+            collision.GetComponent<UndergroundMovement>().isLockedKey[2] = true;
+            collision.GetComponent<BombSpawner>().isLockedKey[2] = true;
+
+            WASD.SetActive(false);
             guideUI.SetActive(false);
         }
     }

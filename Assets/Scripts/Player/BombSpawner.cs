@@ -9,8 +9,8 @@ public class BombSpawner : MonoBehaviour
     [SerializeField] private GameObject bombInHand;
     [SerializeField] private bool isGetKey;
     [SerializeField] private bool[] isKeysGetKey;
-    [SerializeField]
-    private bool[] isLockedKey;
+
+    public bool[] isLockedKey;
 
     private bool isBombSpawned;
     private UndergroundMovement undergroundMovement;
