@@ -12,6 +12,7 @@ public class Obs : MonoBehaviour
         if (collision.name.Contains("Explosion"))
         {
             throwPoint.GetComponent<TutorialPoint>().isPointCleared = true;
+            gameObject.SetActive(false);
         }
     }
 }
