@@ -18,11 +18,11 @@ public class Mole : MonoBehaviour
     RaycastHit2D raycastHit2Dup;
     RaycastHit2D raycastHit2Ddown;
 
-    EnemyHealth enemyHealth;
+    BasicEnemy enemyHealth;
 
     private void Start()
     {
-        enemyHealth = GetComponent<EnemyHealth>();
+        enemyHealth = GetComponent<BasicEnemy>();
 
         enemyHealth.Init();
 

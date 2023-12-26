@@ -8,7 +8,7 @@ public class Bat : MonoBehaviour
     private AIPath aIPath;
     private AIDestinationSetter aIDestinationSetter;
 
-    private EnemyHealth enemyHealth;
+    private BasicEnemy enemyHealth;
 
     [SerializeField]
     private Transform shadow;
@@ -20,7 +20,7 @@ public class Bat : MonoBehaviour
         aIPath = GetComponent<AIPath>();
         aIDestinationSetter = GetComponent<AIDestinationSetter>();  
 
-        enemyHealth = GetComponent<EnemyHealth>();
+        enemyHealth = GetComponent<BasicEnemy>();
 
         enemyHealth.Init();
 

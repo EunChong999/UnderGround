@@ -4,11 +4,11 @@ using UnityEngine;
 
 public class EnemyCollision : MonoBehaviour
 {
-    EnemyHealth enemyHealth;
+    BasicEnemy enemyHealth;
 
     private void Start()
     {
-        enemyHealth = GetComponent<EnemyHealth>();
+        enemyHealth = GetComponent<BasicEnemy>();
     }
 
     private void OnTriggerStay2D(Collider2D collision)

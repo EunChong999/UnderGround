@@ -42,7 +42,7 @@ public class Slime : MonoBehaviour
     [SerializeField]
     private GameObject shadow;
 
-    private EnemyHealth enemyHealth;
+    private BasicEnemy enemyHealth;
 
     public enum GroundState
     {
@@ -56,7 +56,7 @@ public class Slime : MonoBehaviour
 
     private void Start()
     {
-        enemyHealth = GetComponent<EnemyHealth>();
+        enemyHealth = GetComponent<BasicEnemy>();
 
         enemyHealth.Init();
 

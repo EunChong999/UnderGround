@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EnemyHealth : MonoBehaviour
+public class BasicEnemy : MonoBehaviour
 {
     public int health;
     public bool isDead;
@@ -18,6 +18,7 @@ public class EnemyHealth : MonoBehaviour
     private float distance;
     private GameObject player;
     private GameObject body;
+    private GameObject sign;
     private new Collider2D collider2D;
 
     [HideInInspector]
@@ -34,6 +35,7 @@ public class EnemyHealth : MonoBehaviour
         animator = transform.GetChild(0).GetComponent<Animator>();
         animator.SetBool("IsDead", false);
         player = GameObject.Find("Player");
+        sign = transform.Find("Sign").gameObject;
         body = transform.GetChild(0).gameObject;
         body.SetActive(false);
         collider2D = GetComponent<Collider2D>();
@@ -44,6 +46,7 @@ public class EnemyHealth : MonoBehaviour
     public void Appear()
     {
         isAppeared = true;
+        sign.SetActive(false);
         body.SetActive(true);
         animator.SetTrigger("Appear");
         StartCoroutine(StartMove());
