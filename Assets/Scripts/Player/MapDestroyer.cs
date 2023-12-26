@@ -15,8 +15,6 @@ public class MapDestroyer : MonoBehaviour
     [SerializeField] private int explosionRange;
     [SerializeField] private float interval;
 
-    [SerializeField] private AstarPath astar;
-
     public Bounds updateBounds;
 
     public List<GameObject> pooledUpObjects;
@@ -36,6 +34,11 @@ public class MapDestroyer : MonoBehaviour
     {
         Gizmos.color = Color.red; // 시각화 색상 설정
         Gizmos.DrawWireCube(updateBounds.center, updateBounds.size); // Bounds를 시각화
+    }
+
+    private void Start()
+    {
+        AstarPath.active.UpdateGraphs(updateBounds, 0);
     }
 
     public void Explode(Transform worldPos)
@@ -150,9 +153,6 @@ public class MapDestroyer : MonoBehaviour
                 GameObject objUp = Instantiate(explosionPrefeb, pos, worldPos.rotation);
                 objUp.SetActive(false);
                 pooledUpObjects.Add(objUp);
-
-                Tile objectUpTile = objectTilemap.GetTile<Tile>(originCell);
-
                 pooledUpTilesPos.Add(originCell);
 
                 break;
@@ -160,9 +160,6 @@ public class MapDestroyer : MonoBehaviour
                 GameObject objLeft = Instantiate(explosionPrefeb, pos, worldPos.rotation);
                 objLeft.SetActive(false);
                 pooledLeftObjects.Add(objLeft);
-
-                Tile objectLeftTile = objectTilemap.GetTile<Tile>(originCell);
-
                 pooledLeftTilesPos.Add(originCell);
 
                 break;
@@ -170,9 +167,6 @@ public class MapDestroyer : MonoBehaviour
                 GameObject objDown = Instantiate(explosionPrefeb, pos, worldPos.rotation);
                 objDown.SetActive(false);
                 pooledDownObjects.Add(objDown);
-
-                Tile objectDownTile = objectTilemap.GetTile<Tile>(originCell);
-
                 pooledDownTilesPos.Add(originCell);
 
                 break;
@@ -180,9 +174,6 @@ public class MapDestroyer : MonoBehaviour
                 GameObject objRight = Instantiate(explosionPrefeb, pos, worldPos.rotation);
                 objRight.SetActive(false);
                 pooledRightObjects.Add(objRight);
-
-                Tile objectRightTile = objectTilemap.GetTile<Tile>(originCell);
-
                 pooledRightTilesPos.Add(originCell);
 
                 break;
