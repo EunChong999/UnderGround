@@ -765,6 +765,13 @@ MonoBehaviour:
     isOnAwake: 0
     isLoop: 1
     source: {fileID: 0}
+  - name: Dig
+    clip: {fileID: 8300000, guid: fb8c43283ac7cde4f9b3f8c73746b0eb, type: 3}
+    volume: 0.75
+    pitch: 3
+    isOnAwake: 0
+    isLoop: 1
+    source: {fileID: 0}
 --- !u!1 &4097703493418699380
 GameObject:
   m_ObjectHideFlags: 0

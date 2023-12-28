@@ -152,6 +152,7 @@ public class Slime : MonoBehaviour
 
     private void OnDisable()
     {
+        if (shadow != null) 
         shadow.SetActive(false);
     }
 
