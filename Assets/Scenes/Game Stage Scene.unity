@@ -375,6 +375,8 @@ GameObject:
   - component: {fileID: 191982685}
   - component: {fileID: 191982684}
   - component: {fileID: 191982687}
+  - component: {fileID: 191982688}
+  - component: {fileID: 191982689}
   m_Layer: 0
   m_Name: Level 9
   m_TagString: Untagged
@@ -446,7 +448,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 191982685}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 191982689}
+        m_TargetAssemblyTypeName: ButtonClick, Assembly-CSharp
+        m_MethodName: ManageSound
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &191982685
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -500,6 +514,38 @@ MonoBehaviour:
   scaleDuration: 0.1
   easeType: 9
   loadSceneName: Game Play Scene
+--- !u!114 &191982688
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 191982682}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c82d4ecb2a8314e46a71ddfccb243d93, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sounds:
+  - name: Click
+    clip: {fileID: 8300000, guid: b8274180bc8a9f544b90474462127b78, type: 3}
+    volume: 10
+    pitch: 1
+    isOnAwake: 1
+    isLoop: 0
+    source: {fileID: 0}
+--- !u!114 &191982689
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 191982682}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 60d0dacec1a15e04e94235d8fd86ab7a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &232700198
 GameObject:
   m_ObjectHideFlags: 0
@@ -661,6 +707,8 @@ GameObject:
   - component: {fileID: 259631431}
   - component: {fileID: 259631430}
   - component: {fileID: 259631433}
+  - component: {fileID: 259631434}
+  - component: {fileID: 259631435}
   m_Layer: 0
   m_Name: Level 2
   m_TagString: Untagged
@@ -732,7 +780,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 259631431}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 191982689}
+        m_TargetAssemblyTypeName: ButtonClick, Assembly-CSharp
+        m_MethodName: ManageSound
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &259631431
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -786,6 +846,38 @@ MonoBehaviour:
   scaleDuration: 0.1
   easeType: 9
   loadSceneName: Game Play Scene
+--- !u!114 &259631434
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 259631428}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c82d4ecb2a8314e46a71ddfccb243d93, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sounds:
+  - name: Click
+    clip: {fileID: 8300000, guid: b8274180bc8a9f544b90474462127b78, type: 3}
+    volume: 10
+    pitch: 1
+    isOnAwake: 1
+    isLoop: 0
+    source: {fileID: 0}
+--- !u!114 &259631435
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 259631428}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 60d0dacec1a15e04e94235d8fd86ab7a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &373907916
 GameObject:
   m_ObjectHideFlags: 0
@@ -1418,6 +1510,8 @@ GameObject:
   - component: {fileID: 659747523}
   - component: {fileID: 659747522}
   - component: {fileID: 659747525}
+  - component: {fileID: 659747526}
+  - component: {fileID: 659747527}
   m_Layer: 0
   m_Name: Level 7
   m_TagString: Untagged
@@ -1489,7 +1583,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 659747523}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 191982689}
+        m_TargetAssemblyTypeName: ButtonClick, Assembly-CSharp
+        m_MethodName: ManageSound
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &659747523
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1543,6 +1649,38 @@ MonoBehaviour:
   scaleDuration: 0.1
   easeType: 9
   loadSceneName: Game Play Scene
+--- !u!114 &659747526
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 659747520}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c82d4ecb2a8314e46a71ddfccb243d93, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sounds:
+  - name: Click
+    clip: {fileID: 8300000, guid: b8274180bc8a9f544b90474462127b78, type: 3}
+    volume: 10
+    pitch: 1
+    isOnAwake: 1
+    isLoop: 0
+    source: {fileID: 0}
+--- !u!114 &659747527
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 659747520}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 60d0dacec1a15e04e94235d8fd86ab7a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &669160207
 GameObject:
   m_ObjectHideFlags: 0
@@ -1846,6 +1984,8 @@ GameObject:
   - component: {fileID: 816688136}
   - component: {fileID: 816688135}
   - component: {fileID: 816688138}
+  - component: {fileID: 816688139}
+  - component: {fileID: 816688140}
   m_Layer: 0
   m_Name: Level 3
   m_TagString: Untagged
@@ -1917,7 +2057,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 816688136}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 191982689}
+        m_TargetAssemblyTypeName: ButtonClick, Assembly-CSharp
+        m_MethodName: ManageSound
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &816688136
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1971,6 +2123,38 @@ MonoBehaviour:
   scaleDuration: 0.1
   easeType: 9
   loadSceneName: Game Play Scene
+--- !u!114 &816688139
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 816688133}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c82d4ecb2a8314e46a71ddfccb243d93, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sounds:
+  - name: Click
+    clip: {fileID: 8300000, guid: b8274180bc8a9f544b90474462127b78, type: 3}
+    volume: 10
+    pitch: 1
+    isOnAwake: 1
+    isLoop: 0
+    source: {fileID: 0}
+--- !u!114 &816688140
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 816688133}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 60d0dacec1a15e04e94235d8fd86ab7a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &882415067
 GameObject:
   m_ObjectHideFlags: 0
@@ -2223,6 +2407,8 @@ GameObject:
   - component: {fileID: 915204535}
   - component: {fileID: 915204534}
   - component: {fileID: 915204533}
+  - component: {fileID: 915204537}
+  - component: {fileID: 915204538}
   m_Layer: 0
   m_Name: Back Button
   m_TagString: Untagged
@@ -2293,7 +2479,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 915204534}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 0}
+        m_TargetAssemblyTypeName: ButtonClick, Assembly-CSharp
+        m_MethodName: ManageSound
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &915204534
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2347,6 +2545,38 @@ MonoBehaviour:
   scaleDuration: 0.1
   easeType: 9
   loadSceneName: Game Title Scene
+--- !u!114 &915204537
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 915204531}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c82d4ecb2a8314e46a71ddfccb243d93, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sounds:
+  - name: Click
+    clip: {fileID: 8300000, guid: b8274180bc8a9f544b90474462127b78, type: 3}
+    volume: 5
+    pitch: 1
+    isOnAwake: 1
+    isLoop: 0
+    source: {fileID: 0}
+--- !u!114 &915204538
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 915204531}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 60d0dacec1a15e04e94235d8fd86ab7a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &920254766
 GameObject:
   m_ObjectHideFlags: 0
@@ -2954,6 +3184,8 @@ GameObject:
   - component: {fileID: 1240233059}
   - component: {fileID: 1240233058}
   - component: {fileID: 1240233061}
+  - component: {fileID: 1240233062}
+  - component: {fileID: 1240233063}
   m_Layer: 0
   m_Name: Level 1
   m_TagString: Untagged
@@ -3025,7 +3257,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1240233059}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 191982689}
+        m_TargetAssemblyTypeName: ButtonClick, Assembly-CSharp
+        m_MethodName: ManageSound
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1240233059
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3079,6 +3323,38 @@ MonoBehaviour:
   scaleDuration: 0.1
   easeType: 9
   loadSceneName: Game Play Scene
+--- !u!114 &1240233062
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1240233056}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c82d4ecb2a8314e46a71ddfccb243d93, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sounds:
+  - name: Click
+    clip: {fileID: 8300000, guid: b8274180bc8a9f544b90474462127b78, type: 3}
+    volume: 10
+    pitch: 1
+    isOnAwake: 1
+    isLoop: 0
+    source: {fileID: 0}
+--- !u!114 &1240233063
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1240233056}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 60d0dacec1a15e04e94235d8fd86ab7a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1269359506
 GameObject:
   m_ObjectHideFlags: 0
@@ -3578,6 +3854,8 @@ GameObject:
   - component: {fileID: 1393966317}
   - component: {fileID: 1393966316}
   - component: {fileID: 1393966319}
+  - component: {fileID: 1393966320}
+  - component: {fileID: 1393966321}
   m_Layer: 0
   m_Name: Level 5
   m_TagString: Untagged
@@ -3649,7 +3927,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1393966317}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 191982689}
+        m_TargetAssemblyTypeName: ButtonClick, Assembly-CSharp
+        m_MethodName: ManageSound
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1393966317
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3703,6 +3993,38 @@ MonoBehaviour:
   scaleDuration: 0.1
   easeType: 9
   loadSceneName: Game Play Scene
+--- !u!114 &1393966320
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1393966314}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c82d4ecb2a8314e46a71ddfccb243d93, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sounds:
+  - name: Click
+    clip: {fileID: 8300000, guid: b8274180bc8a9f544b90474462127b78, type: 3}
+    volume: 10
+    pitch: 1
+    isOnAwake: 1
+    isLoop: 0
+    source: {fileID: 0}
+--- !u!114 &1393966321
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1393966314}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 60d0dacec1a15e04e94235d8fd86ab7a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1421845391
 GameObject:
   m_ObjectHideFlags: 0
@@ -3798,6 +4120,8 @@ GameObject:
   - component: {fileID: 1464074259}
   - component: {fileID: 1464074258}
   - component: {fileID: 1464074261}
+  - component: {fileID: 1464074262}
+  - component: {fileID: 1464074263}
   m_Layer: 0
   m_Name: Level 8
   m_TagString: Untagged
@@ -3869,7 +4193,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1464074259}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 191982689}
+        m_TargetAssemblyTypeName: ButtonClick, Assembly-CSharp
+        m_MethodName: ManageSound
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1464074259
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3923,6 +4259,38 @@ MonoBehaviour:
   scaleDuration: 0.1
   easeType: 9
   loadSceneName: Game Play Scene
+--- !u!114 &1464074262
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1464074256}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c82d4ecb2a8314e46a71ddfccb243d93, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sounds:
+  - name: Click
+    clip: {fileID: 8300000, guid: b8274180bc8a9f544b90474462127b78, type: 3}
+    volume: 10
+    pitch: 1
+    isOnAwake: 1
+    isLoop: 0
+    source: {fileID: 0}
+--- !u!114 &1464074263
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1464074256}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 60d0dacec1a15e04e94235d8fd86ab7a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1525115772
 GameObject:
   m_ObjectHideFlags: 0
@@ -4670,6 +5038,8 @@ GameObject:
   - component: {fileID: 1848386144}
   - component: {fileID: 1848386143}
   - component: {fileID: 1848386146}
+  - component: {fileID: 1848386147}
+  - component: {fileID: 1848386148}
   m_Layer: 0
   m_Name: Level 11
   m_TagString: Untagged
@@ -4741,7 +5111,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1848386144}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 191982689}
+        m_TargetAssemblyTypeName: ButtonClick, Assembly-CSharp
+        m_MethodName: ManageSound
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1848386144
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4795,6 +5177,38 @@ MonoBehaviour:
   scaleDuration: 0.1
   easeType: 9
   loadSceneName: Game Play Scene
+--- !u!114 &1848386147
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1848386141}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c82d4ecb2a8314e46a71ddfccb243d93, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sounds:
+  - name: Click
+    clip: {fileID: 8300000, guid: b8274180bc8a9f544b90474462127b78, type: 3}
+    volume: 10
+    pitch: 1
+    isOnAwake: 1
+    isLoop: 0
+    source: {fileID: 0}
+--- !u!114 &1848386148
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1848386141}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 60d0dacec1a15e04e94235d8fd86ab7a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1855068183
 GameObject:
   m_ObjectHideFlags: 0
@@ -4884,6 +5298,8 @@ GameObject:
   - component: {fileID: 1869009791}
   - component: {fileID: 1869009790}
   - component: {fileID: 1869009793}
+  - component: {fileID: 1869009794}
+  - component: {fileID: 1869009795}
   m_Layer: 0
   m_Name: Level 6
   m_TagString: Untagged
@@ -4955,7 +5371,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1869009791}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 191982689}
+        m_TargetAssemblyTypeName: ButtonClick, Assembly-CSharp
+        m_MethodName: ManageSound
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1869009791
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5009,6 +5437,38 @@ MonoBehaviour:
   scaleDuration: 0.1
   easeType: 9
   loadSceneName: Game Play Scene
+--- !u!114 &1869009794
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1869009788}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c82d4ecb2a8314e46a71ddfccb243d93, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sounds:
+  - name: Click
+    clip: {fileID: 8300000, guid: b8274180bc8a9f544b90474462127b78, type: 3}
+    volume: 10
+    pitch: 1
+    isOnAwake: 1
+    isLoop: 0
+    source: {fileID: 0}
+--- !u!114 &1869009795
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1869009788}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 60d0dacec1a15e04e94235d8fd86ab7a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1878860218
 GameObject:
   m_ObjectHideFlags: 0
@@ -5022,6 +5482,8 @@ GameObject:
   - component: {fileID: 1878860221}
   - component: {fileID: 1878860220}
   - component: {fileID: 1878860223}
+  - component: {fileID: 1878860224}
+  - component: {fileID: 1878860225}
   m_Layer: 0
   m_Name: Level 4
   m_TagString: Untagged
@@ -5093,7 +5555,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1878860221}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 191982689}
+        m_TargetAssemblyTypeName: ButtonClick, Assembly-CSharp
+        m_MethodName: ManageSound
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1878860221
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5147,6 +5621,38 @@ MonoBehaviour:
   scaleDuration: 0.1
   easeType: 9
   loadSceneName: Game Play Scene
+--- !u!114 &1878860224
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1878860218}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c82d4ecb2a8314e46a71ddfccb243d93, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sounds:
+  - name: Click
+    clip: {fileID: 8300000, guid: b8274180bc8a9f544b90474462127b78, type: 3}
+    volume: 10
+    pitch: 1
+    isOnAwake: 1
+    isLoop: 0
+    source: {fileID: 0}
+--- !u!114 &1878860225
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1878860218}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 60d0dacec1a15e04e94235d8fd86ab7a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1923444116
 GameObject:
   m_ObjectHideFlags: 0
@@ -5297,6 +5803,8 @@ GameObject:
   - component: {fileID: 1939597344}
   - component: {fileID: 1939597343}
   - component: {fileID: 1939597346}
+  - component: {fileID: 1939597347}
+  - component: {fileID: 1939597348}
   m_Layer: 0
   m_Name: Level 10
   m_TagString: Untagged
@@ -5368,7 +5876,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1939597344}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 191982689}
+        m_TargetAssemblyTypeName: ButtonClick, Assembly-CSharp
+        m_MethodName: ManageSound
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1939597344
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5422,6 +5942,38 @@ MonoBehaviour:
   scaleDuration: 0.1
   easeType: 9
   loadSceneName: Game Play Scene
+--- !u!114 &1939597347
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1939597341}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c82d4ecb2a8314e46a71ddfccb243d93, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sounds:
+  - name: Click
+    clip: {fileID: 8300000, guid: b8274180bc8a9f544b90474462127b78, type: 3}
+    volume: 10
+    pitch: 1
+    isOnAwake: 1
+    isLoop: 0
+    source: {fileID: 0}
+--- !u!114 &1939597348
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1939597341}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 60d0dacec1a15e04e94235d8fd86ab7a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2048380557
 GameObject:
   m_ObjectHideFlags: 0
@@ -5435,6 +5987,8 @@ GameObject:
   - component: {fileID: 2048380560}
   - component: {fileID: 2048380559}
   - component: {fileID: 2048380562}
+  - component: {fileID: 2048380563}
+  - component: {fileID: 2048380564}
   m_Layer: 0
   m_Name: Level 12
   m_TagString: Untagged
@@ -5506,7 +6060,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 2048380560}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 191982689}
+        m_TargetAssemblyTypeName: ButtonClick, Assembly-CSharp
+        m_MethodName: ManageSound
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &2048380560
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5560,3 +6126,35 @@ MonoBehaviour:
   scaleDuration: 0.1
   easeType: 9
   loadSceneName: Game Play Scene
+--- !u!114 &2048380563
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2048380557}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c82d4ecb2a8314e46a71ddfccb243d93, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sounds:
+  - name: Click
+    clip: {fileID: 8300000, guid: b8274180bc8a9f544b90474462127b78, type: 3}
+    volume: 10
+    pitch: 1
+    isOnAwake: 1
+    isLoop: 0
+    source: {fileID: 0}
+--- !u!114 &2048380564
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2048380557}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 60d0dacec1a15e04e94235d8fd86ab7a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

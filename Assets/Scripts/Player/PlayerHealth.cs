@@ -63,8 +63,15 @@ public class PlayerHealth : MonoBehaviour
         }
     }
 
+    void ManageSound()
+    {
+        GetComponent<AudioManager>().Play("Damage");
+    }
+
     public IEnumerator OnDamaged()
     {
+        ManageSound();
+
         health--;
 
         isOnDamaged = true;

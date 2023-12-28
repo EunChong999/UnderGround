@@ -136,6 +136,8 @@ GameObject:
   - component: {fileID: 82731524}
   - component: {fileID: 82731523}
   - component: {fileID: 82731522}
+  - component: {fileID: 82731527}
+  - component: {fileID: 82731526}
   m_Layer: 0
   m_Name: Pause Button
   m_TagString: Untagged
@@ -219,6 +221,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 82731526}
+        m_TargetAssemblyTypeName: ButtonClick, Assembly-CSharp
+        m_MethodName: ManageSound
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &82731523
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -271,6 +285,38 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   scaleDuration: 0.1
   easeType: 9
+--- !u!114 &82731526
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 82731520}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 60d0dacec1a15e04e94235d8fd86ab7a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &82731527
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 82731520}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c82d4ecb2a8314e46a71ddfccb243d93, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sounds:
+  - name: Click
+    clip: {fileID: 8300000, guid: b8274180bc8a9f544b90474462127b78, type: 3}
+    volume: 5
+    pitch: 1
+    isOnAwake: 1
+    isLoop: 0
+    source: {fileID: 0}
 --- !u!1 &121042304
 GameObject:
   m_ObjectHideFlags: 0

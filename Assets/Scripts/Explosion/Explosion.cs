@@ -9,7 +9,6 @@ public class Explosion : MonoBehaviour
     private void Start()
     {
         GetComponent<AudioManager>().Play("Explosion");
-        Debug.Log("»Æ¿Œ");
         StartCoroutine(Extinction());
     }
 

@@ -185,6 +185,7 @@ GameObject:
   - component: {fileID: 8247018528268641901}
   - component: {fileID: 7626095805965450011}
   - component: {fileID: 7332940534702316296}
+  - component: {fileID: 3761228511801200325}
   m_Layer: 7
   m_Name: Bat
   m_TagString: Obstacle
@@ -399,6 +400,26 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.5
+--- !u!114 &3761228511801200325
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3259470868671510360}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c82d4ecb2a8314e46a71ddfccb243d93, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sounds:
+  - name: Damage
+    clip: {fileID: 8300000, guid: 50b65a8026076314c95a7e63a1d225c9, type: 3}
+    volume: 10
+    pitch: 1
+    isOnAwake: 1
+    isLoop: 0
+    source: {fileID: 0}
 --- !u!1 &5274932325773475777
 GameObject:
   m_ObjectHideFlags: 0

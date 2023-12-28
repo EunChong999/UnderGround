@@ -8,9 +8,9 @@ public class Sound
 
     public AudioClip clip;
 
-    [Range(0f, 1f)]
+    [Range(0, 10)]
     public float volume;
-    [Range(.1f, 3f)]
+    [Range(.1f, 3)]
     public float pitch;
 
     public bool isOnAwake;

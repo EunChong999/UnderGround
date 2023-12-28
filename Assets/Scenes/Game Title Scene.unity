@@ -200,7 +200,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: a203d00a1fdf1cd4a99b8ad6740dfa64, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 0.5
+  m_Volume: 0.1
   m_Pitch: 1
   Loop: 1
   Mute: 0
@@ -431,7 +431,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: fed001f330ffd3447a4da362c4b1fea6, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 0.5
+  m_Volume: 0.1
   m_Pitch: 1
   Loop: 1
   Mute: 0
@@ -1111,6 +1111,8 @@ GameObject:
   - component: {fileID: 1702080883}
   - component: {fileID: 1702080882}
   - component: {fileID: 1702080886}
+  - component: {fileID: 1702080887}
+  - component: {fileID: 1702080888}
   m_Layer: 5
   m_Name: Button
   m_TagString: Untagged
@@ -1182,7 +1184,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1702080883}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1702080887}
+        m_TargetAssemblyTypeName: ButtonClick, Assembly-CSharp
+        m_MethodName: ManageSound
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1702080883
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1236,6 +1250,38 @@ MonoBehaviour:
   scaleDuration: 0.5
   easeType: 24
   loadSceneName: Game Stage Scene
+--- !u!114 &1702080887
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1702080880}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 60d0dacec1a15e04e94235d8fd86ab7a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1702080888
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1702080880}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c82d4ecb2a8314e46a71ddfccb243d93, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sounds:
+  - name: Click
+    clip: {fileID: 8300000, guid: b8274180bc8a9f544b90474462127b78, type: 3}
+    volume: 5
+    pitch: 1
+    isOnAwake: 1
+    isLoop: 0
+    source: {fileID: 0}
 --- !u!1 &1774456716
 GameObject:
   m_ObjectHideFlags: 0
