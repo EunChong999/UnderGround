@@ -760,7 +760,7 @@ MonoBehaviour:
   sounds:
   - name: Dig
     clip: {fileID: 8300000, guid: d59fb9fa34ca92f45a7f963e4d943c91, type: 3}
-    volume: 5
+    volume: 100
     pitch: 1
     isOnAwake: 0
     isLoop: 1

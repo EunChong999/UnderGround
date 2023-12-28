@@ -16,7 +16,6 @@ public class EnemyCollision : MonoBehaviour
         if (collision.CompareTag("Obstacle") && LayerMask.LayerToName(collision.gameObject.layer) != "Enemy")
         {
             GetComponent<AudioManager>().Play("Damage");
-            Debug.Log("»Æ¿Œ");
         }
     }
 
@@ -25,7 +24,6 @@ public class EnemyCollision : MonoBehaviour
         if (collision.CompareTag("Obstacle") && LayerMask.LayerToName(collision.gameObject.layer) != "Enemy" &&
             !enemyHealth.isDead)
         {
-            GetComponent<AudioManager>().Play("Damage");
             enemyHealth.Dead();
         }
     }
