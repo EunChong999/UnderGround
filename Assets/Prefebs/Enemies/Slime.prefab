@@ -55,6 +55,7 @@ MonoBehaviour:
   isDead: 0
   waitTime: 0.667
   appearRange: 3
+  isLeaveDeadBody: 0
   isAppeared: 0
   isStartMove: 0
 --- !u!114 &1126742720269262536
@@ -167,7 +168,7 @@ CircleCollider2D:
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
-  m_Radius: 0.25
+  m_Radius: 0.5
 --- !u!1 &2565840434699274842
 GameObject:
   m_ObjectHideFlags: 0
@@ -306,7 +307,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 10
+  m_SortingOrder: 9
   m_Sprite: {fileID: -901775903, guid: 41f18019a84b37a4fa269ee22ac5b59e, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0

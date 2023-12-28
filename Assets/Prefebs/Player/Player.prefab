@@ -539,6 +539,7 @@ GameObject:
   - component: {fileID: 4867734667495002236}
   - component: {fileID: 5948105163436241824}
   - component: {fileID: 7393067415523477199}
+  - component: {fileID: 5173706557082916955}
   m_Layer: 8
   m_Name: Player
   m_TagString: Player
@@ -564,7 +565,7 @@ Transform:
   - {fileID: 3616669526634274625}
   - {fileID: 1621641028551605360}
   m_Father: {fileID: 0}
-  m_RootOrder: -1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &6164580874579564868
 MonoBehaviour:
@@ -681,8 +682,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   movementParticle: {fileID: 1492986501140233130}
-  occurAfterVelocity: 4
-  dirtFormationPeriod: 0.04
+  dirtFormationPeriod: 0.1
 --- !u!50 &5948105163436241824
 Rigidbody2D:
   serializedVersion: 4
@@ -745,6 +745,26 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.5
+--- !u!114 &5173706557082916955
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3694639425628776514}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c82d4ecb2a8314e46a71ddfccb243d93, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sounds:
+  - name: Dig
+    clip: {fileID: 8300000, guid: fb8c43283ac7cde4f9b3f8c73746b0eb, type: 3}
+    volume: 0.75
+    pitch: 3
+    isOnAwake: 0
+    isLoop: 1
+    source: {fileID: 0}
 --- !u!1 &4097703493418699380
 GameObject:
   m_ObjectHideFlags: 0

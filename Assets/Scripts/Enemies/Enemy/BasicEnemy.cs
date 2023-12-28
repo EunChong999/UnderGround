@@ -13,6 +13,8 @@ public class BasicEnemy : MonoBehaviour
     private float waitTime;
     [SerializeField]
     private float appearRange;
+    [SerializeField]
+    private bool isLeaveDeadBody;
 
     private WaitForSeconds waitForSeconds;
     private float distance;
@@ -82,6 +84,11 @@ public class BasicEnemy : MonoBehaviour
 
         if (transform.childCount > 0) 
         {
+            if (isLeaveDeadBody)
+            {
+                transform.GetChild(0).GetComponent<SpriteRenderer>().sortingOrder = 10;
+            }
+
             transform.GetChild(0).parent = null;
         }
 

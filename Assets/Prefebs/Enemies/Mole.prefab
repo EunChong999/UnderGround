@@ -276,6 +276,7 @@ MonoBehaviour:
   isDead: 0
   waitTime: 1
   appearRange: 5
+  isLeaveDeadBody: 1
   isAppeared: 0
   isStartMove: 0
 --- !u!114 &481482333624912013
@@ -370,7 +371,7 @@ CircleCollider2D:
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
-  m_Radius: 0.25
+  m_Radius: 0.5
 --- !u!1 &8408310481449004163
 GameObject:
   m_ObjectHideFlags: 0

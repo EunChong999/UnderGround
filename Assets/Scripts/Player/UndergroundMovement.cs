@@ -57,6 +57,8 @@ public class UndergroundMovement : MonoBehaviour
 
         if (Time.timeScale != 0) 
         Move();
+
+        ManageSound();
     }
 
     bool GroundCheck(Transform direction)
@@ -110,6 +112,18 @@ public class UndergroundMovement : MonoBehaviour
                     isStopped = false;
                 }
             }
+        }
+    }
+
+    void ManageSound()
+    {
+        if (!isStopped)
+        {
+            GetComponent<AudioManager>().Play("Dig");
+        }
+        else
+        {
+            GetComponent<AudioManager>().Stop("Dig");
         }
     }
 }

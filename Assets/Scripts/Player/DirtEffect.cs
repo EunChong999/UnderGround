@@ -6,9 +6,6 @@ public class DirtEffect : MonoBehaviour
 {
     [SerializeField] ParticleSystem movementParticle;
 
-    [Range(0, 10)]
-    [SerializeField] int occurAfterVelocity;
-
     [Range(0, 0.2f)]
     [SerializeField] float dirtFormationPeriod;
 
