@@ -38,6 +38,7 @@ public class BasicEnemy : MonoBehaviour
         animator.SetBool("IsDead", false);
         player = GameObject.Find("Player");
         sign = transform.Find("Sign").gameObject;
+        sign.transform.parent = null;
         body = transform.GetChild(0).gameObject;
         body.SetActive(false);
         collider2D = GetComponent<Collider2D>();

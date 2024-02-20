@@ -51,15 +51,18 @@ public class Bat : MonoBehaviour
 
     private void FlipX()
     {
-        transform.rotation = player.transform.rotation;
+        if (player != null)
+        {
+            transform.rotation = player.transform.rotation;
 
-        if (player.transform.position.x < transform.position.x)
-        {
-            transform.localScale = new Vector3(-1, 1, 1);
-        }
-        else
-        {
-            transform.localScale = new Vector3(1, 1, 1);
+            if (player.transform.position.x < transform.position.x)
+            {
+                transform.localScale = new Vector3(-1, 1, 1);
+            }
+            else
+            {
+                transform.localScale = new Vector3(1, 1, 1);
+            }
         }
     }
 
