@@ -415,9 +415,9 @@ MonoBehaviour:
   sounds:
   - name: Damage
     clip: {fileID: 8300000, guid: 50b65a8026076314c95a7e63a1d225c9, type: 3}
-    volume: 20
+    volume: 100
     pitch: 1
-    isOnAwake: 1
+    isOnAwake: 0
     isLoop: 0
     source: {fileID: 0}
 --- !u!1 &5274932325773475777

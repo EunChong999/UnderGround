@@ -6,6 +6,8 @@ public class EnemyCollision : MonoBehaviour
 {
     BasicEnemy enemyHealth;
 
+    bool isPlayed = false;
+
     private void Start()
     {
         enemyHealth = GetComponent<BasicEnemy>();
@@ -16,13 +18,14 @@ public class EnemyCollision : MonoBehaviour
         if (collision.CompareTag("Obstacle") && LayerMask.LayerToName(collision.gameObject.layer) != "Enemy")
         {
             GetComponent<AudioManager>().Play("Damage");
+            isPlayed = true;
+            Invoke(nameof(Damage), 0.1f);
         }
     }
 
-    private void OnTriggerStay2D(Collider2D collision)
+    private void Damage()
     {
-        if (collision.CompareTag("Obstacle") && LayerMask.LayerToName(collision.gameObject.layer) != "Enemy" &&
-            !enemyHealth.isDead)
+        if (!enemyHealth.isDead && isPlayed)
         {
             enemyHealth.Dead();
         }
