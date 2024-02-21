@@ -57,7 +57,7 @@ public class BombSpawner : MonoBehaviour
 
     private void SelectDirection()
     {
-        if (Input.GetKeyDown(KeyCode.UpArrow) && !isLockedKey[0])
+        if (Input.GetKeyDown(KeyCode.UpArrow))
         {
             isKeysGetKey[0] = true;
             isKeysGetKey[1] = false;
@@ -66,7 +66,7 @@ public class BombSpawner : MonoBehaviour
             isGetKey = true;
         }
 
-        if (Input.GetKeyDown(KeyCode.LeftArrow) && !isLockedKey[1])
+        if (Input.GetKeyDown(KeyCode.LeftArrow))
         {
             isKeysGetKey[0] = false;
             isKeysGetKey[1] = true;
@@ -75,7 +75,7 @@ public class BombSpawner : MonoBehaviour
             isGetKey = true;
         }
 
-        if (Input.GetKeyDown(KeyCode.DownArrow) && !isLockedKey[2])
+        if (Input.GetKeyDown(KeyCode.DownArrow))
         {
             isKeysGetKey[0] = false;
             isKeysGetKey[1] = false;
@@ -84,7 +84,7 @@ public class BombSpawner : MonoBehaviour
             isGetKey = true;
         }
 
-        if (Input.GetKeyDown(KeyCode.RightArrow) && !isLockedKey[3])
+        if (Input.GetKeyDown(KeyCode.RightArrow))
         {
             isKeysGetKey[0] = false;
             isKeysGetKey[1] = false;

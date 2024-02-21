@@ -6,8 +6,6 @@ public class EnemyCollision : MonoBehaviour
 {
     BasicEnemy enemyHealth;
 
-    bool isPlayed = false;
-
     private void Start()
     {
         enemyHealth = GetComponent<BasicEnemy>();
@@ -18,14 +16,13 @@ public class EnemyCollision : MonoBehaviour
         if (collision.CompareTag("Obstacle") && LayerMask.LayerToName(collision.gameObject.layer) != "Enemy")
         {
             GetComponent<AudioManager>().Play("Damage");
-            isPlayed = true;
             Invoke(nameof(Damage), 0.1f);
         }
     }
 
     private void Damage()
     {
-        if (!enemyHealth.isDead && isPlayed)
+        if (!enemyHealth.isDead)
         {
             enemyHealth.Dead();
         }
