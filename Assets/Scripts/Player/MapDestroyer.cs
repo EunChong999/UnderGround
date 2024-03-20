@@ -17,17 +17,17 @@ public class MapDestroyer : MonoBehaviour
 
     public Bounds updateBounds;
 
-    public List<GameObject> pooledUpObjects;
-    public List<GameObject> pooledLeftObjects;
-    public List<GameObject> pooledDownObjects;
-    public List<GameObject> pooledRightObjects;
+    public Queue<GameObject> pooledUpObjects;
+    public Queue<GameObject> pooledLeftObjects;
+    public Queue<GameObject> pooledDownObjects;
+    public Queue<GameObject> pooledRightObjects;
 
     [Space(25)]
 
-    public List<Vector3Int> pooledUpTilesPos;
-    public List<Vector3Int> pooledLeftTilesPos;
-    public List<Vector3Int> pooledDownTilesPos;
-    public List<Vector3Int> pooledRightTilesPos;
+    public Queue<Vector3Int> pooledUpTilesPos;
+    public Queue<Vector3Int> pooledLeftTilesPos;
+    public Queue<Vector3Int> pooledDownTilesPos;
+    public Queue<Vector3Int> pooledRightTilesPos;
 
     // Bounds를 시각화하는 함수
     private void OnDrawGizmos()
@@ -43,17 +43,17 @@ public class MapDestroyer : MonoBehaviour
 
     public void Explode(Transform worldPos)
     {
-        pooledUpObjects = new List<GameObject>();
-        pooledLeftObjects = new List<GameObject>();
+        pooledUpObjects = new Queue<GameObject>();
+        pooledLeftObjects = new Queue<GameObject>();
 
-        pooledDownObjects = new List<GameObject>();
-        pooledRightObjects = new List<GameObject>();
+        pooledDownObjects = new Queue<GameObject>();
+        pooledRightObjects = new Queue<GameObject>();
 
-        pooledUpTilesPos = new List<Vector3Int>();
-        pooledLeftTilesPos = new List<Vector3Int>();
+        pooledUpTilesPos = new Queue<Vector3Int>();
+        pooledLeftTilesPos = new Queue<Vector3Int>();
 
-        pooledDownTilesPos = new List<Vector3Int>();
-        pooledRightTilesPos = new List<Vector3Int>();
+        pooledDownTilesPos = new Queue<Vector3Int>();
+        pooledRightTilesPos = new Queue<Vector3Int>();
 
         Vector3Int originCell = gamePlayTilemap.WorldToCell(worldPos.position);
 
@@ -109,25 +109,25 @@ public class MapDestroyer : MonoBehaviour
     }
 
     // 코루틴 함수 정의
-    IEnumerator ExplodeCell(List<GameObject> pooledObjects)
+    IEnumerator ExplodeCell(Queue<GameObject> pooledObjects)
     {
-        for (int i = 0; i < pooledObjects.Count; i++)
+        while (pooledObjects.Count > 0)
         {
             yield return new WaitForSeconds(interval);
 
-            pooledObjects[i].SetActive(true);
+            pooledObjects.Dequeue().SetActive(true);
         }
 
         yield break;
     }
 
-    IEnumerator ExplodeTile(List<Vector3Int> pooledTilesPos)
+    IEnumerator ExplodeTile(Queue<Vector3Int> pooledTilesPos)
     {
-        for (int i = 0; i < pooledTilesPos.Count; i++)
+        while (pooledTilesPos.Count > 0)
         {
             yield return new WaitForSeconds(interval);
 
-            objectTilemap.SetTile(pooledTilesPos[i], null);
+            objectTilemap.SetTile(pooledTilesPos.Dequeue(), null);
 
             AstarPath.active.UpdateGraphs(updateBounds, 0);
         }
@@ -152,29 +152,29 @@ public class MapDestroyer : MonoBehaviour
             case "up":
                 GameObject objUp = Instantiate(explosionPrefeb, pos, worldPos.rotation);
                 objUp.SetActive(false);
-                pooledUpObjects.Add(objUp);
-                pooledUpTilesPos.Add(originCell);
+                pooledUpObjects.Enqueue(objUp);
+                pooledUpTilesPos.Enqueue(originCell);
 
                 break;
             case "left":
                 GameObject objLeft = Instantiate(explosionPrefeb, pos, worldPos.rotation);
                 objLeft.SetActive(false);
-                pooledLeftObjects.Add(objLeft);
-                pooledLeftTilesPos.Add(originCell);
+                pooledLeftObjects.Enqueue(objLeft);
+                pooledLeftTilesPos.Enqueue(originCell);
 
                 break;
             case "down":
                 GameObject objDown = Instantiate(explosionPrefeb, pos, worldPos.rotation);
                 objDown.SetActive(false);
-                pooledDownObjects.Add(objDown);
-                pooledDownTilesPos.Add(originCell);
+                pooledDownObjects.Enqueue(objDown);
+                pooledDownTilesPos.Enqueue(originCell);
 
                 break;
             case "right":
                 GameObject objRight = Instantiate(explosionPrefeb, pos, worldPos.rotation);
                 objRight.SetActive(false);
-                pooledRightObjects.Add(objRight);
-                pooledRightTilesPos.Add(originCell);
+                pooledRightObjects.Enqueue(objRight);
+                pooledRightTilesPos.Enqueue(originCell);
 
                 break;
             default:
