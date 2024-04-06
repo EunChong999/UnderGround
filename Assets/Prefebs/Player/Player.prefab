@@ -638,9 +638,10 @@ MonoBehaviour:
   whatStopMovement:
     serializedVersion: 2
     m_Bits: 72
+  delayTime: 0.15
+  particle: {fileID: 1492986501140233130}
   x: 0
   y: 0
-  delayTime: 0.15
 --- !u!114 &1318699265840861233
 MonoBehaviour:
   m_ObjectHideFlags: 0

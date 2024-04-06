@@ -8,8 +8,8 @@ public class GridMovement : MonoBehaviour
     public float moveSpeed = 5;
     public Transform movePoint;
     public LayerMask whatStopMovement;
-    public float x;
-    public float y;
+    [HideInInspector] public float x;
+    [HideInInspector] public float y;
     [SerializeField] float delayTime;
     WaitForSeconds waitForSeconds;
     UndergroundMovement undergroundMovement;
