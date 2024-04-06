@@ -455,10 +455,6 @@ PrefabInstance:
       propertyPath: hearts.Array.size
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 6665332407312350051, guid: 92594f5b9bb5f3045adf928d75bb637b, type: 3}
-      propertyPath: moveSpeed
-      value: 5
-      objectReference: {fileID: 0}
     - target: {fileID: 9183416457155780803, guid: 92594f5b9bb5f3045adf928d75bb637b, type: 3}
       propertyPath: m_RootOrder
       value: -1
@@ -4884,18 +4880,9 @@ MonoBehaviour:
   explosionPrefeb: {fileID: 1239234518779428570, guid: 60c59f393da4c624ab5739bcdb1a08d7, type: 3}
   explosionRange: 3
   interval: 0.25
-  astar: {fileID: 0}
   updateBounds:
     m_Center: {x: 0, y: 0, z: 0}
     m_Extent: {x: 35, y: 35, z: 0}
-  pooledUpObjects: []
-  pooledLeftObjects: []
-  pooledDownObjects: []
-  pooledRightObjects: []
-  pooledUpTilesPos: []
-  pooledLeftTilesPos: []
-  pooledDownTilesPos: []
-  pooledRightTilesPos: []
 --- !u!1839735485 &7206060725952815075
 Tilemap:
   m_ObjectHideFlags: 0
