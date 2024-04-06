@@ -84,7 +84,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isRight: 0
-  speed: 150
+  speed: 125
   groundDetected: 1
   wallDetected: 0
   groundPositionChecker: {fileID: 3558901609030908921}
