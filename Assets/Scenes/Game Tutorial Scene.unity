@@ -1727,7 +1727,7 @@ Camera:
   far clip plane: 5000
   field of view: 40
   orthographic: 1
-  orthographic size: 5.3999996
+  orthographic size: 5.4
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -1757,8 +1757,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_ComponentVersion: 1
   m_AssetsPPU: 100
-  m_RefResolutionX: 320
-  m_RefResolutionY: 180
+  m_RefResolutionX: 1920
+  m_RefResolutionY: 1080
   m_CropFrame: 0
   m_GridSnapping: 0
   m_FilterMode: 0
@@ -2223,7 +2223,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1220323118}
   - component: {fileID: 1220323117}
-  - component: {fileID: 1220323116}
   - component: {fileID: 1220323115}
   m_Layer: 0
   m_Name: Virtual Camera
@@ -2244,21 +2243,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1a8a05de0ac134f4f9d01bef6b9da077, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &1220323116
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1220323114}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5e77fe6ad4ece304991420b82e0bfe9c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  minZoom: 4.225
-  maxZoom: 8.5
-  smoothTime: 0.5
 --- !u!114 &1220323117
 MonoBehaviour:
   m_ObjectHideFlags: 0

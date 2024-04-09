@@ -40,15 +40,13 @@ public class GridMovement : MonoBehaviour
         }
     }
 
-    private void FixedUpdate()
-    {
-        transform.position = Vector3.MoveTowards(transform.position, movePoint.position, moveSpeed * Time.fixedDeltaTime);
-        curXPos = x * Time.fixedDeltaTime * moveSpeed;
-        curYPos = y * Time.fixedDeltaTime * moveSpeed;
-    }
-
     void MoveGrid()
     {
+        transform.position = Vector3.MoveTowards(transform.position, movePoint.position, moveSpeed * Time.deltaTime);
+
+        curXPos = x * Time.deltaTime * moveSpeed;
+        curYPos = y * Time.deltaTime * moveSpeed;
+
         if (isMoveType)
         {
             if (!Physics2D.OverlapCircle(movePoint.position + new Vector3(x, 0, 0), .25f, whatStopMovement) && canMove && x != 0)
