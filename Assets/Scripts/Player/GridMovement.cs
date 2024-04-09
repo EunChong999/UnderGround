@@ -14,6 +14,8 @@ public class GridMovement : MonoBehaviour
     WaitForSeconds waitForSeconds;
     UndergroundMovement undergroundMovement;
     bool canMove;
+    float curXPos;
+    float curYPos;
 
     void Start()
     {
@@ -38,10 +40,15 @@ public class GridMovement : MonoBehaviour
         }
     }
 
+    private void FixedUpdate()
+    {
+        transform.position = Vector3.MoveTowards(transform.position, movePoint.position, moveSpeed * Time.fixedDeltaTime);
+        curXPos = x * Time.fixedDeltaTime * moveSpeed;
+        curYPos = y * Time.fixedDeltaTime * moveSpeed;
+    }
+
     void MoveGrid()
     {
-        transform.position = Vector3.MoveTowards(transform.position, movePoint.position, moveSpeed * Time.deltaTime);
-
         if (isMoveType)
         {
             if (!Physics2D.OverlapCircle(movePoint.position + new Vector3(x, 0, 0), .25f, whatStopMovement) && canMove && x != 0)
@@ -60,14 +67,14 @@ public class GridMovement : MonoBehaviour
         }
         else
         {
-            if (!Physics2D.OverlapCircle(movePoint.position + new Vector3(x * Time.deltaTime * moveSpeed, 0, 0), .25f, whatStopMovement))
+            if (!Physics2D.OverlapCircle(movePoint.position + new Vector3(curXPos, 0, 0), .25f, whatStopMovement))
             {
-                movePoint.position += new Vector3(x * Time.deltaTime * moveSpeed, 0, 0);
+                movePoint.position += new Vector3(curXPos, 0, 0);
             }
 
-            if (!Physics2D.OverlapCircle(movePoint.position + new Vector3(0, y * Time.deltaTime * moveSpeed, 0), .25f, whatStopMovement))
+            if (!Physics2D.OverlapCircle(movePoint.position + new Vector3(0, curYPos, 0), .25f, whatStopMovement))
             {
-                movePoint.position += new Vector3(0, y * Time.deltaTime * moveSpeed, 0);
+                movePoint.position += new Vector3(0, curYPos, 0);
             }
         }
     }
