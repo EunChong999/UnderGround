@@ -138,12 +138,7 @@ public class BombSpawner : MonoBehaviour
     {
         if (Input.GetKeyUp(KeyCode.UpArrow) && (undergroundMovement.isSpaced[0] || !undergroundMovement.isMoveStart) && isKeysGetKey[0] && !isLockedKey[0])
         {
-            isBombSpawned = true;
-            isKeysGetKey[0] = false;
-            isKeysGetKey[1] = false;
-            isKeysGetKey[2] = false;
-            isKeysGetKey[3] = false;
-            isGetKey = false;
+            ReleaseKey();
             GameObject bomb = Instantiate(bombPrefeb, new Vector2(transform.position.x, transform.position.y + 0.25f), transform.rotation);
             bomb.GetComponent<GridMovement>().x = 0;
             bomb.GetComponent<GridMovement>().y = 1;
@@ -153,12 +148,7 @@ public class BombSpawner : MonoBehaviour
 
         if (Input.GetKeyUp(KeyCode.LeftArrow) && (undergroundMovement.isSpaced[1] || !undergroundMovement.isMoveStart) && isKeysGetKey[1] && !isLockedKey[1])
         {
-            isBombSpawned = true;
-            isKeysGetKey[0] = false;
-            isKeysGetKey[1] = false;
-            isKeysGetKey[2] = false;
-            isKeysGetKey[3] = false;
-            isGetKey = false;
+            ReleaseKey();
             GameObject bomb = Instantiate(bombPrefeb, new Vector2(transform.position.x - 0.25f, transform.position.y), transform.rotation);
             bomb.GetComponent<GridMovement>().x = -1;
             bomb.GetComponent<GridMovement>().y = 0;
@@ -168,12 +158,7 @@ public class BombSpawner : MonoBehaviour
 
         if (Input.GetKeyUp(KeyCode.DownArrow) && (undergroundMovement.isSpaced[2] || !undergroundMovement.isMoveStart) && isKeysGetKey[2] && !isLockedKey[2])
         {
-            isBombSpawned = true;
-            isKeysGetKey[0] = false;
-            isKeysGetKey[1] = false;
-            isKeysGetKey[2] = false;
-            isKeysGetKey[3] = false;
-            isGetKey = false;
+            ReleaseKey();
             GameObject bomb = Instantiate(bombPrefeb, new Vector2(transform.position.x, transform.position.y - 0.25f), transform.rotation);
             bomb.GetComponent<GridMovement>().x = 0;
             bomb.GetComponent<GridMovement>().y = -1;
@@ -183,18 +168,23 @@ public class BombSpawner : MonoBehaviour
 
         if (Input.GetKeyUp(KeyCode.RightArrow) && (undergroundMovement.isSpaced[3] || !undergroundMovement.isMoveStart) && isKeysGetKey[3] && !isLockedKey[3])
         {
-            isBombSpawned = true;
-            isKeysGetKey[0] = false;
-            isKeysGetKey[1] = false;
-            isKeysGetKey[2] = false;
-            isKeysGetKey[3] = false;
-            isGetKey = false;
+            ReleaseKey();
             GameObject bomb = Instantiate(bombPrefeb, new Vector2(transform.position.x + 0.25f, transform.position.y), transform.rotation);
             bomb.GetComponent<GridMovement>().x = 1;
             bomb.GetComponent<GridMovement>().y = 0;
             bomb.transform.eulerAngles = new Vector3(0, 0, 90);
             Invoke(nameof(BombReset), 1.5f);
         }
+    }
+
+    void ReleaseKey()
+    {
+        isBombSpawned = true;
+        isKeysGetKey[0] = false;
+        isKeysGetKey[1] = false;
+        isKeysGetKey[2] = false;
+        isKeysGetKey[3] = false;
+        isGetKey = false;
     }
 
     private void BombReset()

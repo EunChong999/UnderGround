@@ -8,6 +8,7 @@ public class Bomb : MonoBehaviour
     [SerializeField] private LayerMask wallLayer;
     [SerializeField] float countdown;
     private GridMovement gridMovement;
+    MapDestroyer mapDestroyer;
 
     public bool IsWalled()
     {
@@ -21,7 +22,8 @@ public class Bomb : MonoBehaviour
 
     private void Start()
     {
-        gridMovement = GetComponent<GridMovement>(); 
+        gridMovement = GetComponent<GridMovement>();
+        mapDestroyer = FindObjectOfType<MapDestroyer>();
     }
 
     void Update()
@@ -30,7 +32,7 @@ public class Bomb : MonoBehaviour
 
         if (countdown <= 0 || IsWalled())
         {
-            FindObjectOfType<MapDestroyer>().Explode(transform);
+            mapDestroyer.Explode(transform);
             Destroy(gameObject);
         }
     }
